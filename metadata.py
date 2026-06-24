@@ -1,4 +1,4 @@
-from datasets import load_datasets
+from datasets import load_dataset
 import pandas as pd
 
 def main():
