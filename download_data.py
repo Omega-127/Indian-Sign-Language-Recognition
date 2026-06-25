@@ -7,7 +7,7 @@ from pathlib import Path
 zenodo_api = "https://zenodo.org/api/records/4010759"
 download_dir = Path("zips")
 videos_dir = Path("videos")
-metadata_csv = "include50_metadata.csv"
+metadata_csv = "include50_metadata.csv" #execute metadata.py first
 
 zip_files = [
     ("Adjectives_1of8.zip",              1303983457),
@@ -74,8 +74,74 @@ def download_file(name, expected_size):
                 downloaded += len(chunk)
                 pct = downloaded / expected_size * 100
                 print(f"\r    {pct:.1f}%  ({downloaded / 1e9:.2f} / {expected_size / 1e9:.2f} GB)",end="", flush=True)
-                print()
+            print()
 
 def extract_include50(zip_path, needed_paths):
     extracted = 0
+    with zipfile.ZipFile(zip_path, "r") as zf:
+        for member in zf.namelist():
+            if member in needed_paths:
+                dest = videos_dir/member
+                if dest.exists():
+                    continue
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                with zf.open(member) as src, open(dest, "wb") as dst:
+                    dst.write(src.read())
+                extracted += 1
+    return extracted
+
+def main():
+    if not Path(metadata_csv).exists():
+        print(f"ERROR: {metadata_csv} not found.")
+        print("Stage2.py to generate it.")
+        sys.exit(1)
         
+    df = pd.read_csv(metadata_csv)
+    needed_paths = set(df["video_path"])
+    print(f"INCLUDE-50 videos needed:  {len(needed_paths)}")
+    print(f"Zip files to process:      {len(zip_files)}")
+    print(f"Total download size:        56.8 GB")
+    print(f"Output folder:              {videos_dir.resolve()}")
+    print()
+    print("Each zip is deleted immediately after extraction.")
+    print("Safe to interrupt with Ctrl+C and re-run -- progress is saved.\n")
+
+    download_dir.mkdir(exist_ok=True)
+    videos_dir.mkdir(exist_ok=True)
+
+    total_extracted = 0
+
+    for i, (name, size) in enumerate(zip_files, 1):
+        print(f"[{i:02d}/{len(zip_files)}] {name}")
+        download_file(name, size)
+        zip_path = download_dir/name
+        print(f"Extracting Include 50 files...")
+        count = extract_include50(zip_path, needed_paths)
+        total_extracted += count
+        print(f"  Extracted {count} new files  " f"({total_extracted}/{len(needed_paths)} total so far)")
+        zip_path.unlink()
+        print(f" Deleted {name}\n")
+    
+    print(" = "*50)
+    print(("Done. {total_extracted} to '{videos_dir}/'"))
+    found = set()
+    for p in videos_dir.rglob("*"):
+        if p.is_file():
+            rel = p.relative_to(videos_dir).as_posix()
+            found.add(rel)
+
+    missing = needed_paths - found
+    if missing:
+        print(f"\nWARNING: {len(missing)} expected files not found in any zip:")
+        for m in sorted(missing)[:10]:
+            print(f" - {m}")
+        if len(missing) > 10:
+            print(f"  ... and {len(missing) - 10} more.")
+        else:
+            print("All 958 expected INCLUDE-50 files accounted for.")
+
+if __name__ == "__main__":
+    main()
+
+
+    
