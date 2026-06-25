@@ -3,7 +3,7 @@ import pandas as pd
 
 def main():
     print("Loading INCLUDE dataset metadata from hugging face...")
-    dataset = load_datasets("ai4baharat/INCLUDE")
+    dataset = load_dataset("ai4bharat/INCLUDE")
 
     all_rows = []
 
@@ -29,5 +29,5 @@ def main():
     print("\nsaved filtered metadata to include50_metadata.csv")
     print("Next: Step B will download only the zip files for these categories.")
 
-    if "__name__" == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
