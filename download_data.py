@@ -7,7 +7,7 @@ from pathlib import Path
 zenodo_api = "https://zenodo.org/api/records/4010759"
 download_dir = Path("zips")
 videos_dir = Path("videos")
-metadata_csv = "include50_metadata.csv" #execute metadata.py first
+metadata_csv = "include50_metadata.csv"
 
 zip_files = [
     ("Adjectives_1of8.zip",              1303983457),
@@ -122,8 +122,8 @@ def main():
         zip_path.unlink()
         print(f" Deleted {name}\n")
     
-    print(" = "*50)
-    print(("Done. {total_extracted} to '{videos_dir}/'"))
+    print(" = " * 50)
+    print(f"Done. {total_extracted} files extracted to '{videos_dir}/'")
     found = set()
     for p in videos_dir.rglob("*"):
         if p.is_file():
@@ -134,11 +134,11 @@ def main():
     if missing:
         print(f"\nWARNING: {len(missing)} expected files not found in any zip:")
         for m in sorted(missing)[:10]:
-            print(f" - {m}")
+            print(f"  - {m}")
         if len(missing) > 10:
             print(f"  ... and {len(missing) - 10} more.")
-        else:
-            print("All 958 expected INCLUDE-50 files accounted for.")
+    else:
+        print("All 958 expected INCLUDE-50 files accounted for.")
 
 if __name__ == "__main__":
     main()
