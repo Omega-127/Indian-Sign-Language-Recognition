@@ -113,18 +113,18 @@ def main():
     output_dir.mkdir(exist_ok=True)
 
     hand_lm = HandLandmarker.create_from_options(HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\hand_landmarker.task"),
+        base_options=BaseOptions(model_asset_path="hand_landmarker.task"),
         running_mode=VisionRunningMode.VIDEO,
         num_hands = 2
     ))
 
     pose_lm = PoseLandmarker.create_from_options(PoseLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\pose_landmarker_lite.task"),
+        base_options=BaseOptions(model_asset_path="pose_landmarker_lite.task"),
         running_mode=VisionRunningMode.VIDEO
     ))
 
     face_lm = FaceLandmarker.create_from_options(FaceLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\face_landmarker.task"),
+        base_options=BaseOptions(model_asset_path="face_landmarker.task"),
         running_mode=VisionRunningMode.VIDEO
     ))
 
