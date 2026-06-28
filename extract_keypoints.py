@@ -20,7 +20,7 @@ FaceLandmarker = mp.tasks.vision.FaceLandmarker
 FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
 VisionRunningMode = mp.tasks.vision.RunningMode
 
-def extract_landmarks(pose_landmarks, face_landmarks, with_visibilty = False):
+def extract_landmarks(pose_landmarks, face_landmarks,left_hand, right_hand):
     def flatten(landmark_list, count, with_visibilty=False):
         if not landmark_list:
             return np.zeros(count*(4 if with_visibilty else 3))
@@ -45,7 +45,7 @@ def split_hands(hand_result):
     return left_hand, right_hand
 
 
-def process_video(video_path, hand_lm, pose_lm, face_lm):
+def process_video(video_path, hand_lm, pose_lm, face_lm, start_ts=0):
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
         return None
@@ -66,7 +66,7 @@ def process_video(video_path, hand_lm, pose_lm, face_lm):
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
 
 
-        timestamp_ms = int({frame_idx/fps}*1000)
+        timestamp_ms = start_ts + int((frame_idx/fps)*1000)
 
         hand_result = hand_lm.detect_for_video(mp_image, timestamp_ms)
         pose_result = pose_lm.detect_for_video(mp_image, timestamp_ms)
@@ -79,14 +79,14 @@ def process_video(video_path, hand_lm, pose_lm, face_lm):
             if face_result.face_landmarks else None
         
         sequence.append(extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand))
-        frame += 1
+        frame_idx += 1
 
     cap.release()
 
     if len(sequence) == 0:
-        return None
-    
-    return np.array(sequence) #shape(num_frames, 1692)
+        return None, 0
+
+    return np.array(sequence), int((frame_idx / fps) * 1000)
 
 
 def main():
@@ -113,23 +113,107 @@ def main():
     output_dir.mkdir(exist_ok=True)
 
     hand_lm = HandLandmarker.create_from_options(HandLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="hand_landmarker.task"),
+        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\hand_landmarker.task"),
         running_mode=VisionRunningMode.VIDEO,
         num_hands = 2
     ))
 
     pose_lm = PoseLandmarker.create_from_options(PoseLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="psoe_landmarker_lite.task"),
+        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\pose_landmarker_lite.task"),
         running_mode=VisionRunningMode.VIDEO
     ))
 
     face_lm = FaceLandmarker.create_from_options(FaceLandmarkerOptions(
-        base_options=BaseOptions(model_asset_path="face_landmaker.task"),
+        base_options=BaseOptions(model_asset_path="c:\\Users\\Sarvesh Haldikar\\projects\\face_landmarker.task"),
         running_mode=VisionRunningMode.VIDEO
     ))
 
     
     index_rows = []
-    skiepped = []
+    skipped = []
     processed = 0
-    
+    running_timestamp = 0
+
+    for i, row in enumerate(df_unique.itertuples(), 1):
+        video_path = videos_dir/row.video_path
+        label = row.label
+        class_idx = label_to_idx[label]
+        split = row.split
+
+        npy_path = output_dir/Path(row.video_path).with_suffix(".npy")
+
+
+        if npy_path.exists():
+            print(f"[{i:03d}/{len(df_unique)}]  Already done: {row.video_path}")
+            index_rows.append({
+                "video_path": row.video_path,
+                "npy_path": str(npy_path),
+                "label": class_idx,
+                "split": split
+            })
+            continue
+
+
+        if not video_path.exists():
+            print(f"[{i:03d}/{len(df_unique)}]  File missing: {video_path}")
+            skipped.append(str(video_path))
+            continue
+
+        print(f"[{i:03d}/{len(df_unique)}] Processing: {row.video_path}", end="", flush=True)
+
+        npy_path.parent.mkdir(parents=True, exist_ok=True)
+
+        # extract landmarks from this video
+        result = process_video(video_path, hand_lm, pose_lm, face_lm, running_timestamp)
+
+        if result is None:
+            print(f"  Failed")
+            skipped.append(str(video_path))
+            running_timestamp += 5000
+            continue
+
+        sequence, frames_used = result
+        running_timestamp += frames_used + 1000
+
+        
+
+        #save the landamrk sequence
+        np.save(str(npy_path), sequence)
+        processed += 1
+
+        print(f"{sequence.shape[0]} frames, shape {sequence.shape}")
+
+        index_rows.append({
+            "video_path": row.video_path,
+            "npy_path": str(npy_path),
+            "label": label,
+            "class_index": class_idx,
+            "split": split
+        })
+
+    hand_lm.close()
+    pose_lm.close()
+    face_lm.close()
+
+    index_df = pd.DataFrame(index_rows)
+    index_df.to_csv(index_csv, index=False)
+
+    print()
+    print("=" * 60)
+    print("Done.")
+    print(f"Newly extracted: {processed} videos")
+    print(f"Skipped/failed: {len(skipped)} videos")
+    print(f"Index saved to: {index_csv}")
+    print(f"Label map: label_map.csv")
+    print("=" * 60)
+
+    if skipped:
+        print(f"\nFailed videos: ({len(skipped)}):")
+        for s in skipped:
+            print(f" - {s}")
+
+
+if __name__ == "__main__":
+    main()
+
+
