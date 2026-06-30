@@ -1,0 +1,944 @@
+video_path,npy_path,label,split,class_index
+Adjectives/1. loud/MVI_9448.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9448.npy,1. loud,train,1.0
+Places/19. House/MVI_3515.MOV,extracted_landmarks\Places\19. House\MVI_3515.npy,19. House,train,5.0
+Adjectives/83. big large/MVI_5204.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5204.npy,83. big large,train,41.0
+Jobs/91. Priest/MVI_5345.MOV,extracted_landmarks\Jobs\91. Priest\MVI_5345.npy,91. Priest,train,46.0
+Places/23. Court/MVI_3612.MOV,extracted_landmarks\Places\23. Court\MVI_3612.npy,23. Court,train,8.0
+Means_of_Transportation/16. train ticket/MVI_8596.MP4,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_8596.npy,16. train ticket,train,4.0
+Places/23. Court/MVI_3531.MOV,extracted_landmarks\Places\23. Court\MVI_3531.npy,23. Court,train,8.0
+Pronouns/44. it/MVI_0014.MOV,extracted_landmarks\Pronouns\44. it\MVI_0014.npy,44. it,train,20.0
+Places/19. House/MVI_3436.MOV,extracted_landmarks\Places\19. House\MVI_3436.npy,19. House,train,5.0
+Clothes/44. Shoes/MVI_3711.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3711.npy,44. Shoes,train,19.0
+Animals/1. Dog/MVI_3060.MOV,extracted_landmarks\Animals\1. Dog\MVI_3060.npy,1. Dog,train,0.0
+Animals/1. Dog/MVI_3030.MOV,extracted_landmarks\Animals\1. Dog\MVI_3030.npy,1. Dog,train,0.0
+Greetings/55. Thank you/MVI_0111.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0111.npy,55. Thank you,train,29.0
+Society/14. Election/MVI_4307.MOV,extracted_landmarks\Society\14. Election\MVI_4307.npy,14. Election,train,3.0
+Animals/5. Cow/MVI_3047.MOV,extracted_landmarks\Animals\5. Cow\MVI_3047.npy,5. Cow,train,24.0
+Home/28. Window/MVI_8769.MP4,extracted_landmarks\Home\28. Window\MVI_8769.npy,28. Window,train,10.0
+Adjectives/2. quiet/MVI_5338.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5338.npy,2. quiet,train,7.0
+Adjectives/97. dry/MVI_5328.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5328.npy,97. dry,train,49.0
+Adjectives/78. long/MVI_5186.MOV,extracted_landmarks\Adjectives\78. long\MVI_5186.npy,78. long,train,39.0
+Greetings/48. Hello/MVI_0090.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0090.npy,48. Hello,train,23.0
+Adjectives/97. dry/MVI_9523.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9523.npy,97. dry,train,49.0
+Greetings/48. Hello/MVI_9983.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9983.npy,48. Hello,train,23.0
+Animals/5. Cow/MVI_2992.MOV,extracted_landmarks\Animals\5. Cow\MVI_2992.npy,5. Cow,train,24.0
+Animals/4. Bird/MVI_4155.MOV,extracted_landmarks\Animals\4. Bird\MVI_4155.npy,4. Bird,train,15.0
+Places/23. Court/MVI_3610.MOV,extracted_landmarks\Places\23. Court\MVI_3610.npy,23. Court,train,8.0
+Adjectives/83. big large/MVI_9317.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9317.npy,83. big large,train,41.0
+Places/35. Bank/MVI_3502.MOV,extracted_landmarks\Places\35. Bank\MVI_3502.npy,35. Bank,train,13.0
+Clothes/37. Hat/MVI_3985.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3985.npy,37. Hat,train,14.0
+Colours/54. Black/MVI_5206.MOV,extracted_landmarks\Colours\54. Black\MVI_5206.npy,54. Black,train,27.0
+Adjectives/2. quiet/MVI_9452.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9452.npy,2. quiet,train,7.0
+Adjectives/79. short/MVI_9380.MOV,extracted_landmarks\Adjectives\79. short\MVI_9380.npy,79. short,train,40.0
+Places/35. Bank/MVI_3337.MOV,extracted_landmarks\Places\35. Bank\MVI_3337.npy,35. Bank,train,13.0
+Animals/5. Cow/MVI_2990.MOV,extracted_landmarks\Animals\5. Cow\MVI_2990.npy,5. Cow,train,24.0
+Colours/55. White/MVI_3891.MOV,extracted_landmarks\Colours\55. White\MVI_3891.npy,55. White,train,30.0
+Adjectives/79. short/MVI_5270.MOV,extracted_landmarks\Adjectives\79. short\MVI_5270.npy,79. short,train,40.0
+Places/35. Bank/MVI_3583.MOV,extracted_landmarks\Places\35. Bank\MVI_3583.npy,35. Bank,train,13.0
+Electronics/53. Fan/MVI_9099.MP4,extracted_landmarks\Electronics\53. Fan\MVI_9099.npy,53. Fan,train,26.0
+Places/19. House/MVI_3268.MOV,extracted_landmarks\Places\19. House\MVI_3268.npy,19. House,train,5.0
+Adjectives/91. new/MVI_9502.MOV,extracted_landmarks\Adjectives\91. new\MVI_9502.npy,91. new,train,47.0
+Places/28. Store or Shop/MVI_3308.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3308.npy,28. Store or Shop,train,9.0
+Days_and_Time/67. Monday/MVI_5449.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5449.npy,67. Monday,train,35.0
+Colours/54. Black/MVI_4040.MOV,extracted_landmarks\Colours\54. Black\MVI_4040.npy,54. Black,train,27.0
+Places/19. House/MVI_3349.MOV,extracted_landmarks\Places\19. House\MVI_3349.npy,19. House,train,5.0
+Society/2. Death/MVI_4257.MOV,extracted_landmarks\Society\2. Death\MVI_4257.npy,2. Death,train,6.0
+Electronics/53. Fan/MVI_4534.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4534.npy,53. Fan,train,26.0
+Greetings/48. Hello/MVI_0038.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0038.npy,48. Hello,train,23.0
+Adjectives/2. quiet/MVI_9371.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9371.npy,2. quiet,train,7.0
+Places/23. Court/MVI_3452.MOV,extracted_landmarks\Places\23. Court\MVI_3452.npy,23. Court,train,8.0
+Electronics/54. Cell phone/MVI_4540.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4540.npy,54. Cell phone,train,28.0
+Animals/4. Bird/MVI_8568.MP4,extracted_landmarks\Animals\4. Bird\MVI_8568.npy,4. Bird,train,15.0
+Pronouns/46. you (plural)/MVI_0083.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0083.npy,46. you (plural),train,21.0
+Clothes/42. T-Shirt/MVI_4003.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4003.npy,42. T-Shirt,train,18.0
+Days_and_Time/67. Monday/MVI_4594.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_4594.npy,67. Monday,train,35.0
+People/78. Girl/MVI_4243.MOV,extracted_landmarks\People\78. Girl\MVI_4243.npy,78. Girl,train,37.0
+People/61. Father/MVI_4940.MOV,extracted_landmarks\People\61. Father\MVI_4940.npy,61. Father,train,31.0
+Adjectives/79. short/MVI_9382.MOV,extracted_landmarks\Adjectives\79. short\MVI_9382.npy,79. short,train,40.0
+Colours/47. Red/MVI_3720.MOV,extracted_landmarks\Colours\47. Red\MVI_3720.npy,47. Red,train,22.0
+Adjectives/91. new/MVI_9421.MOV,extracted_landmarks\Adjectives\91. new\MVI_9421.npy,91. new,train,47.0
+Animals/4. Bird/MVI_3013.MOV,extracted_landmarks\Animals\4. Bird\MVI_3013.npy,4. Bird,train,15.0
+Adjectives/87. hot/MVI_5136.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5136.npy,87. hot,train,45.0
+Adjectives/2. quiet/MVI_5339.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5339.npy,2. quiet,train,7.0
+Seasons/64. Fall/MVI_4580.MOV,extracted_landmarks\Seasons\64. Fall\MVI_4580.npy,64. Fall,train,33.0
+Places/23. Court/MVI_3366.MOV,extracted_landmarks\Places\23. Court\MVI_3366.npy,23. Court,train,8.0
+Seasons/64. Fall/MVI_5436.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5436.npy,64. Fall,train,33.0
+Pronouns/40. I/MVI_0066.MOV,extracted_landmarks\Pronouns\40. I\MVI_0066.npy,40. I,train,16.0
+Days_and_Time/86. Time/MVI_5524.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5524.npy,86. Time,train,44.0
+Means_of_Transportation/11. Car/MVI_4177.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_4177.npy,11. Car,train,2.0
+Places/19. House/MVI_3350.MOV,extracted_landmarks\Places\19. House\MVI_3350.npy,19. House,train,5.0
+Electronics/53. Fan/MVI_4533.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4533.npy,53. Fan,train,26.0
+Colours/47. Red/MVI_4019.MOV,extracted_landmarks\Colours\47. Red\MVI_4019.npy,47. Red,train,22.0
+Animals/4. Bird/MVI_2987.MOV,extracted_landmarks\Animals\4. Bird\MVI_2987.npy,4. Bird,train,15.0
+Colours/55. White/MVI_5062.MOV,extracted_landmarks\Colours\55. White\MVI_5062.npy,55. White,train,30.0
+Greetings/51. Good Morning/MVI_9932.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9932.npy,51. Good Morning,train,25.0
+Seasons/61. Summer/MVI_5424.MOV,extracted_landmarks\Seasons\61. Summer\MVI_5424.npy,61. Summer,train,32.0
+Places/19. House/MVI_3594.MOV,extracted_landmarks\Places\19. House\MVI_3594.npy,19. House,train,5.0
+Home/40. Paint/MVI_4413.MOV,extracted_landmarks\Home\40. Paint\MVI_4413.npy,40. Paint,train,17.0
+Adjectives/1. loud/MVI_5336.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5336.npy,1. loud,train,1.0
+Jobs/84. Teacher/MVI_8866.MP4,extracted_landmarks\Jobs\84. Teacher\MVI_8866.npy,84. Teacher,train,42.0
+Places/19. House/MVI_3516.MOV,extracted_landmarks\Places\19. House\MVI_3516.npy,19. House,train,5.0
+Greetings/55. Thank you/MVI_9985.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9985.npy,55. Thank you,train,29.0
+Places/35. Bank/MVI_3664.MOV,extracted_landmarks\Places\35. Bank\MVI_3664.npy,35. Bank,train,13.0
+Adjectives/78. long/MVI_5108.MOV,extracted_landmarks\Adjectives\78. long\MVI_5108.npy,78. long,train,39.0
+Adjectives/2. quiet/MVI_9538.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9538.npy,2. quiet,train,7.0
+Colours/55. White/MVI_5209.MOV,extracted_landmarks\Colours\55. White\MVI_5209.npy,55. White,train,30.0
+People/66. Brother/MVI_8631.MP4,extracted_landmarks\People\66. Brother\MVI_8631.npy,66. Brother,train,34.0
+Colours/54. Black/MVI_5059.MOV,extracted_landmarks\Colours\54. Black\MVI_5059.npy,54. Black,train,27.0
+Seasons/64. Fall/MVI_9135.MP4,extracted_landmarks\Seasons\64. Fall\MVI_9135.npy,64. Fall,train,33.0
+Adjectives/94. good/MVI_5240.MOV,extracted_landmarks\Adjectives\94. good\MVI_5240.npy,94. good,train,48.0
+Adjectives/2. quiet/MVI_9453.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9453.npy,2. quiet,train,7.0
+Adjectives/97. dry/MVI_5167.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5167.npy,97. dry,train,49.0
+Pronouns/40. I/MVI_9919.MOV,extracted_landmarks\Pronouns\40. I\MVI_9919.npy,40. I,train,16.0
+Colours/47. Red/MVI_5038.MOV,extracted_landmarks\Colours\47. Red\MVI_5038.npy,47. Red,train,22.0
+Adjectives/3. happy/MVI_9540.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9540.npy,3. happy,train,11.0
+Society/14. Election/MVI_8711.MP4,extracted_landmarks\Society\14. Election\MVI_8711.npy,14. Election,train,3.0
+Clothes/44. Shoes/MVI_4204.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4204.npy,44. Shoes,train,19.0
+Home/28. Window/MVI_4365.MOV,extracted_landmarks\Home\28. Window\MVI_4365.npy,28. Window,train,10.0
+People/77. Boy/MVI_3814.MOV,extracted_landmarks\People\77. Boy\MVI_3814.npy,77. Boy,train,36.0
+Means_of_Transportation/11. Car/MVI_3238.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3238.npy,11. Car,train,2.0
+People/78. Girl/MVI_3818.MOV,extracted_landmarks\People\78. Girl\MVI_3818.npy,78. Girl,train,37.0
+Jobs/91. Priest/MVI_8887.MP4,extracted_landmarks\Jobs\91. Priest\MVI_8887.npy,91. Priest,train,46.0
+Adjectives/83. big large/MVI_5284.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5284.npy,83. big large,train,41.0
+Adjectives/1. loud/MVI_9368.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9368.npy,1. loud,train,1.0
+Adjectives/84. small little/MVI_9236.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9236.npy,84. small little,train,43.0
+Society/14. Election/MVI_4839.MOV,extracted_landmarks\Society\14. Election\MVI_4839.npy,14. Election,train,3.0
+Clothes/42. T-Shirt/MVI_3850.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3850.npy,42. T-Shirt,train,18.0
+People/66. Brother/MVI_4075.MOV,extracted_landmarks\People\66. Brother\MVI_4075.npy,66. Brother,train,34.0
+Animals/1. Dog/MVI_2979.MOV,extracted_landmarks\Animals\1. Dog\MVI_2979.npy,1. Dog,train,0.0
+People/66. Brother/MVI_4230.MOV,extracted_landmarks\People\66. Brother\MVI_4230.npy,66. Brother,train,34.0
+Means_of_Transportation/16. train ticket/MVI_3196.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3196.npy,16. train ticket,train,4.0
+Adjectives/91. new/MVI_5309.MOV,extracted_landmarks\Adjectives\91. new\MVI_5309.npy,91. new,train,47.0
+Adjectives/84. small little/MVI_5287.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5287.npy,84. small little,train,43.0
+Adjectives/94. good/MVI_9432.MOV,extracted_landmarks\Adjectives\94. good\MVI_9432.npy,94. good,train,48.0
+Adjectives/97. dry/MVI_9521.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9521.npy,97. dry,train,49.0
+Adjectives/87. hot/MVI_9409.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9409.npy,87. hot,train,45.0
+Places/28. Store or Shop/MVI_3310.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3310.npy,28. Store or Shop,train,9.0
+Pronouns/40. I/MVI_9879.MOV,extracted_landmarks\Pronouns\40. I\MVI_9879.npy,40. I,train,16.0
+Pronouns/46. you (plural)/MVI_9947.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9947.npy,46. you (plural),train,21.0
+Electronics/53. Fan/MVI_9097.MP4,extracted_landmarks\Electronics\53. Fan\MVI_9097.npy,53. Fan,train,26.0
+Animals/5. Cow/MVI_4160.MOV,extracted_landmarks\Animals\5. Cow\MVI_4160.npy,5. Cow,train,24.0
+Adjectives/83. big large/MVI_9234.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9234.npy,83. big large,train,41.0
+People/78. Girl/MVI_8645.MP4,extracted_landmarks\People\78. Girl\MVI_8645.npy,78. Girl,train,37.0
+People/66. Brother/MVI_3780.MOV,extracted_landmarks\People\66. Brother\MVI_3780.npy,66. Brother,train,34.0
+Adjectives/84. small little/MVI_5288.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5288.npy,84. small little,train,43.0
+Means_of_Transportation/11. Car/MVI_8584.MP4,extracted_landmarks\Means_of_Transportation\11. Car\MVI_8584.npy,11. Car,train,2.0
+People/61. Father/MVI_4062.MOV,extracted_landmarks\People\61. Father\MVI_4062.npy,61. Father,train,31.0
+People/61. Father/MVI_3765.MOV,extracted_landmarks\People\61. Father\MVI_3765.npy,61. Father,train,31.0
+Colours/54. Black/MVI_4919.MOV,extracted_landmarks\Colours\54. Black\MVI_4919.npy,54. Black,train,27.0
+Home/34. Pen/MVI_4390.MOV,extracted_landmarks\Home\34. Pen\MVI_4390.npy,34. Pen,train,12.0
+Places/35. Bank/MVI_3336.MOV,extracted_landmarks\Places\35. Bank\MVI_3336.npy,35. Bank,train,13.0
+Seasons/61. Summer/MVI_9124.MP4,extracted_landmarks\Seasons\61. Summer\MVI_9124.npy,61. Summer,train,32.0
+Adjectives/94. good/MVI_9349.MOV,extracted_landmarks\Adjectives\94. good\MVI_9349.npy,94. good,train,48.0
+Seasons/61. Summer/MVI_5420.MOV,extracted_landmarks\Seasons\61. Summer\MVI_5420.npy,61. Summer,train,32.0
+People/77. Boy/MVI_3816.MOV,extracted_landmarks\People\77. Boy\MVI_3816.npy,77. Boy,train,36.0
+People/78. Girl/MVI_3817.MOV,extracted_landmarks\People\78. Girl\MVI_3817.npy,78. Girl,train,37.0
+People/78. Girl/MVI_5288.MOV,extracted_landmarks\People\78. Girl\MVI_5288.npy,78. Girl,train,37.0
+Colours/47. Red/MVI_8612.MP4,extracted_landmarks\Colours\47. Red\MVI_8612.npy,47. Red,train,22.0
+Clothes/44. Shoes/MVI_4009.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4009.npy,44. Shoes,train,19.0
+Home/40. Paint/MVI_9051.MP4,extracted_landmarks\Home\40. Paint\MVI_9051.npy,40. Paint,train,17.0
+Days_and_Time/86. Time/MVI_4667.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_4667.npy,86. Time,train,44.0
+Means_of_Transportation/16. train ticket/MVI_3134.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3134.npy,16. train ticket,train,4.0
+Home/40. Paint/MVI_4412.MOV,extracted_landmarks\Home\40. Paint\MVI_4412.npy,40. Paint,train,17.0
+Clothes/37. Hat/MVI_3986.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3986.npy,37. Hat,train,14.0
+Places/28. Store or Shop/MVI_3385.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3385.npy,28. Store or Shop,train,9.0
+Days_and_Time/67. Monday/MVI_5009.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5009.npy,67. Monday,train,35.0
+Means_of_Transportation/11. Car/MVI_3146.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3146.npy,11. Car,train,2.0
+Colours/54. Black/MVI_5208.MOV,extracted_landmarks\Colours\54. Black\MVI_5208.npy,54. Black,train,27.0
+Adjectives/3. happy/MVI_5185.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5185.npy,3. happy,train,11.0
+People/77. Boy/MVI_5286.MOV,extracted_landmarks\People\77. Boy\MVI_5286.npy,77. Boy,train,36.0
+Pronouns/40. I/MVI_9878.MOV,extracted_landmarks\Pronouns\40. I\MVI_9878.npy,40. I,train,16.0
+Places/19. House/MVI_3351.MOV,extracted_landmarks\Places\19. House\MVI_3351.npy,19. House,train,5.0
+Greetings/48. Hello/MVI_0032.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0032.npy,48. Hello,train,23.0
+Adjectives/97. dry/MVI_9279.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9279.npy,97. dry,train,49.0
+Jobs/84. Teacher/MVI_4744.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4744.npy,84. Teacher,train,42.0
+Places/35. Bank/MVI_3423.MOV,extracted_landmarks\Places\35. Bank\MVI_3423.npy,35. Bank,train,13.0
+People/78. Girl/MVI_3965.MOV,extracted_landmarks\People\78. Girl\MVI_3965.npy,78. Girl,train,37.0
+Colours/55. White/MVI_4923.MOV,extracted_landmarks\Colours\55. White\MVI_4923.npy,55. White,train,30.0
+Jobs/84. Teacher/MVI_4459.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4459.npy,84. Teacher,train,42.0
+Adjectives/78. long/MVI_5266.MOV,extracted_landmarks\Adjectives\78. long\MVI_5266.npy,78. long,train,39.0
+Pronouns/44. it/MVI_9898.MOV,extracted_landmarks\Pronouns\44. it\MVI_9898.npy,44. it,train,20.0
+Seasons/61. Summer/MVI_9123.MP4,extracted_landmarks\Seasons\61. Summer\MVI_9123.npy,61. Summer,train,32.0
+People/61. Father/MVI_3764.MOV,extracted_landmarks\People\61. Father\MVI_3764.npy,61. Father,train,31.0
+Places/19. House/MVI_3438.MOV,extracted_landmarks\Places\19. House\MVI_3438.npy,19. House,train,5.0
+Adjectives/3. happy/MVI_9296.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9296.npy,3. happy,train,11.0
+Days_and_Time/78. Year/MVI_5491.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5491.npy,78. Year,train,38.0
+Adjectives/78. long/MVI_5188.MOV,extracted_landmarks\Adjectives\78. long\MVI_5188.npy,78. long,train,39.0
+Adjectives/1. loud/MVI_9290.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9290.npy,1. loud,train,1.0
+Colours/47. Red/MVI_5184.MOV,extracted_landmarks\Colours\47. Red\MVI_5184.npy,47. Red,train,22.0
+Greetings/48. Hello/MVI_0089.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0089.npy,48. Hello,train,23.0
+People/66. Brother/MVI_5243.MOV,extracted_landmarks\People\66. Brother\MVI_5243.npy,66. Brother,train,34.0
+Clothes/42. T-Shirt/MVI_5022.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5022.npy,42. T-Shirt,train,18.0
+Animals/4. Bird/MVI_3096.MOV,extracted_landmarks\Animals\4. Bird\MVI_3096.npy,4. Bird,train,15.0
+Adjectives/87. hot/MVI_9328.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9328.npy,87. hot,train,45.0
+Electronics/53. Fan/MVI_4532.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4532.npy,53. Fan,train,26.0
+Places/23. Court/MVI_3453.MOV,extracted_landmarks\Places\23. Court\MVI_3453.npy,23. Court,train,8.0
+Home/34. Pen/MVI_4387.MOV,extracted_landmarks\Home\34. Pen\MVI_4387.npy,34. Pen,train,12.0
+Places/19. House/MVI_3595.MOV,extracted_landmarks\Places\19. House\MVI_3595.npy,19. House,train,5.0
+Adjectives/2. quiet/MVI_9293.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9293.npy,2. quiet,train,7.0
+Adjectives/94. good/MVI_9431.MOV,extracted_landmarks\Adjectives\94. good\MVI_9431.npy,94. good,train,48.0
+Adjectives/83. big large/MVI_9318.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9318.npy,83. big large,train,41.0
+Days_and_Time/86. Time/MVI_5079.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5079.npy,86. Time,train,44.0
+Seasons/61. Summer/MVI_4565.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4565.npy,61. Summer,train,32.0
+Jobs/84. Teacher/MVI_8864.MP4,extracted_landmarks\Jobs\84. Teacher\MVI_8864.npy,84. Teacher,train,42.0
+Pronouns/46. you (plural)/MVI_9976.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9976.npy,46. you (plural),train,21.0
+Animals/4. Bird/MVI_2989.MOV,extracted_landmarks\Animals\4. Bird\MVI_2989.npy,4. Bird,train,15.0
+Adjectives/2. quiet/MVI_5181.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5181.npy,2. quiet,train,7.0
+Clothes/42. T-Shirt/MVI_4002.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4002.npy,42. T-Shirt,train,18.0
+Clothes/37. Hat/MVI_5008.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5008.npy,37. Hat,train,14.0
+Means_of_Transportation/11. Car/MVI_3239.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3239.npy,11. Car,train,2.0
+Jobs/91. Priest/MVI_8889.MP4,extracted_landmarks\Jobs\91. Priest\MVI_8889.npy,91. Priest,train,46.0
+Colours/54. Black/MVI_4215.MOV,extracted_landmarks\Colours\54. Black\MVI_4215.npy,54. Black,train,27.0
+Places/35. Bank/MVI_3422.MOV,extracted_landmarks\Places\35. Bank\MVI_3422.npy,35. Bank,train,13.0
+Adjectives/97. dry/MVI_5168.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5168.npy,97. dry,train,49.0
+Means_of_Transportation/11. Car/MVI_4176.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_4176.npy,11. Car,train,2.0
+Days_and_Time/67. Monday/MVI_5010.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5010.npy,67. Monday,train,35.0
+Adjectives/83. big large/MVI_5123.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5123.npy,83. big large,train,41.0
+Adjectives/3. happy/MVI_5264.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5264.npy,3. happy,train,11.0
+Electronics/54. Cell phone/MVI_4538.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4538.npy,54. Cell phone,train,28.0
+Adjectives/78. long/MVI_9299.MOV,extracted_landmarks\Adjectives\78. long\MVI_9299.npy,78. long,train,39.0
+Greetings/51. Good Morning/MVI_9933.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9933.npy,51. Good Morning,train,25.0
+People/61. Father/MVI_4061.MOV,extracted_landmarks\People\61. Father\MVI_4061.npy,61. Father,train,31.0
+People/77. Boy/MVI_5285.MOV,extracted_landmarks\People\77. Boy\MVI_5285.npy,77. Boy,train,36.0
+Adjectives/79. short/MVI_5112.MOV,extracted_landmarks\Adjectives\79. short\MVI_5112.npy,79. short,train,40.0
+Colours/55. White/MVI_8620.MP4,extracted_landmarks\Colours\55. White\MVI_8620.npy,55. White,train,30.0
+Places/19. House/MVI_3352.MOV,extracted_landmarks\Places\19. House\MVI_3352.npy,19. House,train,5.0
+Colours/47. Red/MVI_4018.MOV,extracted_landmarks\Colours\47. Red\MVI_4018.npy,47. Red,train,22.0
+Places/28. Store or Shop/MVI_3386.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3386.npy,28. Store or Shop,train,9.0
+Places/35. Bank/MVI_3501.MOV,extracted_landmarks\Places\35. Bank\MVI_3501.npy,35. Bank,train,13.0
+Means_of_Transportation/11. Car/MVI_4178.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_4178.npy,11. Car,train,2.0
+Colours/55. White/MVI_3890.MOV,extracted_landmarks\Colours\55. White\MVI_3890.npy,55. White,train,30.0
+Places/23. Court/MVI_3534.MOV,extracted_landmarks\Places\23. Court\MVI_3534.npy,23. Court,train,8.0
+Clothes/42. T-Shirt/MVI_5021.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5021.npy,42. T-Shirt,train,18.0
+Greetings/48. Hello/MVI_0037.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0037.npy,48. Hello,train,23.0
+People/77. Boy/MVI_4982.MOV,extracted_landmarks\People\77. Boy\MVI_4982.npy,77. Boy,train,36.0
+Adjectives/78. long/MVI_5187.MOV,extracted_landmarks\Adjectives\78. long\MVI_5187.npy,78. long,train,39.0
+Colours/55. White/MVI_3892.MOV,extracted_landmarks\Colours\55. White\MVI_3892.npy,55. White,train,30.0
+Animals/5. Cow/MVI_2991.MOV,extracted_landmarks\Animals\5. Cow\MVI_2991.npy,5. Cow,train,24.0
+Days_and_Time/67. Monday/MVI_5446.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5446.npy,67. Monday,train,35.0
+Clothes/37. Hat/MVI_3688.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3688.npy,37. Hat,train,14.0
+People/66. Brother/MVI_3781.MOV,extracted_landmarks\People\66. Brother\MVI_3781.npy,66. Brother,train,34.0
+People/77. Boy/MVI_4981.MOV,extracted_landmarks\People\77. Boy\MVI_4981.npy,77. Boy,train,36.0
+Pronouns/44. it/MVI_0078.MOV,extracted_landmarks\Pronouns\44. it\MVI_0078.npy,44. it,train,20.0
+Adjectives/97. dry/MVI_5250.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5250.npy,97. dry,train,49.0
+Home/34. Pen/MVI_4907.MOV,extracted_landmarks\Home\34. Pen\MVI_4907.npy,34. Pen,train,12.0
+Jobs/84. Teacher/MVI_8865.MP4,extracted_landmarks\Jobs\84. Teacher\MVI_8865.npy,84. Teacher,train,42.0
+Colours/47. Red/MVI_5037.MOV,extracted_landmarks\Colours\47. Red\MVI_5037.npy,47. Red,train,22.0
+Days_and_Time/78. Year/MVI_9176.MP4,extracted_landmarks\Days_and_Time\78. Year\MVI_9176.npy,78. Year,train,38.0
+Home/28. Window/MVI_4362.MOV,extracted_landmarks\Home\28. Window\MVI_4362.npy,28. Window,train,10.0
+Seasons/64. Fall/MVI_4579.MOV,extracted_landmarks\Seasons\64. Fall\MVI_4579.npy,64. Fall,train,33.0
+Adjectives/87. hot/MVI_5217.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5217.npy,87. hot,train,45.0
+Society/2. Death/MVI_8932.MP4,extracted_landmarks\Society\2. Death\MVI_8932.npy,2. Death,train,6.0
+Adjectives/3. happy/MVI_9455.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9455.npy,3. happy,train,11.0
+People/78. Girl/MVI_3966.MOV,extracted_landmarks\People\78. Girl\MVI_3966.npy,78. Girl,train,37.0
+Animals/5. Cow/MVI_3097.MOV,extracted_landmarks\Animals\5. Cow\MVI_3097.npy,5. Cow,train,24.0
+Electronics/54. Cell phone/MVI_5392.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_5392.npy,54. Cell phone,train,28.0
+Pronouns/40. I/MVI_0001.MOV,extracted_landmarks\Pronouns\40. I\MVI_0001.npy,40. I,train,16.0
+People/66. Brother/MVI_5096.MOV,extracted_landmarks\People\66. Brother\MVI_5096.npy,66. Brother,train,34.0
+Jobs/91. Priest/MVI_5344.MOV,extracted_landmarks\Jobs\91. Priest\MVI_5344.npy,91. Priest,train,46.0
+Jobs/91. Priest/MVI_4488.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4488.npy,91. Priest,train,46.0
+Society/2. Death/MVI_8661.MP4,extracted_landmarks\Society\2. Death\MVI_8661.npy,2. Death,train,6.0
+Adjectives/91. new/MVI_9500.MOV,extracted_landmarks\Adjectives\91. new\MVI_9500.npy,91. new,train,47.0
+Adjectives/78. long/MVI_9460.MOV,extracted_landmarks\Adjectives\78. long\MVI_9460.npy,78. long,train,39.0
+Society/14. Election/MVI_8713.MP4,extracted_landmarks\Society\14. Election\MVI_8713.npy,14. Election,train,3.0
+Places/23. Court/MVI_3609.MOV,extracted_landmarks\Places\23. Court\MVI_3609.npy,23. Court,train,8.0
+People/77. Boy/MVI_4110.MOV,extracted_landmarks\People\77. Boy\MVI_4110.npy,77. Boy,train,36.0
+Home/40. Paint/MVI_9053.MP4,extracted_landmarks\Home\40. Paint\MVI_9053.npy,40. Paint,train,17.0
+Adjectives/91. new/MVI_5231.MOV,extracted_landmarks\Adjectives\91. new\MVI_5231.npy,91. new,train,47.0
+Days_and_Time/67. Monday/MVI_9142.MP4,extracted_landmarks\Days_and_Time\67. Monday\MVI_9142.npy,67. Monday,train,35.0
+Adjectives/83. big large/MVI_9316.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9316.npy,83. big large,train,41.0
+Greetings/51. Good Morning/MVI_9968.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9968.npy,51. Good Morning,train,25.0
+Adjectives/84. small little/MVI_5286.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5286.npy,84. small little,train,43.0
+Adjectives/79. short/MVI_9221.MOV,extracted_landmarks\Adjectives\79. short\MVI_9221.npy,79. short,train,40.0
+Seasons/64. Fall/MVI_4577.MOV,extracted_landmarks\Seasons\64. Fall\MVI_4577.npy,64. Fall,train,33.0
+Adjectives/78. long/MVI_9298.MOV,extracted_landmarks\Adjectives\78. long\MVI_9298.npy,78. long,train,39.0
+Places/19. House/MVI_3593.MOV,extracted_landmarks\Places\19. House\MVI_3593.npy,19. House,train,5.0
+Adjectives/2. quiet/MVI_5182.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5182.npy,2. quiet,train,7.0
+Pronouns/46. you (plural)/MVI_9909.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9909.npy,46. you (plural),train,21.0
+Greetings/51. Good Morning/MVI_0048.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0048.npy,51. Good Morning,train,25.0
+Pronouns/46. you (plural)/MVI_0022.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0022.npy,46. you (plural),train,21.0
+Seasons/64. Fall/MVI_4999.MOV,extracted_landmarks\Seasons\64. Fall\MVI_4999.npy,64. Fall,train,33.0
+Adjectives/97. dry/MVI_5169.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5169.npy,97. dry,train,49.0
+Days_and_Time/67. Monday/MVI_9143.MP4,extracted_landmarks\Days_and_Time\67. Monday\MVI_9143.npy,67. Monday,train,35.0
+Adjectives/3. happy/MVI_9542.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9542.npy,3. happy,train,11.0
+Days_and_Time/78. Year/MVI_5048.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5048.npy,78. Year,train,38.0
+Clothes/44. Shoes/MVI_4888.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4888.npy,44. Shoes,train,19.0
+Home/40. Paint/MVI_4927.MOV,extracted_landmarks\Home\40. Paint\MVI_4927.npy,40. Paint,train,17.0
+People/78. Girl/MVI_3967.MOV,extracted_landmarks\People\78. Girl\MVI_3967.npy,78. Girl,train,37.0
+Adjectives/94. good/MVI_9512.MOV,extracted_landmarks\Adjectives\94. good\MVI_9512.npy,94. good,train,48.0
+Adjectives/94. good/MVI_9511.MOV,extracted_landmarks\Adjectives\94. good\MVI_9511.npy,94. good,train,48.0
+Places/28. Store or Shop/MVI_3635.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3635.npy,28. Store or Shop,train,9.0
+Clothes/44. Shoes/MVI_4887.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4887.npy,44. Shoes,train,19.0
+Clothes/37. Hat/MVI_4867.MOV,extracted_landmarks\Clothes\37. Hat\MVI_4867.npy,37. Hat,train,14.0
+Means_of_Transportation/16. train ticket/MVI_4191.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_4191.npy,16. train ticket,train,4.0
+Places/28. Store or Shop/MVI_3474.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3474.npy,28. Store or Shop,train,9.0
+Days_and_Time/67. Monday/MVI_5011.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5011.npy,67. Monday,train,35.0
+Pronouns/44. it/MVI_9938.MOV,extracted_landmarks\Pronouns\44. it\MVI_9938.npy,44. it,train,20.0
+Adjectives/3. happy/MVI_9375.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9375.npy,3. happy,train,11.0
+People/77. Boy/MVI_5132.MOV,extracted_landmarks\People\77. Boy\MVI_5132.npy,77. Boy,train,36.0
+Electronics/54. Cell phone/MVI_9101.MP4,extracted_landmarks\Electronics\54. Cell phone\MVI_9101.npy,54. Cell phone,train,28.0
+Electronics/54. Cell phone/MVI_5391.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_5391.npy,54. Cell phone,train,28.0
+Jobs/84. Teacher/MVI_5312.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_5312.npy,84. Teacher,train,42.0
+Days_and_Time/86. Time/MVI_4670.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_4670.npy,86. Time,train,44.0
+Society/2. Death/MVI_8664.MP4,extracted_landmarks\Society\2. Death\MVI_8664.npy,2. Death,train,6.0
+Greetings/55. Thank you/MVI_0062.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0062.npy,55. Thank you,train,29.0
+Adjectives/87. hot/MVI_5295.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5295.npy,87. hot,train,45.0
+Greetings/51. Good Morning/MVI_0045.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0045.npy,51. Good Morning,train,25.0
+Greetings/51. Good Morning/MVI_9970.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9970.npy,51. Good Morning,train,25.0
+Means_of_Transportation/16. train ticket/MVI_3226.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3226.npy,16. train ticket,train,4.0
+Electronics/54. Cell phone/MVI_9102.MP4,extracted_landmarks\Electronics\54. Cell phone\MVI_9102.npy,54. Cell phone,train,28.0
+Colours/55. White/MVI_4922.MOV,extracted_landmarks\Colours\55. White\MVI_4922.npy,55. White,train,30.0
+Places/19. House/MVI_3513.MOV,extracted_landmarks\Places\19. House\MVI_3513.npy,19. House,train,5.0
+Means_of_Transportation/11. Car/MVI_8583.MP4,extracted_landmarks\Means_of_Transportation\11. Car\MVI_8583.npy,11. Car,train,2.0
+Pronouns/44. it/MVI_0013.MOV,extracted_landmarks\Pronouns\44. it\MVI_0013.npy,44. it,train,20.0
+Pronouns/46. you (plural)/MVI_9946.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9946.npy,46. you (plural),train,21.0
+Clothes/42. T-Shirt/MVI_3851.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3851.npy,42. T-Shirt,train,18.0
+Animals/4. Bird/MVI_3095.MOV,extracted_landmarks\Animals\4. Bird\MVI_3095.npy,4. Bird,train,15.0
+Days_and_Time/67. Monday/MVI_9144.MP4,extracted_landmarks\Days_and_Time\67. Monday\MVI_9144.npy,67. Monday,train,35.0
+Adjectives/91. new/MVI_5229.MOV,extracted_landmarks\Adjectives\91. new\MVI_5229.npy,91. new,train,47.0
+People/77. Boy/MVI_4983.MOV,extracted_landmarks\People\77. Boy\MVI_4983.npy,77. Boy,train,36.0
+Days_and_Time/78. Year/MVI_5493.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5493.npy,78. Year,train,38.0
+People/61. Father/MVI_5229.MOV,extracted_landmarks\People\61. Father\MVI_5229.npy,61. Father,train,31.0
+People/61. Father/MVI_4223.MOV,extracted_landmarks\People\61. Father\MVI_4223.npy,61. Father,train,31.0
+Adjectives/1. loud/MVI_9370.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9370.npy,1. loud,train,1.0
+Adjectives/79. short/MVI_5110.MOV,extracted_landmarks\Adjectives\79. short\MVI_5110.npy,79. short,train,40.0
+Adjectives/97. dry/MVI_9439.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9439.npy,97. dry,train,49.0
+Pronouns/46. you (plural)/MVI_0021.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0021.npy,46. you (plural),train,21.0
+Adjectives/91. new/MVI_9260.MOV,extracted_landmarks\Adjectives\91. new\MVI_9260.npy,91. new,train,47.0
+Society/14. Election/MVI_4840.MOV,extracted_landmarks\Society\14. Election\MVI_4840.npy,14. Election,train,3.0
+People/66. Brother/MVI_4957.MOV,extracted_landmarks\People\66. Brother\MVI_4957.npy,66. Brother,train,34.0
+Places/28. Store or Shop/MVI_3387.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3387.npy,28. Store or Shop,train,9.0
+Electronics/53. Fan/MVI_9098.MP4,extracted_landmarks\Electronics\53. Fan\MVI_9098.npy,53. Fan,train,26.0
+People/66. Brother/MVI_5244.MOV,extracted_landmarks\People\66. Brother\MVI_5244.npy,66. Brother,train,34.0
+Jobs/91. Priest/MVI_4489.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4489.npy,91. Priest,train,46.0
+Adjectives/79. short/MVI_9381.MOV,extracted_landmarks\Adjectives\79. short\MVI_9381.npy,79. short,train,40.0
+People/77. Boy/MVI_3964.MOV,extracted_landmarks\People\77. Boy\MVI_3964.npy,77. Boy,train,36.0
+Home/28. Window/MVI_4882.MOV,extracted_landmarks\Home\28. Window\MVI_4882.npy,28. Window,train,10.0
+Animals/1. Dog/MVI_3061.MOV,extracted_landmarks\Animals\1. Dog\MVI_3061.npy,1. Dog,train,0.0
+Clothes/44. Shoes/MVI_3857.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3857.npy,44. Shoes,train,19.0
+Society/14. Election/MVI_8968.MP4,extracted_landmarks\Society\14. Election\MVI_8968.npy,14. Election,train,3.0
+Seasons/64. Fall/MVI_5001.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5001.npy,64. Fall,train,33.0
+Days_and_Time/86. Time/MVI_4668.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_4668.npy,86. Time,train,44.0
+People/78. Girl/MVI_5135.MOV,extracted_landmarks\People\78. Girl\MVI_5135.npy,78. Girl,train,37.0
+Jobs/84. Teacher/MVI_4746.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4746.npy,84. Teacher,train,42.0
+Clothes/42. T-Shirt/MVI_8606.MP4,extracted_landmarks\Clothes\42. T-Shirt\MVI_8606.npy,42. T-Shirt,train,18.0
+Greetings/48. Hello/MVI_9914.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9914.npy,48. Hello,train,23.0
+People/66. Brother/MVI_3928.MOV,extracted_landmarks\People\66. Brother\MVI_3928.npy,66. Brother,train,34.0
+Greetings/51. Good Morning/MVI_0047.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0047.npy,51. Good Morning,train,25.0
+Days_and_Time/86. Time/MVI_5078.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5078.npy,86. Time,train,44.0
+Adjectives/94. good/MVI_5238.MOV,extracted_landmarks\Adjectives\94. good\MVI_5238.npy,94. good,train,48.0
+Adjectives/97. dry/MVI_5326.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5326.npy,97. dry,train,49.0
+Animals/5. Cow/MVI_3017.MOV,extracted_landmarks\Animals\5. Cow\MVI_3017.npy,5. Cow,train,24.0
+Colours/55. White/MVI_3743.MOV,extracted_landmarks\Colours\55. White\MVI_3743.npy,55. White,train,30.0
+Colours/55. White/MVI_4921.MOV,extracted_landmarks\Colours\55. White\MVI_4921.npy,55. White,train,30.0
+Means_of_Transportation/11. Car/MVI_3209.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3209.npy,11. Car,train,2.0
+Clothes/42. T-Shirt/MVI_5169.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5169.npy,42. T-Shirt,train,18.0
+Adjectives/83. big large/MVI_5124.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5124.npy,83. big large,train,41.0
+Pronouns/44. it/MVI_9970.MOV,extracted_landmarks\Pronouns\44. it\MVI_9970.npy,44. it,train,20.0
+Colours/54. Black/MVI_3889.MOV,extracted_landmarks\Colours\54. Black\MVI_3889.npy,54. Black,train,27.0
+Adjectives/1. loud/MVI_5335.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5335.npy,1. loud,train,1.0
+Adjectives/87. hot/MVI_5296.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5296.npy,87. hot,train,45.0
+Colours/47. Red/MVI_4207.MOV,extracted_landmarks\Colours\47. Red\MVI_4207.npy,47. Red,train,22.0
+Clothes/44. Shoes/MVI_5175.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5175.npy,44. Shoes,train,19.0
+Animals/4. Bird/MVI_3070.MOV,extracted_landmarks\Animals\4. Bird\MVI_3070.npy,4. Bird,train,15.0
+Animals/5. Cow/MVI_3099.MOV,extracted_landmarks\Animals\5. Cow\MVI_3099.npy,5. Cow,train,24.0
+Adjectives/91. new/MVI_9422.MOV,extracted_landmarks\Adjectives\91. new\MVI_9422.npy,91. new,train,47.0
+Animals/1. Dog/MVI_3003.MOV,extracted_landmarks\Animals\1. Dog\MVI_3003.npy,1. Dog,train,0.0
+Adjectives/91. new/MVI_9341.MOV,extracted_landmarks\Adjectives\91. new\MVI_9341.npy,91. new,train,47.0
+Greetings/55. Thank you/MVI_0061.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0061.npy,55. Thank you,train,29.0
+Society/14. Election/MVI_4305.MOV,extracted_landmarks\Society\14. Election\MVI_4305.npy,14. Election,train,3.0
+Adjectives/94. good/MVI_9269.MOV,extracted_landmarks\Adjectives\94. good\MVI_9269.npy,94. good,train,48.0
+Means_of_Transportation/16. train ticket/MVI_3254.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3254.npy,16. train ticket,train,4.0
+Adjectives/84. small little/MVI_5128.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5128.npy,84. small little,train,43.0
+Places/28. Store or Shop/MVI_3555.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3555.npy,28. Store or Shop,train,9.0
+Adjectives/84. small little/MVI_5126.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5126.npy,84. small little,train,43.0
+Home/34. Pen/MVI_4908.MOV,extracted_landmarks\Home\34. Pen\MVI_4908.npy,34. Pen,train,12.0
+Society/2. Death/MVI_8662.MP4,extracted_landmarks\Society\2. Death\MVI_8662.npy,2. Death,train,6.0
+Greetings/51. Good Morning/MVI_0098.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0098.npy,51. Good Morning,train,25.0
+Greetings/51. Good Morning/MVI_9935.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9935.npy,51. Good Morning,train,25.0
+People/78. Girl/MVI_4113.MOV,extracted_landmarks\People\78. Girl\MVI_4113.npy,78. Girl,train,37.0
+Animals/1. Dog/MVI_3059.MOV,extracted_landmarks\Animals\1. Dog\MVI_3059.npy,1. Dog,train,0.0
+People/66. Brother/MVI_5095.MOV,extracted_landmarks\People\66. Brother\MVI_5095.npy,66. Brother,train,34.0
+Adjectives/91. new/MVI_9342.MOV,extracted_landmarks\Adjectives\91. new\MVI_9342.npy,91. new,train,47.0
+Clothes/44. Shoes/MVI_3710.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3710.npy,44. Shoes,train,19.0
+Adjectives/91. new/MVI_9259.MOV,extracted_landmarks\Adjectives\91. new\MVI_9259.npy,91. new,train,47.0
+Places/19. House/MVI_3435.MOV,extracted_landmarks\Places\19. House\MVI_3435.npy,19. House,train,5.0
+Colours/54. Black/MVI_3888.MOV,extracted_landmarks\Colours\54. Black\MVI_3888.npy,54. Black,train,27.0
+Clothes/44. Shoes/MVI_5177.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5177.npy,44. Shoes,train,19.0
+Pronouns/40. I/MVI_0065.MOV,extracted_landmarks\Pronouns\40. I\MVI_0065.npy,40. I,train,16.0
+Pronouns/44. it/MVI_0016.MOV,extracted_landmarks\Pronouns\44. it\MVI_0016.npy,44. it,train,20.0
+People/61. Father/MVI_3910.MOV,extracted_landmarks\People\61. Father\MVI_3910.npy,61. Father,train,31.0
+Pronouns/40. I/MVI_9920.MOV,extracted_landmarks\Pronouns\40. I\MVI_9920.npy,40. I,train,16.0
+Adjectives/79. short/MVI_9463.MOV,extracted_landmarks\Adjectives\79. short\MVI_9463.npy,79. short,train,40.0
+Animals/4. Bird/MVI_3094.MOV,extracted_landmarks\Animals\4. Bird\MVI_3094.npy,4. Bird,train,15.0
+Pronouns/40. I/MVI_9881.MOV,extracted_landmarks\Pronouns\40. I\MVI_9881.npy,40. I,train,16.0
+Colours/54. Black/MVI_3741.MOV,extracted_landmarks\Colours\54. Black\MVI_3741.npy,54. Black,train,27.0
+Home/40. Paint/MVI_9052.MP4,extracted_landmarks\Home\40. Paint\MVI_9052.npy,40. Paint,train,17.0
+Days_and_Time/67. Monday/MVI_4592.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_4592.npy,67. Monday,train,35.0
+Animals/5. Cow/MVI_3074.MOV,extracted_landmarks\Animals\5. Cow\MVI_3074.npy,5. Cow,train,24.0
+Adjectives/1. loud/MVI_9450.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9450.npy,1. loud,train,1.0
+Adjectives/83. big large/MVI_9233.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9233.npy,83. big large,train,41.0
+Places/28. Store or Shop/MVI_3632.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3632.npy,28. Store or Shop,train,9.0
+Society/2. Death/MVI_4802.MOV,extracted_landmarks\Society\2. Death\MVI_4802.npy,2. Death,train,6.0
+Jobs/84. Teacher/MVI_4458.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4458.npy,84. Teacher,train,42.0
+Clothes/42. T-Shirt/MVI_4881.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4881.npy,42. T-Shirt,train,18.0
+Animals/4. Bird/MVI_3038.MOV,extracted_landmarks\Animals\4. Bird\MVI_3038.npy,4. Bird,train,15.0
+Adjectives/2. quiet/MVI_5260.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5260.npy,2. quiet,train,7.0
+Adjectives/97. dry/MVI_9277.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9277.npy,97. dry,train,49.0
+Means_of_Transportation/16. train ticket/MVI_3162.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3162.npy,16. train ticket,train,4.0
+Pronouns/46. you (plural)/MVI_0082.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0082.npy,46. you (plural),train,21.0
+Pronouns/46. you (plural)/MVI_9977.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9977.npy,46. you (plural),train,21.0
+Clothes/44. Shoes/MVI_5028.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5028.npy,44. Shoes,train,19.0
+Greetings/55. Thank you/MVI_9986.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9986.npy,55. Thank you,train,29.0
+Clothes/37. Hat/MVI_3691.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3691.npy,37. Hat,train,14.0
+Colours/47. Red/MVI_3721.MOV,extracted_landmarks\Colours\47. Red\MVI_3721.npy,47. Red,train,22.0
+Colours/47. Red/MVI_4899.MOV,extracted_landmarks\Colours\47. Red\MVI_4899.npy,47. Red,train,22.0
+Colours/54. Black/MVI_3887.MOV,extracted_landmarks\Colours\54. Black\MVI_3887.npy,54. Black,train,27.0
+Adjectives/91. new/MVI_5308.MOV,extracted_landmarks\Adjectives\91. new\MVI_5308.npy,91. new,train,47.0
+Home/28. Window/MVI_4881.MOV,extracted_landmarks\Home\28. Window\MVI_4881.npy,28. Window,train,10.0
+Greetings/48. Hello/MVI_9955.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9955.npy,48. Hello,train,23.0
+Adjectives/97. dry/MVI_9278.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9278.npy,97. dry,train,49.0
+Places/23. Court/MVI_3367.MOV,extracted_landmarks\Places\23. Court\MVI_3367.npy,23. Court,train,8.0
+Adjectives/2. quiet/MVI_9451.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9451.npy,2. quiet,train,7.0
+Clothes/37. Hat/MVI_5154.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5154.npy,37. Hat,train,14.0
+Society/14. Election/MVI_8710.MP4,extracted_landmarks\Society\14. Election\MVI_8710.npy,14. Election,train,3.0
+Adjectives/1. loud/MVI_9449.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9449.npy,1. loud,train,1.0
+Places/35. Bank/MVI_3582.MOV,extracted_landmarks\Places\35. Bank\MVI_3582.npy,35. Bank,train,13.0
+Adjectives/97. dry/MVI_9441.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9441.npy,97. dry,train,49.0
+Animals/1. Dog/MVI_4148.MOV,extracted_landmarks\Animals\1. Dog\MVI_4148.npy,1. Dog,train,0.0
+Colours/47. Red/MVI_3868.MOV,extracted_landmarks\Colours\47. Red\MVI_3868.npy,47. Red,train,22.0
+People/78. Girl/MVI_3819.MOV,extracted_landmarks\People\78. Girl\MVI_3819.npy,78. Girl,train,37.0
+Days_and_Time/67. Monday/MVI_4591.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_4591.npy,67. Monday,train,35.0
+Days_and_Time/78. Year/MVI_9178.MP4,extracted_landmarks\Days_and_Time\78. Year\MVI_9178.npy,78. Year,train,38.0
+People/77. Boy/MVI_3963.MOV,extracted_landmarks\People\77. Boy\MVI_3963.npy,77. Boy,train,36.0
+Jobs/84. Teacher/MVI_5311.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_5311.npy,84. Teacher,train,42.0
+Adjectives/94. good/MVI_5318.MOV,extracted_landmarks\Adjectives\94. good\MVI_5318.npy,94. good,train,48.0
+Adjectives/97. dry/MVI_5327.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5327.npy,97. dry,train,49.0
+Adjectives/1. loud/MVI_9291.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9291.npy,1. loud,train,1.0
+Adjectives/3. happy/MVI_5184.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5184.npy,3. happy,train,11.0
+Places/19. House/MVI_3270.MOV,extracted_landmarks\Places\19. House\MVI_3270.npy,19. House,train,5.0
+Places/35. Bank/MVI_3662.MOV,extracted_landmarks\Places\35. Bank\MVI_3662.npy,35. Bank,train,13.0
+Animals/4. Bird/MVI_8567.MP4,extracted_landmarks\Animals\4. Bird\MVI_8567.npy,4. Bird,train,15.0
+Adjectives/1. loud/MVI_5337.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5337.npy,1. loud,train,1.0
+Places/28. Store or Shop/MVI_3309.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3309.npy,28. Store or Shop,train,9.0
+Pronouns/40. I/MVI_9995.MOV,extracted_landmarks\Pronouns\40. I\MVI_9995.npy,40. I,train,16.0
+Adjectives/83. big large/MVI_5205.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5205.npy,83. big large,train,41.0
+Pronouns/44. it/MVI_9897.MOV,extracted_landmarks\Pronouns\44. it\MVI_9897.npy,44. it,train,20.0
+Means_of_Transportation/16. train ticket/MVI_3255.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3255.npy,16. train ticket,train,4.0
+Pronouns/40. I/MVI_9959.MOV,extracted_landmarks\Pronouns\40. I\MVI_9959.npy,40. I,train,16.0
+Clothes/42. T-Shirt/MVI_4882.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4882.npy,42. T-Shirt,train,18.0
+Days_and_Time/86. Time/MVI_4669.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_4669.npy,86. Time,train,44.0
+Home/34. Pen/MVI_4388.MOV,extracted_landmarks\Home\34. Pen\MVI_4388.npy,34. Pen,train,12.0
+Animals/1. Dog/MVI_3028.MOV,extracted_landmarks\Animals\1. Dog\MVI_3028.npy,1. Dog,train,0.0
+Seasons/61. Summer/MVI_5421.MOV,extracted_landmarks\Seasons\61. Summer\MVI_5421.npy,61. Summer,train,32.0
+Clothes/37. Hat/MVI_5006.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5006.npy,37. Hat,train,14.0
+Adjectives/79. short/MVI_5269.MOV,extracted_landmarks\Adjectives\79. short\MVI_5269.npy,79. short,train,40.0
+Greetings/51. Good Morning/MVI_0100.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0100.npy,51. Good Morning,train,25.0
+Home/28. Window/MVI_4364.MOV,extracted_landmarks\Home\28. Window\MVI_4364.npy,28. Window,train,10.0
+Animals/1. Dog/MVI_4146.MOV,extracted_landmarks\Animals\1. Dog\MVI_4146.npy,1. Dog,train,0.0
+Adjectives/91. new/MVI_5148.MOV,extracted_landmarks\Adjectives\91. new\MVI_5148.npy,91. new,train,47.0
+Adjectives/97. dry/MVI_9440.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9440.npy,97. dry,train,49.0
+Clothes/44. Shoes/MVI_8608.MP4,extracted_landmarks\Clothes\44. Shoes\MVI_8608.npy,44. Shoes,train,19.0
+Seasons/64. Fall/MVI_5434.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5434.npy,64. Fall,train,33.0
+Home/28. Window/MVI_4883.MOV,extracted_landmarks\Home\28. Window\MVI_4883.npy,28. Window,train,10.0
+Animals/4. Bird/MVI_3037.MOV,extracted_landmarks\Animals\4. Bird\MVI_3037.npy,4. Bird,train,15.0
+Home/28. Window/MVI_9014.MP4,extracted_landmarks\Home\28. Window\MVI_9014.npy,28. Window,train,10.0
+Means_of_Transportation/11. Car/MVI_3147.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3147.npy,11. Car,train,2.0
+Adjectives/1. loud/MVI_5257.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5257.npy,1. loud,train,1.0
+Greetings/55. Thank you/MVI_0063.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0063.npy,55. Thank you,train,29.0
+Adjectives/1. loud/MVI_9535.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9535.npy,1. loud,train,1.0
+Clothes/42. T-Shirt/MVI_4202.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4202.npy,42. T-Shirt,train,18.0
+People/78. Girl/MVI_4984.MOV,extracted_landmarks\People\78. Girl\MVI_4984.npy,78. Girl,train,37.0
+Adjectives/1. loud/MVI_5179.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5179.npy,1. loud,train,1.0
+Greetings/51. Good Morning/MVI_0042.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0042.npy,51. Good Morning,train,25.0
+Jobs/91. Priest/MVI_4487.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4487.npy,91. Priest,train,46.0
+Means_of_Transportation/16. train ticket/MVI_3164.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3164.npy,16. train ticket,train,4.0
+Places/23. Court/MVI_3455.MOV,extracted_landmarks\Places\23. Court\MVI_3455.npy,23. Court,train,8.0
+Home/28. Window/MVI_8766.MP4,extracted_landmarks\Home\28. Window\MVI_8766.npy,28. Window,train,10.0
+Animals/1. Dog/MVI_3002.MOV,extracted_landmarks\Animals\1. Dog\MVI_3002.npy,1. Dog,train,0.0
+Adjectives/87. hot/MVI_9249.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9249.npy,87. hot,train,45.0
+Greetings/55. Thank you/MVI_0059.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0059.npy,55. Thank you,train,29.0
+Adjectives/97. dry/MVI_5249.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5249.npy,97. dry,train,49.0
+Seasons/61. Summer/MVI_4566.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4566.npy,61. Summer,train,32.0
+Jobs/91. Priest/MVI_5342.MOV,extracted_landmarks\Jobs\91. Priest\MVI_5342.npy,91. Priest,train,46.0
+People/77. Boy/MVI_4242.MOV,extracted_landmarks\People\77. Boy\MVI_4242.npy,77. Boy,train,36.0
+Places/28. Store or Shop/MVI_3475.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3475.npy,28. Store or Shop,train,9.0
+Colours/55. White/MVI_5061.MOV,extracted_landmarks\Colours\55. White\MVI_5061.npy,55. White,train,30.0
+Days_and_Time/86. Time/MVI_9201.MP4,extracted_landmarks\Days_and_Time\86. Time\MVI_9201.npy,86. Time,train,44.0
+Home/34. Pen/MVI_4389.MOV,extracted_landmarks\Home\34. Pen\MVI_4389.npy,34. Pen,train,12.0
+Animals/5. Cow/MVI_3075.MOV,extracted_landmarks\Animals\5. Cow\MVI_3075.npy,5. Cow,train,24.0
+Adjectives/87. hot/MVI_5137.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5137.npy,87. hot,train,45.0
+Places/23. Court/MVI_3533.MOV,extracted_landmarks\Places\23. Court\MVI_3533.npy,23. Court,train,8.0
+Colours/54. Black/MVI_5058.MOV,extracted_landmarks\Colours\54. Black\MVI_5058.npy,54. Black,train,27.0
+Home/40. Paint/MVI_4928.MOV,extracted_landmarks\Home\40. Paint\MVI_4928.npy,40. Paint,train,17.0
+Greetings/55. Thank you/MVI_9950.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9950.npy,55. Thank you,train,29.0
+Jobs/84. Teacher/MVI_5310.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_5310.npy,84. Teacher,train,42.0
+People/66. Brother/MVI_4956.MOV,extracted_landmarks\People\66. Brother\MVI_4956.npy,66. Brother,train,34.0
+People/78. Girl/MVI_5289.MOV,extracted_landmarks\People\78. Girl\MVI_5289.npy,78. Girl,train,37.0
+Adjectives/3. happy/MVI_5342.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5342.npy,3. happy,train,11.0
+Clothes/42. T-Shirt/MVI_3706.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3706.npy,42. T-Shirt,train,18.0
+Adjectives/79. short/MVI_9301.MOV,extracted_landmarks\Adjectives\79. short\MVI_9301.npy,79. short,train,40.0
+People/66. Brother/MVI_4076.MOV,extracted_landmarks\People\66. Brother\MVI_4076.npy,66. Brother,train,34.0
+Pronouns/40. I/MVI_0012.MOV,extracted_landmarks\Pronouns\40. I\MVI_0012.npy,40. I,train,16.0
+Colours/55. White/MVI_4043.MOV,extracted_landmarks\Colours\55. White\MVI_4043.npy,55. White,train,30.0
+Jobs/91. Priest/MVI_4490.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4490.npy,91. Priest,train,46.0
+Adjectives/97. dry/MVI_9360.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9360.npy,97. dry,train,49.0
+Adjectives/2. quiet/MVI_5261.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5261.npy,2. quiet,train,7.0
+Greetings/48. Hello/MVI_9984.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9984.npy,48. Hello,train,23.0
+Adjectives/94. good/MVI_5316.MOV,extracted_landmarks\Adjectives\94. good\MVI_5316.npy,94. good,train,48.0
+Pronouns/46. you (plural)/MVI_0031.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0031.npy,46. you (plural),train,21.0
+Means_of_Transportation/11. Car/MVI_3211.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3211.npy,11. Car,train,2.0
+Adjectives/94. good/MVI_9270.MOV,extracted_landmarks\Adjectives\94. good\MVI_9270.npy,94. good,train,48.0
+Days_and_Time/86. Time/MVI_9203.MP4,extracted_landmarks\Days_and_Time\86. Time\MVI_9203.npy,86. Time,train,44.0
+Seasons/61. Summer/MVI_4567.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4567.npy,61. Summer,train,32.0
+Adjectives/3. happy/MVI_9454.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9454.npy,3. happy,train,11.0
+Colours/47. Red/MVI_4017.MOV,extracted_landmarks\Colours\47. Red\MVI_4017.npy,47. Red,train,22.0
+Colours/55. White/MVI_5210.MOV,extracted_landmarks\Colours\55. White\MVI_5210.npy,55. White,train,30.0
+Adjectives/3. happy/MVI_9295.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9295.npy,3. happy,train,11.0
+Places/19. House/MVI_3596.MOV,extracted_landmarks\Places\19. House\MVI_3596.npy,19. House,train,5.0
+Adjectives/94. good/MVI_9510.MOV,extracted_landmarks\Adjectives\94. good\MVI_9510.npy,94. good,train,48.0
+Colours/54. Black/MVI_8619.MP4,extracted_landmarks\Colours\54. Black\MVI_8619.npy,54. Black,train,27.0
+Adjectives/83. big large/MVI_5285.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5285.npy,83. big large,train,41.0
+Adjectives/78. long/MVI_9378.MOV,extracted_landmarks\Adjectives\78. long\MVI_9378.npy,78. long,train,39.0
+Electronics/53. Fan/MVI_4966.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4966.npy,53. Fan,train,26.0
+Adjectives/87. hot/MVI_9488.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9488.npy,87. hot,train,45.0
+Pronouns/44. it/MVI_9936.MOV,extracted_landmarks\Pronouns\44. it\MVI_9936.npy,44. it,train,20.0
+Adjectives/84. small little/MVI_9398.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9398.npy,84. small little,train,43.0
+People/78. Girl/MVI_5137.MOV,extracted_landmarks\People\78. Girl\MVI_5137.npy,78. Girl,train,37.0
+Adjectives/87. hot/MVI_5218.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5218.npy,87. hot,train,45.0
+People/78. Girl/MVI_5290.MOV,extracted_landmarks\People\78. Girl\MVI_5290.npy,78. Girl,train,37.0
+Clothes/42. T-Shirt/MVI_3705.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3705.npy,42. T-Shirt,train,18.0
+Electronics/53. Fan/MVI_5390.MOV,extracted_landmarks\Electronics\53. Fan\MVI_5390.npy,53. Fan,train,26.0
+Colours/47. Red/MVI_5185.MOV,extracted_landmarks\Colours\47. Red\MVI_5185.npy,47. Red,train,22.0
+Greetings/48. Hello/MVI_9916.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9916.npy,48. Hello,train,23.0
+People/78. Girl/MVI_4114.MOV,extracted_landmarks\People\78. Girl\MVI_4114.npy,78. Girl,train,37.0
+Home/40. Paint/MVI_8818.MP4,extracted_landmarks\Home\40. Paint\MVI_8818.npy,40. Paint,train,17.0
+Animals/4. Bird/MVI_3012.MOV,extracted_landmarks\Animals\4. Bird\MVI_3012.npy,4. Bird,train,15.0
+Greetings/55. Thank you/MVI_0060.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0060.npy,55. Thank you,train,29.0
+Clothes/42. T-Shirt/MVI_4883.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4883.npy,42. T-Shirt,train,18.0
+Greetings/55. Thank you/MVI_0058.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0058.npy,55. Thank you,train,29.0
+Means_of_Transportation/11. Car/MVI_3117.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3117.npy,11. Car,train,2.0
+Colours/54. Black/MVI_5060.MOV,extracted_landmarks\Colours\54. Black\MVI_5060.npy,54. Black,train,27.0
+Clothes/37. Hat/MVI_4866.MOV,extracted_landmarks\Clothes\37. Hat\MVI_4866.npy,37. Hat,train,14.0
+Colours/55. White/MVI_4042.MOV,extracted_landmarks\Colours\55. White\MVI_4042.npy,55. White,train,30.0
+Places/19. House/MVI_3267.MOV,extracted_landmarks\Places\19. House\MVI_3267.npy,19. House,train,5.0
+Jobs/91. Priest/MVI_5343.MOV,extracted_landmarks\Jobs\91. Priest\MVI_5343.npy,91. Priest,train,46.0
+Electronics/54. Cell phone/MVI_4539.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4539.npy,54. Cell phone,train,28.0
+Adjectives/2. quiet/MVI_9294.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9294.npy,2. quiet,train,7.0
+Animals/1. Dog/MVI_3004.MOV,extracted_landmarks\Animals\1. Dog\MVI_3004.npy,1. Dog,train,0.0
+Electronics/53. Fan/MVI_4536.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4536.npy,53. Fan,train,26.0
+Pronouns/46. you (plural)/MVI_9908.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9908.npy,46. you (plural),train,21.0
+Clothes/42. T-Shirt/MVI_5170.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5170.npy,42. T-Shirt,train,18.0
+Places/23. Court/MVI_3370.MOV,extracted_landmarks\Places\23. Court\MVI_3370.npy,23. Court,train,8.0
+People/77. Boy/MVI_4109.MOV,extracted_landmarks\People\77. Boy\MVI_4109.npy,77. Boy,train,36.0
+Animals/1. Dog/MVI_3085.MOV,extracted_landmarks\Animals\1. Dog\MVI_3085.npy,1. Dog,train,0.0
+Adjectives/3. happy/MVI_9541.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9541.npy,3. happy,train,11.0
+Adjectives/97. dry/MVI_9359.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9359.npy,97. dry,train,49.0
+Pronouns/40. I/MVI_9958.MOV,extracted_landmarks\Pronouns\40. I\MVI_9958.npy,40. I,train,16.0
+Adjectives/87. hot/MVI_5138.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5138.npy,87. hot,train,45.0
+Electronics/54. Cell phone/MVI_4968.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4968.npy,54. Cell phone,train,28.0
+Greetings/55. Thank you/MVI_0008.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0008.npy,55. Thank you,train,29.0
+Pronouns/46. you (plural)/MVI_9975.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9975.npy,46. you (plural),train,21.0
+Home/40. Paint/MVI_4414.MOV,extracted_landmarks\Home\40. Paint\MVI_4414.npy,40. Paint,train,17.0
+Colours/55. White/MVI_3745.MOV,extracted_landmarks\Colours\55. White\MVI_3745.npy,55. White,train,30.0
+Greetings/51. Good Morning/MVI_9991.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9991.npy,51. Good Morning,train,25.0
+Adjectives/79. short/MVI_5189.MOV,extracted_landmarks\Adjectives\79. short\MVI_5189.npy,79. short,train,40.0
+Adjectives/78. long/MVI_9217.MOV,extracted_landmarks\Adjectives\78. long\MVI_9217.npy,78. long,train,39.0
+Means_of_Transportation/11. Car/MVI_3175.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3175.npy,11. Car,train,2.0
+Society/2. Death/MVI_4258.MOV,extracted_landmarks\Society\2. Death\MVI_4258.npy,2. Death,train,6.0
+Home/34. Pen/MVI_9033.MP4,extracted_landmarks\Home\34. Pen\MVI_9033.npy,34. Pen,train,12.0
+Clothes/37. Hat/MVI_3690.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3690.npy,37. Hat,train,14.0
+Pronouns/46. you (plural)/MVI_0084.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0084.npy,46. you (plural),train,21.0
+Adjectives/84. small little/MVI_9319.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9319.npy,84. small little,train,43.0
+Adjectives/3. happy/MVI_5341.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5341.npy,3. happy,train,11.0
+People/61. Father/MVI_5227.MOV,extracted_landmarks\People\61. Father\MVI_5227.npy,61. Father,train,31.0
+Adjectives/78. long/MVI_9218.MOV,extracted_landmarks\Adjectives\78. long\MVI_9218.npy,78. long,train,39.0
+Greetings/48. Hello/MVI_9954.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9954.npy,48. Hello,train,23.0
+Adjectives/87. hot/MVI_9330.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9330.npy,87. hot,train,45.0
+Places/23. Court/MVI_3454.MOV,extracted_landmarks\Places\23. Court\MVI_3454.npy,23. Court,train,8.0
+Clothes/37. Hat/MVI_5007.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5007.npy,37. Hat,train,14.0
+Pronouns/40. I/MVI_9918.MOV,extracted_landmarks\Pronouns\40. I\MVI_9918.npy,40. I,train,16.0
+Days_and_Time/78. Year/MVI_5047.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5047.npy,78. Year,train,38.0
+Pronouns/40. I/MVI_0013.MOV,extracted_landmarks\Pronouns\40. I\MVI_0013.npy,40. I,train,16.0
+Adjectives/87. hot/MVI_5297.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5297.npy,87. hot,train,45.0
+Animals/5. Cow/MVI_3015.MOV,extracted_landmarks\Animals\5. Cow\MVI_3015.npy,5. Cow,train,24.0
+People/66. Brother/MVI_4955.MOV,extracted_landmarks\People\66. Brother\MVI_4955.npy,66. Brother,train,34.0
+Adjectives/94. good/MVI_5317.MOV,extracted_landmarks\Adjectives\94. good\MVI_5317.npy,94. good,train,48.0
+Jobs/91. Priest/MVI_4771.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4771.npy,91. Priest,train,46.0
+Jobs/91. Priest/MVI_4770.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4770.npy,91. Priest,train,46.0
+Clothes/44. Shoes/MVI_3712.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3712.npy,44. Shoes,train,19.0
+Adjectives/3. happy/MVI_5265.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5265.npy,3. happy,train,11.0
+Animals/4. Bird/MVI_3072.MOV,extracted_landmarks\Animals\4. Bird\MVI_3072.npy,4. Bird,train,15.0
+Days_and_Time/86. Time/MVI_9202.MP4,extracted_landmarks\Days_and_Time\86. Time\MVI_9202.npy,86. Time,train,44.0
+Adjectives/91. new/MVI_5151.MOV,extracted_landmarks\Adjectives\91. new\MVI_5151.npy,91. new,train,47.0
+Greetings/51. Good Morning/MVI_0043.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0043.npy,51. Good Morning,train,25.0
+Pronouns/46. you (plural)/MVI_0030.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0030.npy,46. you (plural),train,21.0
+People/61. Father/MVI_4942.MOV,extracted_landmarks\People\61. Father\MVI_4942.npy,61. Father,train,31.0
+Places/28. Store or Shop/MVI_3473.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3473.npy,28. Store or Shop,train,9.0
+Adjectives/2. quiet/MVI_5262.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5262.npy,2. quiet,train,7.0
+Society/2. Death/MVI_8930.MP4,extracted_landmarks\Society\2. Death\MVI_8930.npy,2. Death,train,6.0
+Electronics/53. Fan/MVI_4965.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4965.npy,53. Fan,train,26.0
+Home/28. Window/MVI_8767.MP4,extracted_landmarks\Home\28. Window\MVI_8767.npy,28. Window,train,10.0
+People/61. Father/MVI_3912.MOV,extracted_landmarks\People\61. Father\MVI_3912.npy,61. Father,train,31.0
+People/61. Father/MVI_3763.MOV,extracted_landmarks\People\61. Father\MVI_3763.npy,61. Father,train,31.0
+Adjectives/84. small little/MVI_9479.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9479.npy,84. small little,train,43.0
+Adjectives/84. small little/MVI_9321.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9321.npy,84. small little,train,43.0
+Adjectives/87. hot/MVI_9247.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9247.npy,87. hot,train,45.0
+Days_and_Time/78. Year/MVI_5492.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5492.npy,78. Year,train,38.0
+Home/34. Pen/MVI_8791.MP4,extracted_landmarks\Home\34. Pen\MVI_8791.npy,34. Pen,train,12.0
+Pronouns/40. I/MVI_9957.MOV,extracted_landmarks\Pronouns\40. I\MVI_9957.npy,40. I,train,16.0
+Clothes/44. Shoes/MVI_5176.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5176.npy,44. Shoes,train,19.0
+Adjectives/97. dry/MVI_9522.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9522.npy,97. dry,train,49.0
+Electronics/54. Cell phone/MVI_9100.MP4,extracted_landmarks\Electronics\54. Cell phone\MVI_9100.npy,54. Cell phone,train,28.0
+Adjectives/84. small little/MVI_9478.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9478.npy,84. small little,train,43.0
+Adjectives/94. good/MVI_5160.MOV,extracted_landmarks\Adjectives\94. good\MVI_5160.npy,94. good,train,48.0
+Pronouns/44. it/MVI_0025.MOV,extracted_landmarks\Pronouns\44. it\MVI_0025.npy,44. it,train,20.0
+Greetings/48. Hello/MVI_9956.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9956.npy,48. Hello,train,23.0
+Adjectives/78. long/MVI_9459.MOV,extracted_landmarks\Adjectives\78. long\MVI_9459.npy,78. long,train,39.0
+Adjectives/79. short/MVI_9461.MOV,extracted_landmarks\Adjectives\79. short\MVI_9461.npy,79. short,train,40.0
+Means_of_Transportation/16. train ticket/MVI_3133.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3133.npy,16. train ticket,train,4.0
+Pronouns/46. you (plural)/MVI_0023.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0023.npy,46. you (plural),train,21.0
+Animals/4. Bird/MVI_4157.MOV,extracted_landmarks\Animals\4. Bird\MVI_4157.npy,4. Bird,train,15.0
+Jobs/91. Priest/MVI_4486.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4486.npy,91. Priest,train,46.0
+Places/23. Court/MVI_3287.MOV,extracted_landmarks\Places\23. Court\MVI_3287.npy,23. Court,train,8.0
+Adjectives/94. good/MVI_9351.MOV,extracted_landmarks\Adjectives\94. good\MVI_9351.npy,94. good,train,48.0
+Home/34. Pen/MVI_9032.MP4,extracted_landmarks\Home\34. Pen\MVI_9032.npy,34. Pen,train,12.0
+People/61. Father/MVI_5228.MOV,extracted_landmarks\People\61. Father\MVI_5228.npy,61. Father,train,31.0
+People/77. Boy/MVI_4112.MOV,extracted_landmarks\People\77. Boy\MVI_4112.npy,77. Boy,train,36.0
+Days_and_Time/86. Time/MVI_5526.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5526.npy,86. Time,train,44.0
+People/61. Father/MVI_5081.MOV,extracted_landmarks\People\61. Father\MVI_5081.npy,61. Father,train,31.0
+Seasons/61. Summer/MVI_4990.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4990.npy,61. Summer,train,32.0
+Home/40. Paint/MVI_4926.MOV,extracted_landmarks\Home\40. Paint\MVI_4926.npy,40. Paint,train,17.0
+Animals/5. Cow/MVI_8569.MP4,extracted_landmarks\Animals\5. Cow\MVI_8569.npy,5. Cow,train,24.0
+Adjectives/78. long/MVI_5107.MOV,extracted_landmarks\Adjectives\78. long\MVI_5107.npy,78. long,train,39.0
+Clothes/37. Hat/MVI_4197.MOV,extracted_landmarks\Clothes\37. Hat\MVI_4197.npy,37. Hat,train,14.0
+Home/34. Pen/MVI_9034.MP4,extracted_landmarks\Home\34. Pen\MVI_9034.npy,34. Pen,train,12.0
+Seasons/64. Fall/MVI_9133.MP4,extracted_landmarks\Seasons\64. Fall\MVI_9133.npy,64. Fall,train,33.0
+Animals/4. Bird/MVI_3071.MOV,extracted_landmarks\Animals\4. Bird\MVI_3071.npy,4. Bird,train,15.0
+Colours/47. Red/MVI_3867.MOV,extracted_landmarks\Colours\47. Red\MVI_3867.npy,47. Red,train,22.0
+Greetings/51. Good Morning/MVI_9934.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9934.npy,51. Good Morning,train,25.0
+Adjectives/94. good/MVI_9268.MOV,extracted_landmarks\Adjectives\94. good\MVI_9268.npy,94. good,train,48.0
+Colours/55. White/MVI_4216.MOV,extracted_landmarks\Colours\55. White\MVI_4216.npy,55. White,train,30.0
+People/77. Boy/MVI_5133.MOV,extracted_landmarks\People\77. Boy\MVI_5133.npy,77. Boy,train,36.0
+Adjectives/3. happy/MVI_9374.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9374.npy,3. happy,train,11.0
+Adjectives/84. small little/MVI_9400.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9400.npy,84. small little,train,43.0
+Clothes/44. Shoes/MVI_5030.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5030.npy,44. Shoes,train,19.0
+Society/14. Election/MVI_4304.MOV,extracted_landmarks\Society\14. Election\MVI_4304.npy,14. Election,train,3.0
+Adjectives/2. quiet/MVI_9373.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9373.npy,2. quiet,train,7.0
+People/61. Father/MVI_4941.MOV,extracted_landmarks\People\61. Father\MVI_4941.npy,61. Father,train,31.0
+Animals/5. Cow/MVI_8570.MP4,extracted_landmarks\Animals\5. Cow\MVI_8570.npy,5. Cow,train,24.0
+Adjectives/79. short/MVI_5111.MOV,extracted_landmarks\Adjectives\79. short\MVI_5111.npy,79. short,train,40.0
+Clothes/37. Hat/MVI_3835.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3835.npy,37. Hat,train,14.0
+Greetings/55. Thank you/MVI_0007.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0007.npy,55. Thank you,train,29.0
+Adjectives/84. small little/MVI_9238.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9238.npy,84. small little,train,43.0
+Animals/5. Cow/MVI_3049.MOV,extracted_landmarks\Animals\5. Cow\MVI_3049.npy,5. Cow,train,24.0
+Adjectives/2. quiet/MVI_9292.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9292.npy,2. quiet,train,7.0
+Places/35. Bank/MVI_3500.MOV,extracted_landmarks\Places\35. Bank\MVI_3500.npy,35. Bank,train,13.0
+Seasons/64. Fall/MVI_9134.MP4,extracted_landmarks\Seasons\64. Fall\MVI_9134.npy,64. Fall,train,33.0
+Pronouns/40. I/MVI_0002.MOV,extracted_landmarks\Pronouns\40. I\MVI_0002.npy,40. I,train,16.0
+Pronouns/46. you (plural)/MVI_0024.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0024.npy,46. you (plural),train,21.0
+Home/40. Paint/MVI_8819.MP4,extracted_landmarks\Home\40. Paint\MVI_8819.npy,40. Paint,train,17.0
+Adjectives/78. long/MVI_9458.MOV,extracted_landmarks\Adjectives\78. long\MVI_9458.npy,78. long,train,39.0
+Places/19. House/MVI_3437.MOV,extracted_landmarks\Places\19. House\MVI_3437.npy,19. House,train,5.0
+Adjectives/91. new/MVI_5307.MOV,extracted_landmarks\Adjectives\91. new\MVI_5307.npy,91. new,train,47.0
+Adjectives/84. small little/MVI_5207.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5207.npy,84. small little,train,43.0
+Adjectives/83. big large/MVI_9477.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9477.npy,83. big large,train,41.0
+Adjectives/83. big large/MVI_9476.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9476.npy,83. big large,train,41.0
+Adjectives/83. big large/MVI_9235.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9235.npy,83. big large,train,41.0
+Animals/4. Bird/MVI_3040.MOV,extracted_landmarks\Animals\4. Bird\MVI_3040.npy,4. Bird,train,15.0
+Society/14. Election/MVI_8712.MP4,extracted_landmarks\Society\14. Election\MVI_8712.npy,14. Election,train,3.0
+Greetings/55. Thank you/MVI_9949.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9949.npy,55. Thank you,train,29.0
+Society/14. Election/MVI_8969.MP4,extracted_landmarks\Society\14. Election\MVI_8969.npy,14. Election,train,3.0
+Colours/47. Red/MVI_5039.MOV,extracted_landmarks\Colours\47. Red\MVI_5039.npy,47. Red,train,22.0
+Adjectives/91. new/MVI_9340.MOV,extracted_landmarks\Adjectives\91. new\MVI_9340.npy,91. new,train,47.0
+Adjectives/83. big large/MVI_9394.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9394.npy,83. big large,train,41.0
+Pronouns/44. it/MVI_9937.MOV,extracted_landmarks\Pronouns\44. it\MVI_9937.npy,44. it,train,20.0
+Places/35. Bank/MVI_3663.MOV,extracted_landmarks\Places\35. Bank\MVI_3663.npy,35. Bank,train,13.0
+Colours/54. Black/MVI_4918.MOV,extracted_landmarks\Colours\54. Black\MVI_4918.npy,54. Black,train,27.0
+Adjectives/3. happy/MVI_5343.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5343.npy,3. happy,train,11.0
+Colours/55. White/MVI_4044.MOV,extracted_landmarks\Colours\55. White\MVI_4044.npy,55. White,train,30.0
+Electronics/53. Fan/MVI_5389.MOV,extracted_landmarks\Electronics\53. Fan\MVI_5389.npy,53. Fan,train,26.0
+Places/28. Store or Shop/MVI_3554.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3554.npy,28. Store or Shop,train,9.0
+Animals/5. Cow/MVI_3098.MOV,extracted_landmarks\Animals\5. Cow\MVI_3098.npy,5. Cow,train,24.0
+Means_of_Transportation/16. train ticket/MVI_3194.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3194.npy,16. train ticket,train,4.0
+Home/34. Pen/MVI_8794.MP4,extracted_landmarks\Home\34. Pen\MVI_8794.npy,34. Pen,train,12.0
+Places/28. Store or Shop/MVI_3553.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3553.npy,28. Store or Shop,train,9.0
+Means_of_Transportation/11. Car/MVI_3210.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3210.npy,11. Car,train,2.0
+Greetings/51. Good Morning/MVI_0046.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0046.npy,51. Good Morning,train,25.0
+People/61. Father/MVI_4060.MOV,extracted_landmarks\People\61. Father\MVI_4060.npy,61. Father,train,31.0
+Seasons/61. Summer/MVI_4992.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4992.npy,61. Summer,train,32.0
+Animals/5. Cow/MVI_3046.MOV,extracted_landmarks\Animals\5. Cow\MVI_3046.npy,5. Cow,train,24.0
+Places/23. Court/MVI_3285.MOV,extracted_landmarks\Places\23. Court\MVI_3285.npy,23. Court,train,8.0
+Colours/47. Red/MVI_3719.MOV,extracted_landmarks\Colours\47. Red\MVI_3719.npy,47. Red,train,22.0
+Greetings/48. Hello/MVI_9917.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9917.npy,48. Hello,train,23.0
+Means_of_Transportation/16. train ticket/MVI_3224.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3224.npy,16. train ticket,train,4.0
+Adjectives/84. small little/MVI_9480.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9480.npy,84. small little,train,43.0
+Seasons/64. Fall/MVI_5000.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5000.npy,64. Fall,train,33.0
+Animals/4. Bird/MVI_4156.MOV,extracted_landmarks\Animals\4. Bird\MVI_4156.npy,4. Bird,val,15.0
+Home/34. Pen/MVI_8795.MP4,extracted_landmarks\Home\34. Pen\MVI_8795.npy,34. Pen,val,12.0
+Society/2. Death/MVI_8663.MP4,extracted_landmarks\Society\2. Death\MVI_8663.npy,2. Death,val,6.0
+Places/35. Bank/MVI_3421.MOV,extracted_landmarks\Places\35. Bank\MVI_3421.npy,35. Bank,val,13.0
+Clothes/44. Shoes/MVI_4008.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4008.npy,44. Shoes,val,19.0
+Adjectives/3. happy/MVI_9376.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9376.npy,3. happy,val,11.0
+Adjectives/84. small little/MVI_9237.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9237.npy,84. small little,val,43.0
+Days_and_Time/78. Year/MVI_9175.MP4,extracted_landmarks\Days_and_Time\78. Year\MVI_9175.npy,78. Year,val,38.0
+Adjectives/2. quiet/MVI_9537.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9537.npy,2. quiet,val,7.0
+Places/19. House/MVI_3514.MOV,extracted_landmarks\Places\19. House\MVI_3514.npy,19. House,val,5.0
+People/78. Girl/MVI_4115.MOV,extracted_landmarks\People\78. Girl\MVI_4115.npy,78. Girl,val,37.0
+Clothes/44. Shoes/MVI_3856.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3856.npy,44. Shoes,val,19.0
+Adjectives/3. happy/MVI_9456.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9456.npy,3. happy,val,11.0
+Pronouns/46. you (plural)/MVI_0032.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_0032.npy,46. you (plural),val,21.0
+Adjectives/78. long/MVI_5267.MOV,extracted_landmarks\Adjectives\78. long\MVI_5267.npy,78. long,val,39.0
+Colours/47. Red/MVI_4897.MOV,extracted_landmarks\Colours\47. Red\MVI_4897.npy,47. Red,val,22.0
+People/78. Girl/MVI_4986.MOV,extracted_landmarks\People\78. Girl\MVI_4986.npy,78. Girl,val,37.0
+People/61. Father/MVI_3909.MOV,extracted_landmarks\People\61. Father\MVI_3909.npy,61. Father,val,31.0
+Adjectives/1. loud/MVI_9534.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9534.npy,1. loud,val,1.0
+Means_of_Transportation/11. Car/MVI_3118.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3118.npy,11. Car,val,2.0
+Pronouns/40. I/MVI_9922.MOV,extracted_landmarks\Pronouns\40. I\MVI_9922.npy,40. I,val,16.0
+Means_of_Transportation/11. Car/MVI_3240.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3240.npy,11. Car,val,2.0
+Days_and_Time/86. Time/MVI_9204.MP4,extracted_landmarks\Days_and_Time\86. Time\MVI_9204.npy,86. Time,val,44.0
+Clothes/42. T-Shirt/MVI_5171.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5171.npy,42. T-Shirt,val,18.0
+Animals/1. Dog/MVI_8561.MP4,extracted_landmarks\Animals\1. Dog\MVI_8561.npy,1. Dog,val,0.0
+Clothes/37. Hat/MVI_3837.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3837.npy,37. Hat,val,14.0
+People/61. Father/MVI_8626.MP4,extracted_landmarks\People\61. Father\MVI_8626.npy,61. Father,val,31.0
+Adjectives/1. loud/MVI_5178.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5178.npy,1. loud,val,1.0
+Places/28. Store or Shop/MVI_3633.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3633.npy,28. Store or Shop,val,9.0
+Adjectives/87. hot/MVI_9410.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9410.npy,87. hot,val,45.0
+Home/40. Paint/MVI_8820.MP4,extracted_landmarks\Home\40. Paint\MVI_8820.npy,40. Paint,val,17.0
+People/66. Brother/MVI_5245.MOV,extracted_landmarks\People\66. Brother\MVI_5245.npy,66. Brother,val,34.0
+Jobs/91. Priest/MVI_8888.MP4,extracted_landmarks\Jobs\91. Priest\MVI_8888.npy,91. Priest,val,46.0
+Adjectives/84. small little/MVI_5208.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5208.npy,84. small little,val,43.0
+Places/28. Store or Shop/MVI_3307.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3307.npy,28. Store or Shop,val,9.0
+Adjectives/79. short/MVI_9302.MOV,extracted_landmarks\Adjectives\79. short\MVI_9302.npy,79. short,val,40.0
+Clothes/42. T-Shirt/MVI_5023.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_5023.npy,42. T-Shirt,val,18.0
+Places/23. Court/MVI_3284.MOV,extracted_landmarks\Places\23. Court\MVI_3284.npy,23. Court,val,8.0
+People/77. Boy/MVI_3962.MOV,extracted_landmarks\People\77. Boy\MVI_3962.npy,77. Boy,val,36.0
+Animals/5. Cow/MVI_4159.MOV,extracted_landmarks\Animals\5. Cow\MVI_4159.npy,5. Cow,val,24.0
+Home/28. Window/MVI_9013.MP4,extracted_landmarks\Home\28. Window\MVI_9013.npy,28. Window,val,10.0
+Adjectives/97. dry/MVI_9361.MOV,extracted_landmarks\Adjectives\97. dry\MVI_9361.npy,97. dry,val,49.0
+Seasons/61. Summer/MVI_5422.MOV,extracted_landmarks\Seasons\61. Summer\MVI_5422.npy,61. Summer,val,32.0
+Greetings/48. Hello/MVI_0039.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0039.npy,48. Hello,val,23.0
+Adjectives/97. dry/MVI_5248.MOV,extracted_landmarks\Adjectives\97. dry\MVI_5248.npy,97. dry,val,49.0
+Pronouns/40. I/MVI_0003.MOV,extracted_landmarks\Pronouns\40. I\MVI_0003.npy,40. I,val,16.0
+Pronouns/44. it/MVI_9939.MOV,extracted_landmarks\Pronouns\44. it\MVI_9939.npy,44. it,val,20.0
+Adjectives/2. quiet/MVI_5340.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5340.npy,2. quiet,val,7.0
+Society/14. Election/MVI_4306.MOV,extracted_landmarks\Society\14. Election\MVI_4306.npy,14. Election,val,3.0
+People/66. Brother/MVI_3778.MOV,extracted_landmarks\People\66. Brother\MVI_3778.npy,66. Brother,val,34.0
+Greetings/51. Good Morning/MVI_0099.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0099.npy,51. Good Morning,val,25.0
+Means_of_Transportation/16. train ticket/MVI_4192.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_4192.npy,16. train ticket,val,4.0
+Pronouns/46. you (plural)/MVI_9945.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9945.npy,46. you (plural),val,21.0
+Adjectives/91. new/MVI_9261.MOV,extracted_landmarks\Adjectives\91. new\MVI_9261.npy,91. new,val,47.0
+Adjectives/94. good/MVI_5159.MOV,extracted_landmarks\Adjectives\94. good\MVI_5159.npy,94. good,val,48.0
+Places/23. Court/MVI_3532.MOV,extracted_landmarks\Places\23. Court\MVI_3532.npy,23. Court,val,8.0
+People/77. Boy/MVI_3815.MOV,extracted_landmarks\People\77. Boy\MVI_3815.npy,77. Boy,val,36.0
+Places/19. House/MVI_3269.MOV,extracted_landmarks\Places\19. House\MVI_3269.npy,19. House,val,5.0
+Colours/54. Black/MVI_4039.MOV,extracted_landmarks\Colours\54. Black\MVI_4039.npy,54. Black,val,27.0
+Greetings/55. Thank you/MVI_0112.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0112.npy,55. Thank you,val,29.0
+Electronics/53. Fan/MVI_4964.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4964.npy,53. Fan,val,26.0
+Greetings/51. Good Morning/MVI_0044.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_0044.npy,51. Good Morning,val,25.0
+Adjectives/83. big large/MVI_5125.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5125.npy,83. big large,val,41.0
+Colours/55. White/MVI_3744.MOV,extracted_landmarks\Colours\55. White\MVI_3744.npy,55. White,val,30.0
+Adjectives/79. short/MVI_5190.MOV,extracted_landmarks\Adjectives\79. short\MVI_5190.npy,79. short,val,40.0
+Electronics/54. Cell phone/MVI_5394.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_5394.npy,54. Cell phone,val,28.0
+Colours/55. White/MVI_5063.MOV,extracted_landmarks\Colours\55. White\MVI_5063.npy,55. White,val,30.0
+Days_and_Time/67. Monday/MVI_5448.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5448.npy,67. Monday,val,35.0
+Jobs/84. Teacher/MVI_4745.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4745.npy,84. Teacher,val,42.0
+Adjectives/91. new/MVI_9423.MOV,extracted_landmarks\Adjectives\91. new\MVI_9423.npy,91. new,val,47.0
+Seasons/64. Fall/MVI_5433.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5433.npy,64. Fall,val,33.0
+Adjectives/83. big large/MVI_9396.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9396.npy,83. big large,val,41.0
+Animals/4. Bird/MVI_3011.MOV,extracted_landmarks\Animals\4. Bird\MVI_3011.npy,4. Bird,val,15.0
+Adjectives/94. good/MVI_9350.MOV,extracted_landmarks\Adjectives\94. good\MVI_9350.npy,94. good,val,48.0
+Colours/47. Red/MVI_3866.MOV,extracted_landmarks\Colours\47. Red\MVI_3866.npy,47. Red,val,22.0
+Places/35. Bank/MVI_3661.MOV,extracted_landmarks\Places\35. Bank\MVI_3661.npy,35. Bank,val,13.0
+Animals/5. Cow/MVI_4158.MOV,extracted_landmarks\Animals\5. Cow\MVI_4158.npy,5. Cow,val,24.0
+Greetings/51. Good Morning/MVI_9992.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9992.npy,51. Good Morning,test,25.0
+Days_and_Time/78. Year/MVI_4638.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_4638.npy,78. Year,test,38.0
+Electronics/53. Fan/MVI_4535.MOV,extracted_landmarks\Electronics\53. Fan\MVI_4535.npy,53. Fan,test,26.0
+Electronics/54. Cell phone/MVI_4967.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4967.npy,54. Cell phone,test,28.0
+Greetings/48. Hello/MVI_0031.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0031.npy,48. Hello,test,23.0
+Adjectives/84. small little/MVI_9320.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9320.npy,84. small little,test,43.0
+Adjectives/79. short/MVI_9303.MOV,extracted_landmarks\Adjectives\79. short\MVI_9303.npy,79. short,test,40.0
+Adjectives/87. hot/MVI_9248.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9248.npy,87. hot,test,45.0
+Places/35. Bank/MVI_3584.MOV,extracted_landmarks\Places\35. Bank\MVI_3584.npy,35. Bank,test,13.0
+Adjectives/79. short/MVI_5191.MOV,extracted_landmarks\Adjectives\79. short\MVI_5191.npy,79. short,test,40.0
+Clothes/42. T-Shirt/MVI_3704.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3704.npy,42. T-Shirt,test,18.0
+Clothes/37. Hat/MVI_4865.MOV,extracted_landmarks\Clothes\37. Hat\MVI_4865.npy,37. Hat,test,14.0
+Means_of_Transportation/11. Car/MVI_3145.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3145.npy,11. Car,test,2.0
+Adjectives/2. quiet/MVI_9539.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9539.npy,2. quiet,test,7.0
+Society/14. Election/MVI_4841.MOV,extracted_landmarks\Society\14. Election\MVI_4841.npy,14. Election,test,3.0
+Pronouns/46. you (plural)/MVI_9948.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9948.npy,46. you (plural),test,21.0
+People/77. Boy/MVI_4111.MOV,extracted_landmarks\People\77. Boy\MVI_4111.npy,77. Boy,test,36.0
+Adjectives/94. good/MVI_9430.MOV,extracted_landmarks\Adjectives\94. good\MVI_9430.npy,94. good,test,48.0
+People/78. Girl/MVI_4985.MOV,extracted_landmarks\People\78. Girl\MVI_4985.npy,78. Girl,test,37.0
+People/77. Boy/MVI_5134.MOV,extracted_landmarks\People\77. Boy\MVI_5134.npy,77. Boy,test,36.0
+Days_and_Time/67. Monday/MVI_5447.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_5447.npy,67. Monday,test,35.0
+Adjectives/84. small little/MVI_5127.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5127.npy,84. small little,test,43.0
+Adjectives/3. happy/MVI_9297.MOV,extracted_landmarks\Adjectives\3. happy\MVI_9297.npy,3. happy,test,11.0
+Places/35. Bank/MVI_3419.MOV,extracted_landmarks\Places\35. Bank\MVI_3419.npy,35. Bank,test,13.0
+Greetings/55. Thank you/MVI_0060_.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0060_.npy,55. Thank you,test,29.0
+Jobs/84. Teacher/MVI_5313.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_5313.npy,84. Teacher,test,42.0
+Places/28. Store or Shop/MVI_3384.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3384.npy,28. Store or Shop,test,9.0
+Adjectives/87. hot/MVI_9489.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9489.npy,87. hot,test,45.0
+People/61. Father/MVI_5082.MOV,extracted_landmarks\People\61. Father\MVI_5082.npy,61. Father,test,31.0
+Places/23. Court/MVI_3365.MOV,extracted_landmarks\Places\23. Court\MVI_3365.npy,23. Court,test,8.0
+Greetings/55. Thank you/MVI_9984.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9984.npy,55. Thank you,test,29.0
+Clothes/44. Shoes/MVI_4889.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4889.npy,44. Shoes,test,19.0
+Electronics/54. Cell phone/MVI_4537.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4537.npy,54. Cell phone,test,28.0
+Electronics/54. Cell phone/MVI_5393.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_5393.npy,54. Cell phone,test,28.0
+Days_and_Time/78. Year/MVI_5494.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5494.npy,78. Year,test,38.0
+Animals/5. Cow/MVI_3048.MOV,extracted_landmarks\Animals\5. Cow\MVI_3048.npy,5. Cow,test,24.0
+Animals/1. Dog/MVI_8560.MP4,extracted_landmarks\Animals\1. Dog\MVI_8560.npy,1. Dog,test,0.0
+Adjectives/78. long/MVI_9379.MOV,extracted_landmarks\Adjectives\78. long\MVI_9379.npy,78. long,test,39.0
+Means_of_Transportation/16. train ticket/MVI_3195.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3195.npy,16. train ticket,test,4.0
+People/77. Boy/MVI_8644.MP4,extracted_landmarks\People\77. Boy\MVI_8644.npy,77. Boy,test,36.0
+Days_and_Time/86. Time/MVI_5527.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5527.npy,86. Time,test,44.0
+Seasons/64. Fall/MVI_5435.MOV,extracted_landmarks\Seasons\64. Fall\MVI_5435.npy,64. Fall,test,33.0
+Pronouns/40. I/MVI_0014.MOV,extracted_landmarks\Pronouns\40. I\MVI_0014.npy,40. I,test,16.0
+Pronouns/40. I/MVI_9880.MOV,extracted_landmarks\Pronouns\40. I\MVI_9880.npy,40. I,test,16.0
+Clothes/37. Hat/MVI_8600.MP4,extracted_landmarks\Clothes\37. Hat\MVI_8600.npy,37. Hat,test,14.0
+Clothes/44. Shoes/MVI_5029.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_5029.npy,44. Shoes,test,19.0
+Adjectives/87. hot/MVI_9487.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9487.npy,87. hot,test,45.0
+Adjectives/83. big large/MVI_5283.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5283.npy,83. big large,test,41.0
+Adjectives/1. loud/MVI_9369.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9369.npy,1. loud,test,1.0
+Means_of_Transportation/16. train ticket/MVI_8597.MP4,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_8597.npy,16. train ticket,test,4.0
+Animals/1. Dog/MVI_3029.MOV,extracted_landmarks\Animals\1. Dog\MVI_3029.npy,1. Dog,test,0.0
+People/78. Girl/MVI_5136.MOV,extracted_landmarks\People\78. Girl\MVI_5136.npy,78. Girl,test,37.0
+Greetings/48. Hello/MVI_9957.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9957.npy,48. Hello,test,23.0
+Greetings/55. Thank you/MVI_0006.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0006.npy,55. Thank you,test,29.0
+Pronouns/44. it/MVI_9969.MOV,extracted_landmarks\Pronouns\44. it\MVI_9969.npy,44. it,test,20.0
+Greetings/55. Thank you/MVI_0113.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_0113.npy,55. Thank you,test,29.0
+Pronouns/44. it/MVI_9971.MOV,extracted_landmarks\Pronouns\44. it\MVI_9971.npy,44. it,test,20.0
+Days_and_Time/86. Time/MVI_5525.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5525.npy,86. Time,test,44.0
+Adjectives/87. hot/MVI_9408.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9408.npy,87. hot,test,45.0
+Jobs/84. Teacher/MVI_4460.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4460.npy,84. Teacher,test,42.0
+Adjectives/79. short/MVI_9220.MOV,extracted_landmarks\Adjectives\79. short\MVI_9220.npy,79. short,test,40.0
+Adjectives/83. big large/MVI_9475.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9475.npy,83. big large,test,41.0
+Means_of_Transportation/16. train ticket/MVI_3225.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3225.npy,16. train ticket,test,4.0
+Adjectives/1. loud/MVI_9289.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9289.npy,1. loud,test,1.0
+Animals/5. Cow/MVI_3073.MOV,extracted_landmarks\Animals\5. Cow\MVI_3073.npy,5. Cow,test,24.0
+Adjectives/1. loud/MVI_5258.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5258.npy,1. loud,test,1.0
+Pronouns/44. it/MVI_9900.MOV,extracted_landmarks\Pronouns\44. it\MVI_9900.npy,44. it,test,20.0
+Adjectives/91. new/MVI_5230.MOV,extracted_landmarks\Adjectives\91. new\MVI_5230.npy,91. new,test,47.0
+Home/28. Window/MVI_9015.MP4,extracted_landmarks\Home\28. Window\MVI_9015.npy,28. Window,test,10.0
+Pronouns/46. you (plural)/MVI_9907.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9907.npy,46. you (plural),test,21.0
+Home/28. Window/MVI_4363.MOV,extracted_landmarks\Home\28. Window\MVI_4363.npy,28. Window,test,10.0
+Places/35. Bank/MVI_3335.MOV,extracted_landmarks\Places\35. Bank\MVI_3335.npy,35. Bank,test,13.0
+Colours/54. Black/MVI_4920.MOV,extracted_landmarks\Colours\54. Black\MVI_4920.npy,54. Black,test,27.0
+Society/2. Death/MVI_4255.MOV,extracted_landmarks\Society\2. Death\MVI_4255.npy,2. Death,test,6.0
+Home/40. Paint/MVI_4415.MOV,extracted_landmarks\Home\40. Paint\MVI_4415.npy,40. Paint,test,17.0
+Pronouns/44. it/MVI_9899.MOV,extracted_landmarks\Pronouns\44. it\MVI_9899.npy,44. it,test,20.0
+Greetings/55. Thank you/MVI_9987.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9987.npy,55. Thank you,test,29.0
+Adjectives/87. hot/MVI_5216.MOV,extracted_landmarks\Adjectives\87. hot\MVI_5216.npy,87. hot,test,45.0
+Places/23. Court/MVI_3286.MOV,extracted_landmarks\Places\23. Court\MVI_3286.npy,23. Court,test,8.0
+Places/28. Store or Shop/MVI_3552.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3552.npy,28. Store or Shop,test,9.0
+Seasons/61. Summer/MVI_4991.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4991.npy,61. Summer,test,32.0
+Animals/1. Dog/MVI_4147.MOV,extracted_landmarks\Animals\1. Dog\MVI_4147.npy,1. Dog,test,0.0
+Animals/4. Bird/MVI_2988.MOV,extracted_landmarks\Animals\4. Bird\MVI_2988.npy,4. Bird,test,15.0
+Days_and_Time/67. Monday/MVI_4593.MOV,extracted_landmarks\Days_and_Time\67. Monday\MVI_4593.npy,67. Monday,test,35.0
+Seasons/61. Summer/MVI_9122.MP4,extracted_landmarks\Seasons\61. Summer\MVI_9122.npy,61. Summer,test,32.0
+Colours/55. White/MVI_5211.MOV,extracted_landmarks\Colours\55. White\MVI_5211.npy,55. White,test,30.0
+Home/40. Paint/MVI_8821.MP4,extracted_landmarks\Home\40. Paint\MVI_8821.npy,40. Paint,test,17.0
+Greetings/48. Hello/MVI_0029.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0029.npy,48. Hello,test,23.0
+Colours/54. Black/MVI_3740.MOV,extracted_landmarks\Colours\54. Black\MVI_3740.npy,54. Black,test,27.0
+Adjectives/1. loud/MVI_9536.MOV,extracted_landmarks\Adjectives\1. loud\MVI_9536.npy,1. loud,test,1.0
+People/66. Brother/MVI_5097.MOV,extracted_landmarks\People\66. Brother\MVI_5097.npy,66. Brother,test,34.0
+Adjectives/2. quiet/MVI_5180.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_5180.npy,2. quiet,test,7.0
+Seasons/61. Summer/MVI_4568.MOV,extracted_landmarks\Seasons\61. Summer\MVI_4568.npy,61. Summer,test,32.0
+Means_of_Transportation/16. train ticket/MVI_3132.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3132.npy,16. train ticket,test,4.0
+Pronouns/44. it/MVI_0076.MOV,extracted_landmarks\Pronouns\44. it\MVI_0076.npy,44. it,test,20.0
+Clothes/37. Hat/MVI_3836.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3836.npy,37. Hat,test,14.0
+Seasons/64. Fall/MVI_4578.MOV,extracted_landmarks\Seasons\64. Fall\MVI_4578.npy,64. Fall,test,33.0
+Means_of_Transportation/11. Car/MVI_3174.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3174.npy,11. Car,test,2.0
+Adjectives/83. big large/MVI_5203.MOV,extracted_landmarks\Adjectives\83. big large\MVI_5203.npy,83. big large,test,41.0
+Adjectives/78. long/MVI_9219.MOV,extracted_landmarks\Adjectives\78. long\MVI_9219.npy,78. long,test,39.0
+Adjectives/78. long/MVI_9300.MOV,extracted_landmarks\Adjectives\78. long\MVI_9300.npy,78. long,test,39.0
+Places/35. Bank/MVI_3338.MOV,extracted_landmarks\Places\35. Bank\MVI_3338.npy,35. Bank,test,13.0
+Colours/54. Black/MVI_5207.MOV,extracted_landmarks\Colours\54. Black\MVI_5207.npy,54. Black,test,27.0
+Society/2. Death/MVI_8931.MP4,extracted_landmarks\Society\2. Death\MVI_8931.npy,2. Death,test,6.0
+Clothes/44. Shoes/MVI_4010.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_4010.npy,44. Shoes,test,19.0
+Days_and_Time/78. Year/MVI_4636.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_4636.npy,78. Year,test,38.0
+Places/28. Store or Shop/MVI_3472.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3472.npy,28. Store or Shop,test,9.0
+Jobs/84. Teacher/MVI_4457.MOV,extracted_landmarks\Jobs\84. Teacher\MVI_4457.npy,84. Teacher,test,42.0
+Adjectives/94. good/MVI_5158.MOV,extracted_landmarks\Adjectives\94. good\MVI_5158.npy,94. good,test,48.0
+Animals/5. Cow/MVI_3016.MOV,extracted_landmarks\Animals\5. Cow\MVI_3016.npy,5. Cow,test,24.0
+Days_and_Time/78. Year/MVI_4635.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_4635.npy,78. Year,test,38.0
+Greetings/51. Good Morning/MVI_9971.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9971.npy,51. Good Morning,test,25.0
+Greetings/55. Thank you/MVI_9948.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9948.npy,55. Thank you,test,29.0
+Means_of_Transportation/16. train ticket/MVI_3253.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3253.npy,16. train ticket,test,4.0
+Adjectives/78. long/MVI_5268.MOV,extracted_landmarks\Adjectives\78. long\MVI_5268.npy,78. long,test,39.0
+Places/35. Bank/MVI_3503.MOV,extracted_landmarks\Places\35. Bank\MVI_3503.npy,35. Bank,test,13.0
+Adjectives/78. long/MVI_5106.MOV,extracted_landmarks\Adjectives\78. long\MVI_5106.npy,78. long,test,39.0
+Adjectives/84. small little/MVI_5206.MOV,extracted_landmarks\Adjectives\84. small little\MVI_5206.npy,84. small little,test,43.0
+Colours/47. Red/MVI_5186.MOV,extracted_landmarks\Colours\47. Red\MVI_5186.npy,47. Red,test,22.0
+Clothes/44. Shoes/MVI_3858.MOV,extracted_landmarks\Clothes\44. Shoes\MVI_3858.npy,44. Shoes,test,19.0
+People/66. Brother/MVI_3927.MOV,extracted_landmarks\People\66. Brother\MVI_3927.npy,66. Brother,test,34.0
+Pronouns/44. it/MVI_0024.MOV,extracted_landmarks\Pronouns\44. it\MVI_0024.npy,44. it,test,20.0
+Means_of_Transportation/11. Car/MVI_3116.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3116.npy,11. Car,test,2.0
+Society/14. Election/MVI_8967.MP4,extracted_landmarks\Society\14. Election\MVI_8967.npy,14. Election,test,3.0
+Adjectives/78. long/MVI_9377.MOV,extracted_landmarks\Adjectives\78. long\MVI_9377.npy,78. long,test,39.0
+Places/35. Bank/MVI_3581.MOV,extracted_landmarks\Places\35. Bank\MVI_3581.npy,35. Bank,test,13.0
+Adjectives/3. happy/MVI_5263.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5263.npy,3. happy,test,11.0
+Greetings/48. Hello/MVI_0030.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0030.npy,48. Hello,test,23.0
+Electronics/54. Cell phone/MVI_4969.MOV,extracted_landmarks\Electronics\54. Cell phone\MVI_4969.npy,54. Cell phone,test,28.0
+Greetings/51. Good Morning/MVI_9993.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9993.npy,51. Good Morning,test,25.0
+Colours/47. Red/MVI_4898.MOV,extracted_landmarks\Colours\47. Red\MVI_4898.npy,47. Red,test,22.0
+Adjectives/83. big large/MVI_9395.MOV,extracted_landmarks\Adjectives\83. big large\MVI_9395.npy,83. big large,test,41.0
+Days_and_Time/78. Year/MVI_4637.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_4637.npy,78. Year,test,38.0
+Animals/1. Dog/MVI_3086.MOV,extracted_landmarks\Animals\1. Dog\MVI_3086.npy,1. Dog,test,0.0
+Adjectives/94. good/MVI_5239.MOV,extracted_landmarks\Adjectives\94. good\MVI_5239.npy,94. good,test,48.0
+Pronouns/44. it/MVI_0077.MOV,extracted_landmarks\Pronouns\44. it\MVI_0077.npy,44. it,test,20.0
+Adjectives/1. loud/MVI_5177.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5177.npy,1. loud,test,1.0
+Adjectives/79. short/MVI_5271.MOV,extracted_landmarks\Adjectives\79. short\MVI_5271.npy,79. short,test,40.0
+Adjectives/3. happy/MVI_5183.MOV,extracted_landmarks\Adjectives\3. happy\MVI_5183.npy,3. happy,test,11.0
+Animals/1. Dog/MVI_2978.MOV,extracted_landmarks\Animals\1. Dog\MVI_2978.npy,1. Dog,test,0.0
+Home/28. Window/MVI_8768.MP4,extracted_landmarks\Home\28. Window\MVI_8768.npy,28. Window,test,10.0
+Days_and_Time/78. Year/MVI_9177.MP4,extracted_landmarks\Days_and_Time\78. Year\MVI_9177.npy,78. Year,test,38.0
+People/66. Brother/MVI_3929.MOV,extracted_landmarks\People\66. Brother\MVI_3929.npy,66. Brother,test,34.0
+Pronouns/40. I/MVI_0064.MOV,extracted_landmarks\Pronouns\40. I\MVI_0064.npy,40. I,test,16.0
+Adjectives/91. new/MVI_5150.MOV,extracted_landmarks\Adjectives\91. new\MVI_5150.npy,91. new,test,47.0
+Adjectives/91. new/MVI_9501.MOV,extracted_landmarks\Adjectives\91. new\MVI_9501.npy,91. new,test,47.0
+Means_of_Transportation/16. train ticket/MVI_3197.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3197.npy,16. train ticket,test,4.0
+Society/2. Death/MVI_4801.MOV,extracted_landmarks\Society\2. Death\MVI_4801.npy,2. Death,test,6.0
+Society/2. Death/MVI_4256.MOV,extracted_landmarks\Society\2. Death\MVI_4256.npy,2. Death,test,6.0
+Animals/1. Dog/MVI_3087.MOV,extracted_landmarks\Animals\1. Dog\MVI_3087.npy,1. Dog,test,0.0
+Clothes/42. T-Shirt/MVI_4004.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_4004.npy,42. T-Shirt,test,18.0
+Adjectives/79. short/MVI_9462.MOV,extracted_landmarks\Adjectives\79. short\MVI_9462.npy,79. short,test,40.0
+Electronics/53. Fan/MVI_5388.MOV,extracted_landmarks\Electronics\53. Fan\MVI_5388.npy,53. Fan,test,26.0
+Home/34. Pen/MVI_4906.MOV,extracted_landmarks\Home\34. Pen\MVI_4906.npy,34. Pen,test,12.0
+Clothes/37. Hat/MVI_5156.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5156.npy,37. Hat,test,14.0
+Greetings/48. Hello/MVI_0091.MOV,extracted_landmarks\Greetings\48. Hello\MVI_0091.npy,48. Hello,test,23.0
+Clothes/37. Hat/MVI_5155.MOV,extracted_landmarks\Clothes\37. Hat\MVI_5155.npy,37. Hat,test,14.0
+Greetings/48. Hello/MVI_9915.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9915.npy,48. Hello,test,23.0
+Greetings/55. Thank you/MVI_9951.MOV,extracted_landmarks\Greetings\55. Thank you\MVI_9951.npy,55. Thank you,test,29.0
+People/77. Boy/MVI_5287.MOV,extracted_landmarks\People\77. Boy\MVI_5287.npy,77. Boy,test,36.0
+Society/2. Death/MVI_4800.MOV,extracted_landmarks\Society\2. Death\MVI_4800.npy,2. Death,test,6.0
+Electronics/53. Fan/MVI_5387.MOV,extracted_landmarks\Electronics\53. Fan\MVI_5387.npy,53. Fan,test,26.0
+Pronouns/46. you (plural)/MVI_9905.MOV,extracted_landmarks\Pronouns\46. you (plural)\MVI_9905.npy,46. you (plural),test,21.0
+Places/23. Court/MVI_3611.MOV,extracted_landmarks\Places\23. Court\MVI_3611.npy,23. Court,test,8.0
+Places/28. Store or Shop/MVI_3634.MOV,extracted_landmarks\Places\28. Store or Shop\MVI_3634.npy,28. Store or Shop,test,9.0
+Animals/1. Dog/MVI_2980.MOV,extracted_landmarks\Animals\1. Dog\MVI_2980.npy,1. Dog,test,0.0
+Clothes/42. T-Shirt/MVI_3852.MOV,extracted_landmarks\Clothes\42. T-Shirt\MVI_3852.npy,42. T-Shirt,test,18.0
+Means_of_Transportation/16. train ticket/MVI_4193.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_4193.npy,16. train ticket,test,4.0
+Pronouns/44. it/MVI_0015.MOV,extracted_landmarks\Pronouns\44. it\MVI_0015.npy,44. it,test,20.0
+Jobs/91. Priest/MVI_4772.MOV,extracted_landmarks\Jobs\91. Priest\MVI_4772.npy,91. Priest,test,46.0
+Greetings/51. Good Morning/MVI_9969.MOV,extracted_landmarks\Greetings\51. Good Morning\MVI_9969.npy,51. Good Morning,test,25.0
+Pronouns/44. it/MVI_0026.MOV,extracted_landmarks\Pronouns\44. it\MVI_0026.npy,44. it,test,20.0
+Seasons/64. Fall/MVI_9132.MP4,extracted_landmarks\Seasons\64. Fall\MVI_9132.npy,64. Fall,test,33.0
+Home/40. Paint/MVI_8817.MP4,extracted_landmarks\Home\40. Paint\MVI_8817.npy,40. Paint,test,17.0
+People/66. Brother/MVI_4077.MOV,extracted_landmarks\People\66. Brother\MVI_4077.npy,66. Brother,test,34.0
+Clothes/37. Hat/MVI_3984.MOV,extracted_landmarks\Clothes\37. Hat\MVI_3984.npy,37. Hat,test,14.0
+Colours/54. Black/MVI_3742.MOV,extracted_landmarks\Colours\54. Black\MVI_3742.npy,54. Black,test,27.0
+Adjectives/84. small little/MVI_9397.MOV,extracted_landmarks\Adjectives\84. small little\MVI_9397.npy,84. small little,test,43.0
+Adjectives/1. loud/MVI_5259.MOV,extracted_landmarks\Adjectives\1. loud\MVI_5259.npy,1. loud,test,1.0
+Greetings/48. Hello/MVI_9982.MOV,extracted_landmarks\Greetings\48. Hello\MVI_9982.npy,48. Hello,test,23.0
+Days_and_Time/86. Time/MVI_5077.MOV,extracted_landmarks\Days_and_Time\86. Time\MVI_5077.npy,86. Time,test,44.0
+People/66. Brother/MVI_3779.MOV,extracted_landmarks\People\66. Brother\MVI_3779.npy,66. Brother,test,34.0
+Adjectives/87. hot/MVI_9329.MOV,extracted_landmarks\Adjectives\87. hot\MVI_9329.npy,87. hot,test,45.0
+People/61. Father/MVI_5080.MOV,extracted_landmarks\People\61. Father\MVI_5080.npy,61. Father,test,31.0
+Adjectives/79. short/MVI_9222.MOV,extracted_landmarks\Adjectives\79. short\MVI_9222.npy,79. short,test,40.0
+Means_of_Transportation/16. train ticket/MVI_3163.MOV,extracted_landmarks\Means_of_Transportation\16. train ticket\MVI_3163.npy,16. train ticket,test,4.0
+Means_of_Transportation/11. Car/MVI_3176.MOV,extracted_landmarks\Means_of_Transportation\11. Car\MVI_3176.npy,11. Car,test,2.0
+Adjectives/2. quiet/MVI_9372.MOV,extracted_landmarks\Adjectives\2. quiet\MVI_9372.npy,2. quiet,test,7.0
+Home/34. Pen/MVI_8793.MP4,extracted_landmarks\Home\34. Pen\MVI_8793.npy,34. Pen,test,12.0
+Colours/54. Black/MVI_4041.MOV,extracted_landmarks\Colours\54. Black\MVI_4041.npy,54. Black,test,27.0
+Days_and_Time/78. Year/MVI_5049.MOV,extracted_landmarks\Days_and_Time\78. Year\MVI_5049.npy,78. Year,test,38.0
