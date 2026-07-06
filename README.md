@@ -22,14 +22,93 @@ Most sign language translation projects focus on American Sign Language (ASL). I
 **Output:**
 - `landmarks.npy` — saved landmark sequences from recorded signing
 
+### ✅ Stage 2 — Complete
+**Bi-LSTM Word Recognition on INCLUDE-50**
+- Downloaded and extracted 943 ISL sign videos (675 train / 77 val / 191 test) from 50 word classes across 15 categories
+- Built Bi-LSTM sequence classifier with data augmentation (Gaussian noise, time-scaling, spatial-scaling)
+- Trained with early stopping, achieving **36.6% signer-independent test accuracy** (18× better than random chance on 50 classes)
+
+**Key Technical Findings:**
+- **Signer-Independent Generalization:** Validation accuracy reached ~55% while test accuracy settled at 36.6%. This gap reveals a crucial insight: the model learned to recognize signs but also partly memorized individual signer characteristics. The test set contains signers not present in training — a known research challenge in sign language recognition.
+- **Data Augmentation Impact:** Adding proper shuffling + augmentation increased validation accuracy from 44% to 55%, confirming the importance of data augmentation on small datasets (675 examples).
+- **Architecture Optimization:** Smaller model (128 hidden units, 1 layer) with dropout=0.5 outperformed larger architectures, indicating that constraining model capacity was more effective than increasing it for this dataset size.
+
+**Model Performance by Class:**
+- **Perfect (100% recall):** "16. train ticket", "2. Death", "28. Window", "86. Time", "84. Teacher"
+- **Strong (80%+):** "1. Dog" (83%), "1. loud" (92%), "11. Car" (93%), "23. Court" (100%), "28. Store or Shop" (100%)
+- **Weak (<30% recall):** "19. House" (0%), "34. Pen" (27%), "53. Fan" (18%), "47. Red" (12%), "44. it" (9%)
+- Classes with poorest performance had the fewest training examples (5-11 clips)
+
+**Files:**
+- `extract_keypoints.py` — extract landmarks from all 943 INCLUDE-50 videos
+- `ISL.ipynb` — Colab notebook for Bi-LSTM training (10 cells)
+- `extracted_landmarks/` — 943 .npy files with landmark sequences per video
+- `landmarks_index.csv` — metadata mapping videos to labels, class indices, and train/val/test splits
+- `label_map.csv` — 50-class label-to-index mapping for model inference
+- `isl_bilstm_checkpoint.pt` — trained model weights + full metadata for Stage 3 inference
+- `training_curves_final.png` — loss and accuracy plots across 80 epochs
+- `confusion_matrix_final.png` — 50×50 confusion matrix showing per-class predictions
+
+**Training Curves:**
+![Training Curves](<img width="2100" height="750" alt="training_curves (1)" src="https://github.com/user-attachments/assets/feed18ac-6624-45dc-9698-c18da297044e" />
+)
+*Loss and accuracy across 80 epochs. Train loss decreases smoothly while val accuracy plateaus around 55%, reflecting the signer-independent generalization challenge.*
+
+**Confusion Matrix (Test Set):**
+![Confusion Matrix](<img width="3000" height="2700" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/a5d63e12-78e3-4541-af9a-5172e65f00af" />
+)
+*50×50 matrix showing predicted vs. true class for all 191 test samples. Diagonal blocks (dark blue) indicate correct predictions. Classes like "16. train ticket", "2. Death", "86. Time" achieve near-perfect recall. Classes with few training examples (rows like "19. House", "34. Pen") have zero correct predictions, indicating data scarcity is the limiting factor.*
+
+**Model Architecture:**
+```
+Input: (batch_size, variable_frames, 1692 landmarks)
+  ↓
+Bi-LSTM: 2 layers → 128 hidden units, bidirectional
+  ↓
+Last hidden state concatenation: 128*2 = 256 dims
+  ↓
+Dropout (p=0.5) → Linear(256 → 50)
+  ↓
+Output: 50-class logits (softmax at inference)
+
+Total parameters: 1.8M
+```
+
+**Training Details:**
+- Optimizer: Adam (lr=1e-3, weight_decay=1e-4)
+- Loss: CrossEntropyLoss
+- Batch size: 32
+- Max epochs: 80 with early stopping (patience=12)
+- LR scheduler: ReduceLROnPlateau (factor=0.5, patience=4)
+- Data augmentation: applied only to training, not val/test
+
+### 🔄 Stage 3 — In Progress
+**Real-Time Inference Pipeline**
+- Integrate trained Bi-LSTM with Stage 1 webcam capture
+- Implement sliding window (60-frame buffer) for temporal context
+- Add majority-vote smoothing to stabilize predictions
+- Display recognized word + confidence on screen
+
 ---
 
 ## Technical Stack
 
-### Vision & Landmarks
-- **MediaPipe 0.10.35** — Hand, Pose, and Face landmark detection
+### Stage 1 — Vision & Landmarks
+- **MediaPipe 0.10.35** — Hand, Pose, and Face landmark detection via Tasks API
 - **OpenCV** — webcam capture and real-time visualization
 - **NumPy** — array operations and efficient storage
+
+### Stage 2 — Sequence Modeling & Training
+- **PyTorch** — Bi-LSTM implementation, training loop, early stopping
+- **scikit-learn** — confusion matrix, classification metrics
+- **Pandas** — dataset management and metadata tracking
+- **Matplotlib + Seaborn** — training curves and confusion matrix visualization
+- **Google Colab** — T4 GPU for efficient training (optional; CPU also works)
+
+### Stage 3+ (Planned)
+- **IndicTrans2** — ISL gloss → regional language (Hindi/Marathi/Tamil) translation
+- **gTTS/pyttsx3** — text-to-speech output
+- **Streamlit or React** — frontend for deployment
 
 ---
 
@@ -78,7 +157,7 @@ python -c "import mediapipe as mp; print('MediaPipe version:', mp.__version__)"
 
 ### Run the Real-Time Pipeline
 ```bash
-python main.py
+python stage1_landmark_extraction.py
 ```
 
 A window titled **"ISL LANDMARK EXTRACTION - STAGE 1 (TASKS API)"** will open showing your webcam feed with live landmark dots and skeleton overlays.
@@ -135,40 +214,69 @@ stage1_landmark_extraction.py
 
 ---
 
-## Dataset: INCLUDE-50
+## Dataset: INCLUDE-50 (AI4Bharat)
 
-**Stage 2** will use the [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI4Bharat:
-- **50 everyday ISL words** (greetings, colors, family, places, etc.)
-- Multiple signers, multiple takes per sign
-- Filmed in Chennai, Tamil Nadu (note: ISL varies regionally across India)
-- Available on Hugging Face + GitHub
+The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI4Bharat is a curated collection of ISL sign videos.
 
-Early collection in Stage 1 is intentional — recording 5–10 extra examples per sign yourself improves robustness and is a strong portfolio signal ("collected my own data").
+**INCLUDE-50 Subset Used:**
+- **943 total videos** across 50 ISL word classes
+- **Training:** 675 videos (67 per class on average, range 5–233)
+- **Validation:** 77 videos (1.5 per class)
+- **Test:** 191 videos (3.8 per class)
+- **15 categories:** Adjectives, Animals, Clothes, Colours, Days_and_Time, Electronics, Greetings, Home, Jobs, Means_of_Transportation, People, Places, Pronouns, Seasons, Society
+- **Filmed in:** Chennai, Tamil Nadu
+- **Signers:** Multiple (signer-independent test set means unseen signers in test split)
+- **Frame range per clip:** 45–200 frames (~1.5–6.5 seconds at 30 FPS)
+
+**Class Imbalance:** Adjectives dominates with 233 training clips (25% of dataset), while Seasons, Society, and Jobs have only 28–29 clips each. This imbalance is reflected in per-class accuracy variation (100% for well-sampled classes like "16. train ticket", 0% for under-sampled classes like "19. House").
+
+**Regional Note:** ISL varies across India. This dataset focuses on Chennai/Tamil Nadu signing conventions. Future work should include signers from Delhi, Mumbai, Bangalore for geographic coverage.
 
 ---
 
 ## Known Limitations & Future Work
 
-### Current Constraints
+### Stage 1–2 Constraints (Current)
+- **Signer-dependent memorization** — Model achieves 55% val accuracy but only 36.6% test accuracy on unseen signers, indicating it partly learned individual signer characteristics rather than pure sign patterns. This is a known challenge in sign language recognition and requires larger, more diverse training data.
+- **Class imbalance** — Adjectives has 233 training clips while Society/Jobs/Electronics have ~29 each. Rare classes have near-zero recall. Balanced sampling or class weighting could help.
+- **Limited training data** — 675 examples across 50 classes (13 per class) is below the typically recommended ~100+ per class for deep learning. Data augmentation helped (44% → 55% val) but is no substitute for more real data.
 - **Single face/body detection** — script assumes one signer in frame
 - **No temporal smoothing yet** — rapid prediction changes between frames (fixed in Stage 3)
-- **Webcam-only input** — video file support coming in Stage 2
 
-### Regional Variations
-This project focuses on ISL as spoken in Chennai (INCLUDE dataset origin). ISL is not monolithic — regional variations exist. Future work should include signers from other regions (Delhi, Mumbai, Bangalore) to build a more inclusive model.
+### Stage 3–5 Constraints (Upcoming)
+- **Gloss-to-translation pipeline** — IndicTrans2 works well for written ISL gloss sequences, but the quality of input gloss directly impacts translation accuracy. Errors propagate from Stage 2 → Stage 4.
+- **TTS voice quality** — gTTS may not match the naturalness expected for real sign-language users. Investiga alternative TTS models.
+- **No sentence context** — Currently recognizes individual words. Multi-sign sentences require context modeling and grammar rules (major research area).
+
+### Regional Variations & Future Improvements
+- Current model trained on Chennai/Tamil Nadu ISL. Signing conventions vary significantly across India (Delhi, Mumbai, Bangalore each have distinct regional styles).
+- **Next steps:** Collect signers from multiple regions, retrain with region-balanced data, evaluate geographic generalization.
+- **Community involvement:** Partner with Deaf communities in different regions for authentic data collection and validation.
 
 ---
 
 ## Performance Notes
 
-### Inference Speed
-- **Landmark extraction:** ~25–30 FPS on CPU (modern laptops)
-- **Memory footprint:** ~200–300MB (three models loaded)
-- **GPU acceleration:** Untested; MediaPipe's GPU delegates have known issues with HolisticLandmarker, which is why this uses three separate landmarkers
+### Stage 1 — Landmark Extraction
+- **FPS:** ~25–30 FPS on CPU (modern Intel i5/i7), all three landmarkers running in parallel
+- **Memory footprint:** ~200–300MB (three MediaPipe models loaded)
+- **GPU acceleration:** MediaPipe's GPU delegates have documented issues on Windows; CPU performance is sufficient for real-time use
 
-### Hardware Tested
-- Windows 11, Python 3.12, Intel i5/i7 processors
-- Should work on any machine with Python 3.9+ and a webcam
+### Stage 2 — Bi-LSTM Training & Inference
+- **Training time:** ~4–8 minutes per run on T4 GPU (Colab); ~30–45 minutes on CPU
+- **Single inference:** ~2–5ms per 100-frame sequence on GPU, ~15–30ms on CPU
+- **Model size:** 1.8M parameters, ~7.2 MB checkpoint file
+- **Memory during inference:** ~50–100MB (model weights + batch)
+
+**Hardware Tested:**
+- **Stage 1:** Windows 11 with Python 3.12 on Intel i5/i7 CPU, RTX 4050 Laptop GPU
+- **Stage 2:** Google Colab T4 GPU, local Windows CPU
+- Should work on any machine with Python 3.9+ and a webcam (Stage 1), PyTorch (Stage 2)
+
+### Accuracy Breakdown
+- **Test Accuracy (signer-independent):** 36.6% across 50 classes
+- **Test Accuracy (by class range):** 0%–100%, median ~77% (classes with >15 training examples)
+- **Per-class metrics available:** See confusion_matrix.png and classification_report from Cell 8
 
 ---
 
@@ -176,12 +284,28 @@ This project focuses on ISL as spoken in Chennai (INCLUDE dataset origin). ISL i
 
 ```
 project/
-├── main.py    (current: real-time webcam)
-├── hand_landmarker.task              (downloaded model)
-├── pose_landmarker_lite.task         (downloaded model)
-├── face_landmarker.task              (downloaded model)
-├── landmarks.npy                     (auto-generated: saved sequences)
-└── README.md                         (this file)
+├── Stage 1 — Landmark Extraction
+│   ├── stage1_landmark_extraction_fallback.py    (webcam → landmarks)
+│   ├── hand_landmarker.task              (MediaPipe model)
+│   ├── pose_landmarker_lite.task         (MediaPipe model)
+│   ├── face_landmarker.task              (MediaPipe model)
+│   └── landmarks.npy                     (saved sequences from webcam)
+│
+├── Stage 2 — Training
+│   ├── stage2_planning.py                (verify dataset coverage)
+│   ├── stage2_download_with_retries.py   (download INCLUDE-50 from Zenodo)
+│   ├── stage2c_extract_keypoints.py      (process videos → .npy files)
+│   ├── stage2d_bilstm_training.ipynb     (train model in Colab)
+│   ├── videos/                           (943 INCLUDE-50 video clips)
+│   ├── extracted_landmarks/              (943 .npy files with landmarks)
+│   ├── landmarks_index.csv               (video → label mapping)
+│   ├── label_map.csv                     (50 word classes → indices)
+│   ├── isl_bilstm_checkpoint.pt          (trained model weights)
+│   ├── training_curves.png               (loss/accuracy plots)
+│   └── confusion_matrix.png              (50×50 test set predictions)
+│
+├── README.md                         (this file)
+└── [Stage 3 files coming soon]
 ```
 
 ---
@@ -227,4 +351,3 @@ If you use this code or dataset, please cite:
 ## License
 
 MIT License — see LICENSE file for details.
-
