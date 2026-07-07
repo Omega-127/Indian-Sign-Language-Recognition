@@ -16,7 +16,7 @@ for class_idx, correct_label in repair.items():
     df.loc[mask, "label"] = correct_label
     df.loc[mask, "class_index"] = class_idx
 
-# Verify
+# This verifies if any Nan values is changed
 print("NaN class_index rows:", df["class_index"].isna().sum())
 print("Fixed rows:")
 print(df[df["label"].isin(repair.values())][["label", "class_index"]].head(10))
