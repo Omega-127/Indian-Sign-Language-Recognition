@@ -11,7 +11,7 @@ import mediapipe as mp
 #configs
 checkpoint_path = 'isl_bilstm_checkpoint.pt'
 window_size = 60
-inferenc_interval = 5
+inference_interval = 5
 smoothing_history = 5
 confidence_threshold = 0.3
 
@@ -76,7 +76,7 @@ def split_hands(hand_result):
             right_hand = landmarks
     return left_hand, right_hand
 
-def run_interference(model, window, device):
+def run_inference(model, window, device):
     sequence = np.array(window, dtype=np.float32)
     tensor = torch.tensor(sequence).unsqueeze(0).to(device)
     length = torch.tensor([len(window)])
@@ -88,7 +88,113 @@ def run_interference(model, window, device):
     return pred_idx.item(), confidence.item()
 
 def main():
-    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+
+    checkpoint = torch.load(checkpoint_path, map_location=device)
+    idx_label = checkpoint['idx_to_label']
+
+    idx_to_label = {int(k): v for k, v in idx_to_label.items()}
+
+    model = BiLSTMclassifier(
+        input_size = checkpoint.get("input_size", 1692),
+        hidden_size = checkpoint.get("hidden_size", 128),
+        num_layers=checkpoint.get("num_layers", 1),
+        num_classes=checkpoint["num_classes"]
+    ).to(device)
+    model.load_state_dict(checkpoint["model_state_dict"])
+    model.eval()
+
+    print(f"Loaded model: {checkpoint['num_classes']} classes, test accuracy {checkpoint.get('test_accuracy', 0):.1%}")
+
+    Handlandmarker = hand_landmarker.create_from_options(hand_landmarker_options(
+        base_options = base_options(model_asset_path="hand_landmarker.task"),
+        running_mode = vision_running_mode.VIDEO,
+        num_hands = 2
+    ))
+
+    PoseLandmarker = pose_landmarker.create_from_options(pose_landmarker_options(
+        base_options = base_options(model_asset_path="pose_landmarker_lite.task"),
+        running_mode = vision_running_mode.VIDEO
+    ))
+
+    FaceLandmarker = face_landmarker.create_from_options(face_landmarker_options(
+        base_options = base_options(model_asset_path="face_landmarker.task"),
+        running_mode = vision_running_mode.VIDEO
+    ))
+
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    start_time = time.time()
+    frame_idx = 0
+
+    landmark_window = deque(maxlen=window_size)
+    prediction_history = deque(maxlen=smoothing_history)
+    current_label = '...'
+    current_confidence = 0.0
+
+    print("Starting real time recognition. Press 'q' to exit\n")
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
+        timestamp_ms = int((time.time() - start_time)*1000)
+
+        hand_result = Handlandmarker.detect_for_video(mp_image, timestamp_ms)
+        pose_result = PoseLandmarker.detect_for_video(mp_image, timestamp_ms)
+        face_result = FaceLandmarker.detect_for_video(mp_image, timestamp_ms)
+
+        left_hand, right_hand = split_hands(hand_result)
+        pose_landmarks = pose_result.pose_landmarks[0] if pose_result.pose_landmarks else None
+        face_landmarks = face_result.face_landmarks[0] if face_result.face_landmarks else None
+
+        if face_landmarks:
+            draw_landmarks(frame, face_landmarks, face_connections)
+        if pose_landmarks:
+            draw_landmarks(frame, pose_landmarks, pose_connections)
+        if left_hand:
+            draw_landmarks(frame, left_hand, hand_connections)
+        if right_hand:
+            draw_landmarks(frame, right_hand, hand_connections)
+
+        landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
+        landmark_window.append(landmarks)
+
+        if len(landmark_window) == window_size and frame_idx % inference_interval == 0:
+            pred_idx, confidence = run_inference(model, landmark_window, device)
+            prediction_history.append(pred_idx)
+
+            if len(prediction_history) == smoothing_history:
+                smoothed_idx, count = Counter(prediction_history).most_common(1)[0]
+                if confidence >= confidence_threshold:
+                    current_label = idx_to_label.get(smoothed_idx, "?")
+                    current_confidence = confidence
+                else:
+                    current_label = "..."
+                    current_confidence = confidence
+
+        overlay_text = f"{current_label} ({current_confidence:.0%})"
+        cv2.rectangle(frame, (0, 0), (frame.shape[1], 60), (0, 0, 0), -1)
+        cv2.putText(frame, overlay_text, (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 255, 0), 2)
+
+        if len(landmark_window) < window_size:
+            fill_pct = len(landmark_window) / window_size * 100
+            cv2.putText(frame, f"Buffering... {fill_pct:.0%}", (15, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 165, 255), 2)
+
+        cv2.imshow("ISL realtime recognititon - Stage 3", frame)
+
+        frame_idx += 1
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    Handlandmarker.close()
+    PoseLandmarker.close()
+    FaceLandmarker.close()
+    cap.release()
+    cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
