@@ -10,10 +10,7 @@ import mediapipe as mp
 
 #configs
 checkpoint_path = 'isl_bilstm_checkpoint.pt'
-window_size = 60
-inference_interval = 5
-smoothing_history = 5
-confidence_threshold = 0.3
+top_k = 3
 
 #shortcuts
 base_options = mp.tasks.BaseOptions
@@ -33,7 +30,8 @@ face_connections = mp.tasks.vision.FaceLandmarksConnections.FACE_LANDMARKS_CONTO
 class BiLSTMclassifier(nn.Module):
     def __init__(self, input_size=1692, hidden_size=128, num_layers=1, num_classes=50, dropout=0.5):
         super().__init__()
-        self.lstm == nn.LSTM(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers, batch_first=True, bidirectional=True)
+        self.lstm = nn.LSTM(input_size=input_size, hidden_size=hidden_size, num_layers=num_layers, batch_first=True, bidirectional=True,
+                            dropout=dropout if num_layers > 1 else 0.0)
         self.dropout = nn.Dropout(dropout)
         self.classifier = nn.Linear(hidden_size * 2, num_classes)
 
@@ -76,23 +74,28 @@ def split_hands(hand_result):
             right_hand = landmarks
     return left_hand, right_hand
 
-def run_inference(model, window, device):
-    sequence = np.array(window, dtype=np.float32)
+def classify_clip(model, frames, device, idx_to_label, top_k=3):
+    sequence = np.array(frames, dtype=np.float32)
     tensor = torch.tensor(sequence).unsqueeze(0).to(device)
-    length = torch.tensor([len(window)])
-
+    length = torch.tensor([len(frames)])   
     with torch.no_grad():
         output = model(tensor, length)
-        probs = torch.softmax(output, dim = 1)
-        confidence, pred_idx = torch.max(probs, dim=1)
-    return pred_idx.item(), confidence.item()
+        probs = torch.softmax(output, dim=1).squeeze(0)
+
+    top_probs, top_indices = torch.topk(probs, k=min(top_k, len(probs)))
+
+    results = []
+    for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
+        label = idx_to_label.get(idx, "?")
+        results.append((label, prob))
+    return results
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
     checkpoint = torch.load(checkpoint_path, map_location=device)
-    idx_label = checkpoint['idx_to_label']
+    idx_to_label = checkpoint['idx_to_label']
 
     idx_to_label = {int(k): v for k, v in idx_to_label.items()}
 
@@ -125,14 +128,13 @@ def main():
 
     cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
     start_time = time.time()
-    frame_idx = 0
+    
+    recording = False
+    recorded_frames = []
+    last_results = []
 
-    landmark_window = deque(maxlen=window_size)
-    prediction_history = deque(maxlen=smoothing_history)
-    current_label = '...'
-    current_confidence = 0.0
+    print("Press 'r' to start/stop recording one sign. Press 'q' to quit.\n")
 
-    print("Starting real time recognition. Press 'q' to exit\n")
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -160,36 +162,41 @@ def main():
         if right_hand:
             draw_landmarks(frame, right_hand, hand_connections)
 
-        landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
-        landmark_window.append(landmarks)
+        if recording:
+            landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
+            recorded_frames.append(landmarks)
+            cv2.putText(frame, f"Recording ({len(recorded_frames)} frames)", (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
 
-        if len(landmark_window) == window_size and frame_idx % inference_interval == 0:
-            pred_idx, confidence = run_inference(model, landmark_window, device)
-            prediction_history.append(pred_idx)
+        if last_results and not recording:
+            y = frame.shape[0] - 20 - (len(last_results) - 1) * 30
+            for label, prob in last_results:
+                text = f"{label} ({prob:.0%})"
+                cv2.putText(frame, text, (15, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+                y += 30
 
-            if len(prediction_history) == smoothing_history:
-                smoothed_idx, count = Counter(prediction_history).most_common(1)[0]
-                if confidence >= confidence_threshold:
-                    current_label = idx_to_label.get(smoothed_idx, "?")
-                    current_confidence = confidence
+        cv2.imshow("ISL sign recoginition - Stage 3", frame)
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('r'):
+            recording = not recording
+            if recording:
+                recorded_frames = []
+                last_results = []
+                print("Recording started...")
+            else:
+                print(f"Recording stopped. {len(recorded_frames)} frames captured.")
+                if len(recorded_frames) >= 4:
+                    last_results = classify_clip(model, recorded_frames, device, idx_to_label, top_k)
+                    print("DEBUG last_results:", last_results)
+                    print("Top predictions: ")
+                    for label, prob in last_results:
+                            print(f"{label:<25} {prob:.1%}")
                 else:
-                    current_label = "..."
-                    current_confidence = confidence
-
-        overlay_text = f"{current_label} ({current_confidence:.0%})"
-        cv2.rectangle(frame, (0, 0), (frame.shape[1], 60), (0, 0, 0), -1)
-        cv2.putText(frame, overlay_text, (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 255, 0), 2)
-
-        if len(landmark_window) < window_size:
-            fill_pct = len(landmark_window) / window_size * 100
-            cv2.putText(frame, f"Buffering... {fill_pct:.0%}", (15, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 165, 255), 2)
-
-        cv2.imshow("ISL realtime recognititon - Stage 3", frame)
-
-        frame_idx += 1
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+                    print("Too few frames captured -- try recording a longer clip.")
+                    last_results = []
+        elif key == ord('q'):
             break
 
+            
     Handlandmarker.close()
     PoseLandmarker.close()
     FaceLandmarker.close()
