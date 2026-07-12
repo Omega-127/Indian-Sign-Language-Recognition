@@ -130,6 +130,7 @@ def main():
     start_time = time.time()
     
     recording = False
+    hand_missing_count = 0
     recorded_frames = []
     last_results = []
 
@@ -164,6 +165,8 @@ def main():
             draw_landmarks(frame, right_hand, hand_connections)
 
         if recording:
+            if left_hand is None and right_hand is None:
+                hand_missing_count += 1
             landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
             recorded_frames.append(landmarks)
             cv2.putText(frame, f"Recording ({len(recorded_frames)} frames)", (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
@@ -181,10 +184,12 @@ def main():
             recording = not recording
             if recording:
                 recorded_frames = []
+                hand_missing_count = 0
                 last_results = []
                 print("Recording started...")
             else:
                 print(f"Recording stopped. {len(recorded_frames)} frames captured.")
+                print(f"Frames with NO hands detected: {hand_missing_count}/{len(recorded_frames)}")
                 if len(recorded_frames) >= 4:
                     last_results = classify_clip(model, recorded_frames, device, idx_to_label, top_k)
                     print("DEBUG last_results:", last_results)
