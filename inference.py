@@ -170,6 +170,8 @@ def main():
             landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
             recorded_frames.append(landmarks)
             cv2.putText(frame, f"Recording ({len(recorded_frames)} frames)", (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
+            hands_status = f"L:{'OK' if left_hand else 'X'}  R:{'OK' if right_hand else 'X'}"
+            cv2.putText(frame, hands_status, (15, frame.shape[0] - 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
 
         if last_results and not recording:
             y = frame.shape[0] - 20 - (len(last_results) - 1) * 30
