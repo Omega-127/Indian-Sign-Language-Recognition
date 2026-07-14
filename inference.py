@@ -113,7 +113,10 @@ def main():
     Handlandmarker = hand_landmarker.create_from_options(hand_landmarker_options(
         base_options = base_options(model_asset_path="hand_landmarker.task"),
         running_mode = vision_running_mode.VIDEO,
-        num_hands = 2
+        num_hands = 2,
+        min_hand_detection_confidence = 0.3,
+        min_hand_presence_confidence = 0.3,
+        min_tracking_confidence = 0.3
     ))
 
     PoseLandmarker = pose_landmarker.create_from_options(pose_landmarker_options(
@@ -164,14 +167,16 @@ def main():
         if right_hand:
             draw_landmarks(frame, right_hand, hand_connections)
 
+        hands_status = f"L:{'OK' if left_hand else 'X'}  R:{'OK' if right_hand else 'X'}"
+        cv2.putText(frame, hands_status, (15, frame.shape[0] - 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+        
         if recording:
             if left_hand is None and right_hand is None:
                 hand_missing_count += 1
             landmarks = extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand)
             recorded_frames.append(landmarks)
             cv2.putText(frame, f"Recording ({len(recorded_frames)} frames)", (15, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2)
-            hands_status = f"L:{'OK' if left_hand else 'X'}  R:{'OK' if right_hand else 'X'}"
-            cv2.putText(frame, hands_status, (15, frame.shape[0] - 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+            
 
         if last_results and not recording:
             y = frame.shape[0] - 20 - (len(last_results) - 1) * 30
@@ -214,4 +219,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
