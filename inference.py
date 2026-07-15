@@ -90,6 +90,18 @@ def classify_clip(model, frames, device, idx_to_label, top_k=3):
         results.append((label, prob))
     return results
 
+def trim(frames):
+    def has_hands(frame):
+        left_hand_data = frame[1566:1629]
+        right_hand_data = frame[1629:1692]
+        return np.any(left_hand_data != 0) or np.any(right_hand_data != 0)
+    active_indices = [i for i, f in enumerate(frames) if has_hands(f)]
+    if not active_indices:
+        return frames
+    start = active_indices[0]
+    end = active_indices[-1] + 1
+    return frames[start:end]
+
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
@@ -144,7 +156,6 @@ def main():
         ret, frame = cap.read()
         if not ret:
             break
-        frame = cv2.flip(frame, 1)
 
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
@@ -197,9 +208,12 @@ def main():
             else:
                 print(f"Recording stopped. {len(recorded_frames)} frames captured.")
                 print(f"Frames with NO hands detected: {hand_missing_count}/{len(recorded_frames)}")
-                if len(recorded_frames) >= 4:
-                    last_results = classify_clip(model, recorded_frames, device, idx_to_label, top_k)
-                    print("DEBUG last_results:", last_results)
+                np.save("debug_last_recording.npy", np.array(recorded_frames))
+                print("Saved debug_last_recording.npy for inspection")
+                trimmed_frames = trim(recorded_frames)
+                print(f"Trimmed to {len(trimmed_frames)} active frames from {len(recorded_frames)}")
+                if len(trimmed_frames) >= 4:
+                    last_results = classify_clip(model, trimmed_frames, device, idx_to_label, top_k)
                     print("Top predictions: ")
                     for label, prob in last_results:
                             print(f"{label:<25} {prob:.1%}")
