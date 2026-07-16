@@ -50,13 +50,11 @@ Most sign language translation projects focus on American Sign Language (ASL). I
 - `confusion_matrix_final.png` — 50×50 confusion matrix showing per-class predictions
 
 **Training Curves:**
-![Training Curves](<img width="2100" height="750" alt="training_curves (1)" src="https://github.com/user-attachments/assets/feed18ac-6624-45dc-9698-c18da297044e" />
-)
+![Training Curves](training_curves_final.png)
 *Loss and accuracy across 80 epochs. Train loss decreases smoothly while val accuracy plateaus around 55%, reflecting the signer-independent generalization challenge.*
 
 **Confusion Matrix (Test Set):**
-![Confusion Matrix](<img width="3000" height="2700" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/a5d63e12-78e3-4541-af9a-5172e65f00af" />
-)
+![Confusion Matrix](confusion_matrix_final.png)
 *50×50 matrix showing predicted vs. true class for all 191 test samples. Diagonal blocks (dark blue) indicate correct predictions. Classes like "16. train ticket", "2. Death", "86. Time" achieve near-perfect recall. Classes with few training examples (rows like "19. House", "34. Pen") have zero correct predictions, indicating data scarcity is the limiting factor.*
 
 **Model Architecture:**
@@ -82,12 +80,28 @@ Total parameters: 1.8M
 - LR scheduler: ReduceLROnPlateau (factor=0.5, patience=4)
 - Data augmentation: applied only to training, not val/test
 
-### 🔄 Stage 3 — In Progress
-**Real-Time Inference Pipeline**
-- Integrate trained Bi-LSTM with Stage 1 webcam capture
-- Implement sliding window (60-frame buffer) for temporal context
-- Add majority-vote smoothing to stabilize predictions
-- Display recognized word + confidence on screen
+### ✅ Stage 3 — Complete
+**Real-Time Sign Recognition (Record-and-Classify)**
+- Integrated the trained Bi-LSTM with Stage 1's webcam landmark pipeline
+- Initial approach (continuous sliding-window prediction) was abandoned after testing — the model was trained on complete, isolated sign clips, so classifying arbitrary continuous-video fragments produced near-random results
+- Rebuilt around a **record-then-classify** pattern matching training conditions: press `r` to start recording one sign, press `r` again to stop, and the complete captured clip is classified in a single pass — the same way each INCLUDE-50 training video was handled
+- Added automatic dead-frame trimming (cuts leading/trailing frames with no hand detected) since manual start/stop recording captures idle time the model never saw in training
+- Displays top-3 predictions with confidence, rather than a single guess — often useful since correct answers frequently appear in position 2–3, especially for visually similar signs
+
+**Debugging Journey (real findings, not just a working script):**
+- **Confirmed the trained checkpoint itself is correct** by running it directly against saved INCLUDE-50 test clips — a "16. train ticket" test clip classified correctly at 69.8% confidence, matching Colab evaluation results
+- **Diagnosed a hand-detection dropout issue**: live recordings showed 40-89% of frames with zero hands detected, versus clean detection on saved dataset videos. Root cause was recording technique — pressing record before/after the actual sign motion captured long stretches of idle frames, diluting the real signal
+- **Diagnosed a pose-landmark scale mismatch**: live pose coordinates ranged roughly (-1.9, 2.98) versus training data's (-0.65, 1.3) — MediaPipe was extrapolating positions for body parts outside the camera's field of view. Repositioning further from the camera (to keep full arm extension in frame during signing) tightened this to (-1.07, 1.16), much closer to training conditions
+- **Result:** with proper recording technique and camera framing, the pipeline produces plausible, varied top-3 predictions rather than degenerate/repeated guesses — confirming the extraction → trimming → inference chain works correctly end to end
+
+**Honest Performance Expectation:** Given the model's 36.6% signer-independent test accuracy on clean, curated dataset clips, live recognition — using a signer (you) the model has never seen, on hardware/framing that can only approximate the original recording setup — should realistically succeed roughly 1 in 3 attempts, even under ideal conditions. This isn't a pipeline flaw; it's the same generalization gap documented in Stage 2, now visible firsthand.
+
+**Files:**
+- `inference.py` — real-time record-and-classify inference script
+
+**Controls:**
+- `r` — start/stop recording one sign
+- `q` — quit
 
 ---
 
@@ -105,7 +119,12 @@ Total parameters: 1.8M
 - **Matplotlib + Seaborn** — training curves and confusion matrix visualization
 - **Google Colab** — T4 GPU for efficient training (optional; CPU also works)
 
-### Stage 3+ (Planned)
+### Stage 3 — Real-Time Inference
+- **PyTorch** — loading trained checkpoint, running live inference
+- **MediaPipe Tasks API** — same three landmarkers as Stage 1, reused for live capture
+- **OpenCV** — webcam capture, recording toggle, on-screen results display
+
+### Stage 4+ (Planned)
 - **IndicTrans2** — ISL gloss → regional language (Hindi/Marathi/Tamil) translation
 - **gTTS/pyttsx3** — text-to-speech output
 - **Streamlit or React** — frontend for deployment
@@ -157,7 +176,7 @@ python -c "import mediapipe as mp; print('MediaPipe version:', mp.__version__)"
 
 ### Run the Real-Time Pipeline
 ```bash
-python stage1_landmark_extraction.py
+python main.py
 ```
 
 A window titled **"ISL LANDMARK EXTRACTION - STAGE 1 (TASKS API)"** will open showing your webcam feed with live landmark dots and skeleton overlays.
@@ -190,10 +209,34 @@ All values are normalized to [0, 1] range (coordinates relative to frame size).
 
 ---
 
+## Usage: Stage 3
+
+### Setup
+Place `isl_bilstm_checkpoint.pt` (trained model from Stage 2) in the same folder as `inference.py`, alongside the three `.task` model files.
+
+### Run
+```bash
+python inference.py
+```
+
+### Recording and Classifying a Sign
+1. **Click the video window** to give it keyboard focus (required for `r`/`q` to register)
+2. **Press `r`** to start recording — timing matters: start right as you begin the sign motion
+3. **Perform one complete sign**, then **press `r` again immediately** to stop
+4. The top-3 predictions with confidence appear on screen and print to console
+5. Press `r` to record another sign, `q` to quit
+
+### Framing Tips (Important)
+- Position yourself so your **full arm span at maximum extension** stays within the camera frame — not just your upper body at rest. Signs involve reaching motion that can extend beyond a typical video-call framing.
+- Ensure good, even lighting on your hands and face
+- Keep recordings tight — avoid pausing before/after the actual sign motion, since idle frames dilute the signal the model looks for
+
+---
+
 ## Project Architecture
 
 ```
-stage1_landmark_extraction.py
+main.py
 ├── Shortcuts (imports)
 │   └── MediaPipe task classes + running modes
 ├── extract_landmarks(pose, face, left_hand, right_hand)
@@ -236,14 +279,16 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 
 ## Known Limitations & Future Work
 
-### Stage 1–2 Constraints (Current)
+### Stage 1–3 Constraints (Current)
 - **Signer-dependent memorization** — Model achieves 55% val accuracy but only 36.6% test accuracy on unseen signers, indicating it partly learned individual signer characteristics rather than pure sign patterns. This is a known challenge in sign language recognition and requires larger, more diverse training data.
 - **Class imbalance** — Adjectives has 233 training clips while Society/Jobs/Electronics have ~29 each. Rare classes have near-zero recall. Balanced sampling or class weighting could help.
 - **Limited training data** — 675 examples across 50 classes (13 per class) is below the typically recommended ~100+ per class for deep learning. Data augmentation helped (44% → 55% val) but is no substitute for more real data.
 - **Single face/body detection** — script assumes one signer in frame
-- **No temporal smoothing yet** — rapid prediction changes between frames (fixed in Stage 3)
+- **No continuous recognition** — Stage 3 requires manual record/stop per sign rather than always-on detection. A continuous sliding-window approach was attempted first but abandoned: the model was trained on isolated, complete sign clips, so classifying arbitrary continuous-video fragments (mid-sign, transitions, stillness) produced near-random predictions. Record-and-classify matches training conditions far more closely.
+- **Camera framing sensitivity** — live recognition accuracy is sensitive to how much of the signer's arm span is visible in frame; poor framing causes MediaPipe to extrapolate pose landmarks beyond realistic ranges, degrading prediction quality independent of the model itself.
+- **Live accuracy ≈ test accuracy, not higher** — a live demo signer (never seen in training) should expect roughly the same ~1-in-3 success rate as the reported signer-independent test accuracy, even with correct framing and clean recordings.
 
-### Stage 3–5 Constraints (Upcoming)
+### Stage 4–5 Constraints (Upcoming)
 - **Gloss-to-translation pipeline** — IndicTrans2 works well for written ISL gloss sequences, but the quality of input gloss directly impacts translation accuracy. Errors propagate from Stage 2 → Stage 4.
 - **TTS voice quality** — gTTS may not match the naturalness expected for real sign-language users. Investiga alternative TTS models.
 - **No sentence context** — Currently recognizes individual words. Multi-sign sentences require context modeling and grammar rules (major research area).
@@ -269,7 +314,7 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 - **Memory during inference:** ~50–100MB (model weights + batch)
 
 **Hardware Tested:**
-- **Stage 1:** Windows 11 with Python 3.12 on Intel i5/i7 CPU, RTX 4050 Laptop GPU
+- **Stage 1:** Windows 11 with Python 3.12 on Intel i5 CPU, RTX 4050 Laptop GPU
 - **Stage 2:** Google Colab T4 GPU, local Windows CPU
 - Should work on any machine with Python 3.9+ and a webcam (Stage 1), PyTorch (Stage 2)
 
@@ -285,27 +330,30 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 ```
 project/
 ├── Stage 1 — Landmark Extraction
-│   ├── stage1_landmark_extraction_fallback.py    (webcam → landmarks)
+│   ├── man.py    (webcam → landmarks)
 │   ├── hand_landmarker.task              (MediaPipe model)
 │   ├── pose_landmarker_lite.task         (MediaPipe model)
 │   ├── face_landmarker.task              (MediaPipe model)
 │   └── landmarks.npy                     (saved sequences from webcam)
 │
 ├── Stage 2 — Training
-│   ├── stage2_planning.py                (verify dataset coverage)
-│   ├── stage2_download_with_retries.py   (download INCLUDE-50 from Zenodo)
-│   ├── stage2c_extract_keypoints.py      (process videos → .npy files)
-│   ├── stage2d_bilstm_training.ipynb     (train model in Colab)
+│   ├── metadta.py                        (verify dataset coverage)
+│   ├── download_data.py                  (download INCLUDE-50 from Zenodo)
+│   ├── extract_keypoints.py              (process videos → .npy files)
+│   ├── ISL.ipynb                         (train model in Colab)
 │   ├── videos/                           (943 INCLUDE-50 video clips)
 │   ├── extracted_landmarks/              (943 .npy files with landmarks)
 │   ├── landmarks_index.csv               (video → label mapping)
 │   ├── label_map.csv                     (50 word classes → indices)
 │   ├── isl_bilstm_checkpoint.pt          (trained model weights)
-│   ├── training_curves.png               (loss/accuracy plots)
-│   └── confusion_matrix.png              (50×50 test set predictions)
+│   ├── training_curves_final.png         (loss/accuracy plots)
+│   └── confusion_matrix_final.png        (50×50 test set predictions)
+│
+├── Stage 3 — Real-Time Inference
+│   └── inference.py                       (webcam → record → classify)
 │
 ├── README.md                         (this file)
-└── [Stage 3 files coming soon]
+└── [Stage 4 files coming soon]
 ```
 
 ---
