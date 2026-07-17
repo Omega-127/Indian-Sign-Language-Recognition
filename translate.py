@@ -8,7 +8,10 @@ import torch
 import torch.nn as nn
 from torch.nn.utils.rnn import pack_padded_sequence
 import mediapipe as mp
-
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from IndicTransToolkit.processor import IndicProcessor
+import pygame
+from gtts import gTTS
 
 #configs
 checkpoint_pat = 'isl_bilstm_checkpoint.pt'
