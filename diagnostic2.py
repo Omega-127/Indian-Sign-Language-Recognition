@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 import pandas as pd
-from stage3 import BiLSTMclassifier, classify_clip
+from inference import BiLSTMclassifier, classify_clip
 
 # Reuse the same model class and classify_clip from your Stage 3 script
 # (copy-paste those two, or import if you split into modules)
