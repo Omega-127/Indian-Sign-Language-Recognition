@@ -103,6 +103,29 @@ Total parameters: 1.8M
 - `r` — start/stop recording one sign
 - `q` — quit
 
+### ✅ Stage 4 — Complete
+**Translation & Speech Output**
+- Extended Stage 3's record-and-classify pipeline with translation and text-to-speech
+- Recognized sign → cleaned gloss (strips the INCLUDE-50 class-number prefix, e.g. `"48. Hello"` → `"Hello"`) → translated via **IndicTrans2** (AI4Bharat's model) → spoken aloud via **gTTS**
+- Supports three target languages with live switching: Hindi, Marathi, Tamil (keys `1`/`2`/`3`)
+- Uses the distilled 200M IndicTrans2 model (`indictrans2-en-indic-dist-200M`) — lighter weight than the 1B variant, appropriate for single-word/short-phrase translation rather than long sentences
+
+**Setup Issues Resolved (real findings):**
+- **`transformers` version incompatibility:** `IndicTransToolkit` requires `transformers==4.53.2` specifically — newer versions (5.x) moved `PreTrainedTokenizerBase` to a different internal location, breaking the import. Pinning the exact version was required.
+- **Virtual environment mismatch:** spent significant debugging time on an import error that persisted despite confirming the correct package version — root cause was two separate Python installations (a global install and a project `.venv`) with independent `site-packages`, so verifying a fix in one terminal didn't affect the other. Resolved by explicitly activating the `.venv` before installing.
+- **Hugging Face authentication:** first model download attempt failed with a "gated repo" 401 error — resolved by authenticating via `huggingface-cli login`, despite the model being MIT-licensed and not actually restricted (misleading error message for unauthenticated requests).
+- **Variable name collision:** reusing the same variable name for a model-name string and the loaded model object inside the same function caused an `UnboundLocalError`, due to Python treating the name as function-local as soon as any assignment to it exists anywhere in the function.
+
+**Result:** Full pipeline working end-to-end — webcam recording → sign classification → gloss cleanup → regional-language translation → spoken audio output, with live language switching.
+
+**Files:**
+- `translate.py` — full pipeline: record → classify → translate → speak
+
+**Controls:**
+- `r` — start/stop recording one sign
+- `1` / `2` / `3` — switch target language (Hindi / Marathi / Tamil)
+- `q` — quit
+
 ---
 
 ## Technical Stack
@@ -124,10 +147,15 @@ Total parameters: 1.8M
 - **MediaPipe Tasks API** — same three landmarkers as Stage 1, reused for live capture
 - **OpenCV** — webcam capture, recording toggle, on-screen results display
 
-### Stage 4+ (Planned)
-- **IndicTrans2** — ISL gloss → regional language (Hindi/Marathi/Tamil) translation
-- **gTTS/pyttsx3** — text-to-speech output
+### Stage 4 — Translation & Speech
+- **IndicTrans2** (`indictrans2-en-indic-dist-200M`) — ISL gloss → Hindi/Marathi/Tamil translation
+- **IndicTransToolkit** — pre/post-processing for IndicTrans2 (pinned `transformers==4.53.2`)
+- **gTTS** — text-to-speech synthesis (requires internet)
+- **pygame** — audio playback
+
+### Stage 5 (Planned)
 - **Streamlit or React** — frontend for deployment
+- Demo video and final packaging
 
 ---
 
@@ -233,6 +261,38 @@ python inference.py
 
 ---
 
+## Usage: Stage 4
+
+### Setup
+```bash
+pip install torch "transformers==4.53.2" IndicTransToolkit gTTS pygame
+```
+
+**Important:** `transformers` must be exactly `4.53.2` — newer versions break `IndicTransToolkit`'s imports. Install in this order to avoid other packages silently upgrading it.
+
+**Hugging Face authentication required** for first run (model download):
+```bash
+pip install huggingface_hub
+huggingface-cli login
+```
+Generate a free "Read" token at https://huggingface.co/settings/tokens if you don't have one.
+
+### Run
+```bash
+python translate.py
+```
+
+First run downloads the IndicTrans2 model (~800MB) — cached locally afterward. Requires internet access every run for gTTS speech synthesis (no offline fallback).
+
+### Controls
+- `r` — start/stop recording one sign
+- `1` / `2` / `3` — switch target language (Hindi / Marathi / Tamil)
+- `q` — quit
+
+Same framing tips from Stage 3 apply here.
+
+---
+
 ## Project Architecture
 
 ```
@@ -279,19 +339,21 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 
 ## Known Limitations & Future Work
 
-### Stage 1–3 Constraints (Current)
+### Stage 1–4 Constraints (Current)
 - **Signer-dependent memorization** — Model achieves 55% val accuracy but only 36.6% test accuracy on unseen signers, indicating it partly learned individual signer characteristics rather than pure sign patterns. This is a known challenge in sign language recognition and requires larger, more diverse training data.
 - **Class imbalance** — Adjectives has 233 training clips while Society/Jobs/Electronics have ~29 each. Rare classes have near-zero recall. Balanced sampling or class weighting could help.
 - **Limited training data** — 675 examples across 50 classes (13 per class) is below the typically recommended ~100+ per class for deep learning. Data augmentation helped (44% → 55% val) but is no substitute for more real data.
 - **Single face/body detection** — script assumes one signer in frame
-- **No continuous recognition** — Stage 3 requires manual record/stop per sign rather than always-on detection. A continuous sliding-window approach was attempted first but abandoned: the model was trained on isolated, complete sign clips, so classifying arbitrary continuous-video fragments (mid-sign, transitions, stillness) produced near-random predictions. Record-and-classify matches training conditions far more closely.
+- **No continuous recognition** — Stage 3/4 requires manual record/stop per sign rather than always-on detection. A continuous sliding-window approach was attempted first but abandoned: the model was trained on isolated, complete sign clips, so classifying arbitrary continuous-video fragments (mid-sign, transitions, stillness) produced near-random predictions. Record-and-classify matches training conditions far more closely.
 - **Camera framing sensitivity** — live recognition accuracy is sensitive to how much of the signer's arm span is visible in frame; poor framing causes MediaPipe to extrapolate pose landmarks beyond realistic ranges, degrading prediction quality independent of the model itself.
 - **Live accuracy ≈ test accuracy, not higher** — a live demo signer (never seen in training) should expect roughly the same ~1-in-3 success rate as the reported signer-independent test accuracy, even with correct framing and clean recordings.
+- **Translation quality depends on recognition accuracy** — Stage 4 translates whatever Stage 3 recognizes; an incorrect sign classification produces a confidently wrong translation. Errors compound rather than self-correct.
+- **gTTS requires internet** — no offline speech synthesis fallback currently implemented.
+- **Single-word translation only** — IndicTrans2 is used per-recognized-word, not for multi-sign sentence sequences with grammar/context.
 
-### Stage 4–5 Constraints (Upcoming)
-- **Gloss-to-translation pipeline** — IndicTrans2 works well for written ISL gloss sequences, but the quality of input gloss directly impacts translation accuracy. Errors propagate from Stage 2 → Stage 4.
-- **TTS voice quality** — gTTS may not match the naturalness expected for real sign-language users. Investiga alternative TTS models.
-- **No sentence context** — Currently recognizes individual words. Multi-sign sentences require context modeling and grammar rules (major research area).
+### Stage 5 Constraints (Upcoming)
+- **No frontend yet** — currently a local Python script with OpenCV window, not a deployable web/mobile interface.
+- **No packaged demo** — needs a recorded walkthrough video showing both successes and honest failures for portfolio use.
 
 ### Regional Variations & Future Improvements
 - Current model trained on Chennai/Tamil Nadu ISL. Signing conventions vary significantly across India (Delhi, Mumbai, Bangalore each have distinct regional styles).
@@ -314,7 +376,7 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 - **Memory during inference:** ~50–100MB (model weights + batch)
 
 **Hardware Tested:**
-- **Stage 1:** Windows 11 with Python 3.12 on Intel i5 CPU, RTX 4050 Laptop GPU
+- **Stage 1:** Windows 11 with Python 3.12 on Intel i5/i7 CPU, RTX 4050 Laptop GPU
 - **Stage 2:** Google Colab T4 GPU, local Windows CPU
 - Should work on any machine with Python 3.9+ and a webcam (Stage 1), PyTorch (Stage 2)
 
@@ -330,14 +392,14 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 ```
 project/
 ├── Stage 1 — Landmark Extraction
-│   ├── man.py    (webcam → landmarks)
+│   ├── main.py    (webcam → landmarks)
 │   ├── hand_landmarker.task              (MediaPipe model)
 │   ├── pose_landmarker_lite.task         (MediaPipe model)
 │   ├── face_landmarker.task              (MediaPipe model)
 │   └── landmarks.npy                     (saved sequences from webcam)
 │
 ├── Stage 2 — Training
-│   ├── metadta.py                        (verify dataset coverage)
+│   ├── metadata.py                       (verify dataset coverage)
 │   ├── download_data.py                  (download INCLUDE-50 from Zenodo)
 │   ├── extract_keypoints.py              (process videos → .npy files)
 │   ├── ISL.ipynb                         (train model in Colab)
@@ -350,10 +412,13 @@ project/
 │   └── confusion_matrix_final.png        (50×50 test set predictions)
 │
 ├── Stage 3 — Real-Time Inference
-│   └── inference.py                       (webcam → record → classify)
+│   └── inference.py     (webcam → record → classify)
+│
+├── Stage 4 — Translation & Speech
+│   └── translate.py         (record → classify → translate → speak)
 │
 ├── README.md                         (this file)
-└── [Stage 4 files coming soon]
+└── [Stage 5 files coming soon]
 ```
 
 ---
