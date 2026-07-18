@@ -55,7 +55,7 @@ Most sign language translation projects focus on American Sign Language (ASL). I
 *Loss and accuracy across 80 epochs. Train loss decreases smoothly while val accuracy plateaus around 55%, reflecting the signer-independent generalization challenge.*
 
 **Confusion Matrix (Test Set):**
-<img width="3000" height="2700" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/43db0b2f-e874-4c70-84ae-cb610ef7ae6e" />
+<img width="2100" height="750" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/43db0b2f-e874-4c70-84ae-cb610ef7ae6e" />
 
 *50×50 matrix showing predicted vs. true class for all 191 test samples. Diagonal blocks (dark blue) indicate correct predictions. Classes like "16. train ticket", "2. Death", "86. Time" achieve near-perfect recall. Classes with few training examples (rows like "19. House", "34. Pen") have zero correct predictions, indicating data scarcity is the limiting factor.*
 
