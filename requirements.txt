@@ -1,0 +1,43 @@
+# ISL Real-Time Sign Language Translator — Dependencies
+#
+# Two pins below are LOAD-BEARING (confirmed through debugging, not arbitrary):
+#   - mediapipe==0.10.35   -> HolisticLandmarker in VIDEO mode has documented
+#                              crashes/hangs; the three-separate-landmarker
+#                              approach here needs this working Tasks API version.
+#                              Also: no mediapipe wheel exists for Python 3.13+,
+#                              use Python 3.9-3.12.
+#   - transformers==4.53.2 -> IndicTransToolkit imports PreTrainedTokenizerBase
+#                              from transformers.tokenization_utils, which was
+#                              moved/removed in transformers 5.x. Newer versions
+#                              will break the Stage 4 import chain.
+#
+# Install order matters: install transformers FIRST, then everything else,
+# to prevent another package silently upgrading it past 4.53.2.
+
+# --- Stage 1: Landmark extraction ---
+mediapipe==0.10.35
+opencv-python
+numpy
+
+# --- Stage 2: Training ---
+torch
+scikit-learn
+pandas
+matplotlib
+seaborn
+datasets          # for loading INCLUDE-50 metadata from Hugging Face
+pyarrow           # required by datasets for parquet handling
+requests          # for downloading INCLUDE-50 videos from Zenodo
+
+# --- Stage 3: Real-time inference ---
+# (no new dependencies beyond torch/mediapipe/opencv above)
+
+# --- Stage 4: Translation & speech ---
+transformers==4.53.2
+IndicTransToolkit
+gTTS
+pygame
+huggingface_hub   # for `huggingface-cli login` (required for model download)
+
+# --- Stage 5: Web demo ---
+streamlit

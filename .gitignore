@@ -1,0 +1,51 @@
+# === ISL Translator Project — .gitignore ===
+
+# --- Large dataset folders (regenerate via Stage 2 scripts instead of committing) ---
+zips/                       # temp download folder from stage2_download_with_retries.py
+videos/                     # 943 INCLUDE-50 video clips (~12GB) — see stage2_download_with_retries.py
+extracted_landmarks/        # 943 .npy landmark files — see stage2c_extract_keypoints.py
+
+# --- Downloaded model files (re-download via links in README) ---
+*.task                       # MediaPipe hand/pose/face landmarker models
+hand_landmarker.task
+pose_landmarker_lite.task
+face_landmarker.task
+
+# --- Generated data files ---
+landmarks.npy                # Stage 1 webcam recordings
+debug_last_recording.npy     # Stage 3/4 debug output
+include50_metadata.csv       # regenerate via stage2_planning.py
+
+# --- Trained model checkpoint (large — consider Git LFS or external hosting instead) ---
+# Uncomment if you don't want to commit the ~7MB checkpoint directly:
+# isl_bilstm_checkpoint.pt
+
+# --- Hugging Face / model caches ---
+.cache/
+**/huggingface/
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE ---
+.vscode/
+.idea/
+
+# --- Temp files ---
+*.tmp
+*.mp3
+tempCodeRunnerFile.py
