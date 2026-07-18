@@ -1,3 +1,14 @@
+#be sure that you install transformer with version 4.53.2 not the latest one
+#because the latest one doesn't have support to work with IndicTransToolkit
+#make an account on huuging face create a token in settings 
+#log in the account through CLI paste the token 
+#but still might you would'nt have access to repo go to the hugging face again there should be an option to 
+#use the gated repo click on that 
+#https://huggingface.co/ai4bharat/indictrans2-en-indic-dist-200M
+
+import sys
+print("Python executable:", sys.executable)
+print("Python version:", sys.version)
 import re
 import time
 import tempfile
@@ -17,7 +28,7 @@ from gtts import gTTS
 #configs
 checkpoint_path = 'isl_bilstm_checkpoint.pt'
 top_k = 3
-translation_model = "ai4bharat/indictrans2-en-indic-dist-200M"
+translation_model_name = "ai4bharat/indictrans2-en-indic-dist-200M"
 
 langauges = {
     "1": ("hin_Deva", "hi", "Hindi"),
@@ -166,9 +177,9 @@ def main():
         f"test accuracy {checkpoint.get('test_accuracy', 0):.1%}")
     
     print(f"Loading IndicTrans2 translation model (first run dowloads 800mb)...")
-    tokenizer = AutoTokenizer.from_pretrained(translation_model, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(translation_model_name, trust_remote_code=True)
     translation_model = AutoModelForSeq2SeqLM.from_pretrained(
-        translation_model, trust_remote_code=True
+        translation_model_name, trust_remote_code=True
     ).to(device)
     translation_model.eval()
     ip = IndicProcessor(inference=True)
