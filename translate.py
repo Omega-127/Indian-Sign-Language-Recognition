@@ -21,8 +21,8 @@ translation_model = "ai4bharat/indictrans2-en-indic-dist-200M"
 
 langauges = {
     "1": ("hin_Deva", "hi", "Hindi"),
-    "2": ("mar_deva", "mr", "Marathi"),
-    "3": ("tam_taml", "ta", "Tamil")
+    "2": ("Mar_deva", "mr", "Marathi"),
+    "3": ("Tam_taml", "ta", "Tamil")
 }
 
 base_options = mp.tasks.BaseOptions
@@ -118,12 +118,12 @@ def clean_gloss(label):
     return re.sub(r"^\d+\.\s*", "", label)
 
 def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device):
-    batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lng=tgt_lang_code)
+    batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lang=tgt_lang_code)
     inputs = tokenizer(batch, padding=True, truncation=True, max_length=256, return_tensors="pt").to(device)
     with torch.no_grad():
         generated_tokens = translation_model.generate(
-            **inputs, use_catch = True, min_length=0,
-            max_length=256, num_beams=5, num_return_sequence=1
+            **inputs, use_cache = True, min_length=0,
+            max_length=256, num_beams=5, num_return_sequences=1
         )
 
     decoded = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True, clean_up_tokenization_spaces=True)
@@ -170,6 +170,8 @@ def main():
     translation_model = AutoModelForSeq2SeqLM.from_pretrained(
         translation_model, trust_remote_code=True
     ).to(device)
+    translation_model.eval()
+    ip = IndicProcessor(inference=True)
 
     Handlandmarker = hand_landmarker.create_from_options(hand_landmarker_options(
         base_options = base_options(model_asset_path="hand_landmarker.task"),
