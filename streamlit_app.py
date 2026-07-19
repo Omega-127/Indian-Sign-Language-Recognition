@@ -162,4 +162,55 @@ def load_landmakrers():
     return Handlandmarker, PoseLandmarker, FaceLandmarker
 
 
+def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker):
+    cap = cv2.VideoCapture(str(video_path))
+    if not cap.isOpened():
+        return None
+    
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    if fps <= 0:
+        fps = 30
+    
+    sequence = []
+    frame_idx = 0
 
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
+        timestamp_ms = int((frame_idx / fps) * 1000)
+
+        hand_result = Handlandmarker.detect_for_video(mp_image, timestamp_ms)
+        pose_result = PoseLandmarker.detect_for_video(mp_image, timestamp_ms)
+        face_result = FaceLandmarker.detect_for_video(mp_image, timestamp_ms)
+
+        left_hand, right_hand = split_hands(hand_result)
+        pose_landmarks = pose_result.pose_landmarks[0] if pose_result.pose_landmarks else None
+        face_landmarks = face_result.face_landmarks[0] if face_result.face_landmarks else None
+
+        sequence.append(extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand))
+        frame_idx += 1
+
+        cap.release()
+        if len(sequence) == 0:
+            return None
+        return sequence
+    
+def classify_clip(model, frames, device, idx_to_label, top_k=3):
+    sequence = np.array(frames, dtype=np.float32)
+    tensor = torch.tensor(sequence).unsqueeze(0).to(device)
+    length = torch.tensor([len(frames)])   
+    with torch.no_grad():
+        output = model(tensor, length)
+        probs = torch.softmax(output, dim=1).squeeze(0)
+
+    top_probs, top_indices = torch.topk(probs, k=min(top_k, len(probs)))
+
+    results = []
+    for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
+        label = idx_to_label.get(idx, "?")
+        results.append((label, prob))
+    return results
