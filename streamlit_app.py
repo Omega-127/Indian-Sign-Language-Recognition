@@ -114,3 +114,52 @@ def trim(frames):
 def clean_gloss(label):
     return re.sub(r"^\d+\.\s*", "", label)
 
+@st.cache_resource(show_spinner="Loading sign recognition model...")
+def load_sign_model():
+    device = torch.device("cuda" if     torch.cuda.is_available() else "cpu")
+    checkpoint = torch.load(checkpoint_path, map_location=device)
+    idx_to_label = {int(k): v for k, v in idx_to_label.items()}
+    model = BiLSTMclassifier(
+        input_size  = checkpoint.get("input_size", 1692),
+        hidden_size = checkpoint.get("hidden_size", 128),
+        num_layers  = checkpoint.get("num_layers", 1),
+        num_classes = checkpoint["num_classes"],
+    ).to(device)
+    model.load_state_dict(checkpoint["model_state_dict"])
+    model.eval()
+    return model, idx_to_label, device, checkpoint.get("test_accuracy", 0)
+
+@st.cache_resource(show_spinner="Loading translation model (first run downloads ~800MB)...")
+def load_translation_model(_device):
+    tokenizer = AutoTokenizer.from_pretrained(translation_model_name, trust_remote_code=True)
+    model = AutoModelForSeq2SeqLM.from_pretrained(
+        translation_model_name, trust_remote_code=True
+    ).to(_device)
+    model.eval()
+    ip = IndicProcessor(inference=True)
+    return tokenizer, model, ip
+
+@st.cache_resource(show_spinner="Loading landmarks detectors...")
+def load_landmakrers():
+    Handlandmarker = hand_landmarker.create_from_options(hand_landmarker_options(
+        base_options = base_options(model_asset_path="hand_landmarker.task"),
+        running_mode = vision_running_mode.VIDEO,
+        num_hands = 2,
+        min_hand_detection_confidence = 0.3,
+        min_hand_presence_confidence = 0.3,
+        min_tracking_confidence = 0.3
+    ))
+
+    PoseLandmarker = pose_landmarker.create_from_options(pose_landmarker_options(
+        base_options = base_options(model_asset_path="pose_landmarker_lite.task"),
+        running_mode = vision_running_mode.VIDEO
+    ))
+
+    FaceLandmarker = face_landmarker.create_from_options(face_landmarker_options(
+        base_options = base_options(model_asset_path="face_landmarker.task"),
+        running_mode = vision_running_mode.VIDEO
+    ))
+    return Handlandmarker, PoseLandmarker, FaceLandmarker
+
+
+
