@@ -214,3 +214,52 @@ def classify_clip(model, frames, device, idx_to_label, top_k=3):
         label = idx_to_label.get(idx, "?")
         results.append((label, prob))
     return results
+
+def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device):
+    batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lang=tgt_lang_code)
+    inputs = tokenizer(batch, padding=True, max_length=256, return_tensors="pt").to(device)
+    with torch.no_grad():
+        generated_tokens = translation_model.generate(
+            **inputs, use_cache=True, min_length=0, max_length=256,
+            num_beams=5, num_return_sequence=1
+        )
+
+    decoded = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True, clean_up_tokenization_spaces=True)
+    return ip.postprocess_batch(decoded, lang=tgt_lang_code)[0]
+
+def synthesize_speech(text, gtts_lang_code):
+    with tempfile.NamedTemporaryFile(suffix=".mp3") as f:
+        tts = gTTS(text=text, lang=gtts_lang_code)
+        tts.save(f.name)
+        f.seek(0)
+        return f.read
+    
+
+#streamlit frontend
+
+st.set_page_config(page_title="ISL sign translator", page_icon="👌", layout="centered")
+st.title("ISL Sign Language Translator")
+st.caption("Real time Indian sign langauge predictor + Regional Language Translation")
+with st.expander("About this demo", expanded=False):
+    st.markdown("""
+    This demo recognizes one of **50 ISL words** from a short video clip,
+    then translates and speaks the result in Hindi, Marathi, or Tamil.
+
+    **Model accuracy:** 36.6% signer-independent test accuracy (18× better
+    than random chance on 50 classes). Performance is strongest on
+    well-sampled classes like *Car*, *Death*, *Thank you*, and *train ticket*
+    — see the project README for the full confusion matrix and per-class
+    breakdown.
+
+    **Recording tips:**
+    - Keep your full arm span in frame, not just your upper body at rest
+    - Perform one complete sign, 1.5–4 seconds
+    - Good, even lighting on your hands and face
+    """)
+
+model, idx_to_label, device, test_accuracy = load_sign_model()
+hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
+st.success(f"Sign recogition model loaded : {len(idx_to_label)} classes, {test_accuracy:.1%} test accuracy.")
+st.divider()
+
+
