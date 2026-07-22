@@ -262,4 +262,50 @@ hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
 st.success(f"Sign recogition model loaded : {len(idx_to_label)} classes, {test_accuracy:.1%} test accuracy.")
 st.divider()
 
+uploaded_file = st.file_uploader(
+    "Upload a short video of one ISL sign (MP4, MOV, AVI)",
+    type=["mp4", "mov", "avi"]
+)
+target_language = st.radio("Translate to: ", list(langauges.keys()), horizontal=True)
+if uploaded_file is not None:
+    st.video(uploaded_file)
+    if st.button("Recognize & translate", type="primary"):
+        with tempfile.NamedTemporaryFile(delete=False, suffix=Path(uploaded_file.name).suffix) as tmp:
+            tmp.write(uploaded_file.read())
+            video_path = tmp.name
+        with st.spinner("Extracting landmarks..."):
+            frames = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker)
+        Path(video_path).unlink(missing_ok=True)
+        if frames is None:
+            st.error("Could not process video - try a different file")
+        else:
+            trimmed = trim(frames)
+            if len(trimmed) < 4:
+                st.warning("" \
+                f"Only {len(trimmed)} frames with detected hands - too few active frames. try a clip with clearer hand visibility")
+            else:
+                with st.spinner("Classifying sign..."):
+                    results = classify_clip(model, trimmed, device, idx_to_label, top_k)
+                st.subheader("Top predictions")
+                for label, prob in results:
+                    st.write(f"**{label}** - {prob:.1%}")
+                    st.progress(prob)
+
+                top_label = results[0][0]
+                gloss = clean_gloss(top_label)
+                tgt_lang_code, gtts_code = langauges(target_language)
+                with st.spinner(f"Loading translation model and translating to {target_language}..."):
+                    tokenizer, translation_model, ip = load_translation_model(device)
+                    translated = translate_text(gloss, tgt_lang_code, translation_model, tokenizer, ip, device)
+                    st.subheader(f"Translation {target_language}")
+                    st.markdown(f"###{translated}")
+                    with st.spinner("Generating speech..."):
+                        try:
+                            audio_bytes = synthesize_speech(translated, gtts_code)
+                            st.audio(audio_bytes, format="audio/mp3")
+                        except Exception as e:
+                            st.error(f"Speech synthesis failed check innternet connection {e}")
+else:
+    st.info("Upload a video to get started")
+
 
