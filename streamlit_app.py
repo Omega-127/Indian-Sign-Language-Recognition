@@ -17,9 +17,9 @@ top_k = 3
 translation_model_name = "ai4bharat/indictrans2-en-indic-dist-200M"
 
 langauges = {
-    "1": ("hin_Deva", "hi", "Hindi"),
-    "2": ("Mar_deva", "mr", "Marathi"),
-    "3": ("Tam_taml", "ta", "Tamil")
+    "Hindi": ("hin_Deva", "hi"),
+    "Marathi": ("mar_Deva", "mr"),
+    "Tamil": ("tam_Taml", "ta")
 }
 
 base_options = mp.tasks.BaseOptions
@@ -118,6 +118,7 @@ def clean_gloss(label):
 def load_sign_model():
     device = torch.device("cuda" if     torch.cuda.is_available() else "cpu")
     checkpoint = torch.load(checkpoint_path, map_location=device)
+    idx_to_label = checkpoint["idx_to_label"]
     idx_to_label = {int(k): v for k, v in idx_to_label.items()}
     model = BiLSTMclassifier(
         input_size  = checkpoint.get("input_size", 1692),
@@ -194,34 +195,34 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker):
         sequence.append(extract_landmarks(pose_landmarks, face_landmarks, left_hand, right_hand))
         frame_idx += 1
 
-        cap.release()
-        if len(sequence) == 0:
-            return None
-        return sequence
+    cap.release()
+    if len(sequence) == 0:
+        return None
+    return sequence
     
-def classify_clip(model, frames, device, idx_to_label, top_k=3):
-    sequence = np.array(frames, dtype=np.float32)
-    tensor = torch.tensor(sequence).unsqueeze(0).to(device)
-    length = torch.tensor([len(frames)])   
-    with torch.no_grad():
-        output = model(tensor, length)
-        probs = torch.softmax(output, dim=1).squeeze(0)
+# def classify_clip(model, frames, device, idx_to_label, top_k=3):
+#     sequence = np.array(frames, dtype=np.float32)
+#     tensor = torch.tensor(sequence).unsqueeze(0).to(device)
+#     length = torch.tensor([len(frames)])   
+#     with torch.no_grad():
+#         output = model(tensor, length)
+#         probs = torch.softmax(output, dim=1).squeeze(0)
 
-    top_probs, top_indices = torch.topk(probs, k=min(top_k, len(probs)))
+#     top_probs, top_indices = torch.topk(probs, k=min(top_k, len(probs)))
 
-    results = []
-    for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
-        label = idx_to_label.get(idx, "?")
-        results.append((label, prob))
-    return results
+#     results = []
+#     for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
+#         label = idx_to_label.get(idx, "?")
+#         results.append((label, prob))
+#     return results
 
 def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device):
     batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lang=tgt_lang_code)
-    inputs = tokenizer(batch, padding=True, max_length=256, return_tensors="pt").to(device)
+    inputs = tokenizer(batch, padding=True, max_length=256, return_tensors="pt", truncation=True).to(device)
     with torch.no_grad():
         generated_tokens = translation_model.generate(
             **inputs, use_cache=True, min_length=0, max_length=256,
-            num_beams=5, num_return_sequence=1
+            num_beams=5, num_return_sequences=1
         )
 
     decoded = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True, clean_up_tokenization_spaces=True)
@@ -232,7 +233,7 @@ def synthesize_speech(text, gtts_lang_code):
         tts = gTTS(text=text, lang=gtts_lang_code)
         tts.save(f.name)
         f.seek(0)
-        return f.read
+        return f.read()
     
 
 #streamlit frontend
@@ -293,12 +294,12 @@ if uploaded_file is not None:
 
                 top_label = results[0][0]
                 gloss = clean_gloss(top_label)
-                tgt_lang_code, gtts_code = langauges(target_language)
+                tgt_lang_code, gtts_code, _ = langauges[target_language]
                 with st.spinner(f"Loading translation model and translating to {target_language}..."):
                     tokenizer, translation_model, ip = load_translation_model(device)
                     translated = translate_text(gloss, tgt_lang_code, translation_model, tokenizer, ip, device)
                     st.subheader(f"Translation {target_language}")
-                    st.markdown(f"###{translated}")
+                    st.markdown(f"### {translated}")
                     with st.spinner("Generating speech..."):
                         try:
                             audio_bytes = synthesize_speech(translated, gtts_code)
