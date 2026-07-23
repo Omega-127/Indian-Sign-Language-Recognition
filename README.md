@@ -50,12 +50,12 @@ Most sign language translation projects focus on American Sign Language (ASL). I
 - `confusion_matrix_final.png` — 50×50 confusion matrix showing per-class predictions
 
 **Training Curves:**
-<img width="2100" height="750" alt="training_curves (1)" src="https://github.com/user-attachments/assets/a45b2975-f891-4988-886a-14f43e3f1198" />
+<img width="2100" height="750" alt="training_curves (1)" src="https://github.com/user-attachments/assets/05ff4324-c46a-4b22-bf13-72bd002e995e" />
 
 *Loss and accuracy across 80 epochs. Train loss decreases smoothly while val accuracy plateaus around 55%, reflecting the signer-independent generalization challenge.*
 
 **Confusion Matrix (Test Set):**
-<img width="2100" height="750" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/43db0b2f-e874-4c70-84ae-cb610ef7ae6e" />
+<img width="3000" height="2700" alt="confusion_matrix (1)" src="https://github.com/user-attachments/assets/4ebba4c0-0695-442f-a1a7-aca98b6b5ea6" />
 
 *50×50 matrix showing predicted vs. true class for all 191 test samples. Diagonal blocks (dark blue) indicate correct predictions. Classes like "16. train ticket", "2. Death", "86. Time" achieve near-perfect recall. Classes with few training examples (rows like "19. House", "34. Pen") have zero correct predictions, indicating data scarcity is the limiting factor.*
 
@@ -128,9 +128,29 @@ Total parameters: 1.8M
 - `1` / `2` / `3` — switch target language (Hindi / Marathi / Tamil)
 - `q` — quit
 
----
+### ✅ Stage 5 — Complete
+**Streamlit Web Demo**
+- Wrapped the full Stage 1–4 pipeline (extraction → classification → translation → speech) in a shareable web UI
+- Uses **video upload** rather than live webcam capture — Streamlit doesn't support continuous webcam recording the way the OpenCV-based scripts do without adding `streamlit-webrtc` (WebRTC, ICE servers, threading), which trades reliability for a live-camera feel. Upload keeps the demo simple and robust: record a clip with any camera, upload it, get results.
+- Models load once per session via `@st.cache_resource` — critical since IndicTrans2 alone takes real time to initialize
+- Built-in "About this demo" panel bakes the honest 36.6% signer-independent accuracy and known-strong/weak classes directly into the UI, not buried in documentation
 
-## Technical Stack
+**Setup Issues Resolved (real findings):**
+- **Same `transformers`/venv/environment issues from Stage 4 resurfaced** — running `streamlit run` (or a bare `python script.py`) can silently resolve to a *different* Python installation than the one packages were installed into, even on the same machine. Confirmed via `where streamlit` and comparing `sys.executable` across contexts. Fixed by always invoking Streamlit through the activated venv's own Python: `python -m streamlit run app.py`, which guarantees the same interpreter that has all the pinned packages installed.
+- **Dictionary indexing vs. calling:** `checkpoint(["key"])` vs. the correct `checkpoint["key"]` — a recurring category of bug throughout this project (dicts are indexed with `[]`, not called with `()`).
+- **Tuple unpacking mismatches:** changing a language-lookup dictionary from 3-tuples to 2-tuples requires updating every unpacking call site (`a, b = d[k]` vs. `a, b, c = d[k]`) — an easy thing to miss when refactoring.
+
+**Result:** A working local web app — upload a sign video, see top-3 predictions with confidence bars, get a translation in the chosen language, and hear it spoken aloud, all through a browser.
+
+**Files:**
+- `streamlit_app.py` — Streamlit web demo
+
+**Run:**
+```bash
+python -m streamlit run streamlit_app.py
+```
+
+---
 
 ### Stage 1 — Vision & Landmarks
 - **MediaPipe 0.10.35** — Hand, Pose, and Face landmark detection via Tasks API
@@ -155,9 +175,8 @@ Total parameters: 1.8M
 - **gTTS** — text-to-speech synthesis (requires internet)
 - **pygame** — audio playback
 
-### Stage 5 (Planned)
-- **Streamlit or React** — frontend for deployment
-- Demo video and final packaging
+### Stage 5 — Web Demo
+- **Streamlit** — web UI, session-cached model loading, file upload interface
 
 ---
 
@@ -295,10 +314,38 @@ Same framing tips from Stage 3 apply here.
 
 ---
 
+## Usage: Stage 5 (Web Demo)
+
+### Setup
+Same dependencies as Stage 4, plus Streamlit:
+```bash
+pip install streamlit torch "transformers==4.53.2" IndicTransToolkit gTTS mediapipe==0.10.35 opencv-python numpy
+huggingface-cli login   # required for first run, same as Stage 4
+```
+
+### Run
+```bash
+python -m streamlit run stage5_streamlit_app.py
+```
+
+**Important:** always launch via `python -m streamlit run`, not a bare `streamlit run` — on systems with multiple Python installations, a bare `streamlit` command can silently resolve to a different interpreter than the one with your packages installed, causing `ModuleNotFoundError` despite everything being installed correctly.
+
+This opens a browser tab with the demo. No webcam required at runtime — record your sign clip separately (phone, webcam app, or the Stage 3 script itself) and upload it.
+
+### Using the Demo
+1. Upload a short video (MP4/MOV/AVI) of one ISL sign
+2. Select a target language
+3. Click "Recognize & Translate"
+4. View top-3 predictions with confidence bars, the translated text, and play the spoken audio inline
+
+Same framing/lighting tips from Stage 3 apply to recording the upload clip.
+
+---
+
 ## Project Architecture
 
 ```
-main.py
+stage1_landmark_extraction.py
 ├── Shortcuts (imports)
 │   └── MediaPipe task classes + running modes
 ├── extract_landmarks(pose, face, left_hand, right_hand)
@@ -341,7 +388,7 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 
 ## Known Limitations & Future Work
 
-### Stage 1–4 Constraints (Current)
+### Stage 1–5 Constraints (Current)
 - **Signer-dependent memorization** — Model achieves 55% val accuracy but only 36.6% test accuracy on unseen signers, indicating it partly learned individual signer characteristics rather than pure sign patterns. This is a known challenge in sign language recognition and requires larger, more diverse training data.
 - **Class imbalance** — Adjectives has 233 training clips while Society/Jobs/Electronics have ~29 each. Rare classes have near-zero recall. Balanced sampling or class weighting could help.
 - **Limited training data** — 675 examples across 50 classes (13 per class) is below the typically recommended ~100+ per class for deep learning. Data augmentation helped (44% → 55% val) but is no substitute for more real data.
@@ -353,9 +400,8 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 - **gTTS requires internet** — no offline speech synthesis fallback currently implemented.
 - **Single-word translation only** — IndicTrans2 is used per-recognized-word, not for multi-sign sentence sequences with grammar/context.
 
-### Stage 5 Constraints (Upcoming)
-- **No frontend yet** — currently a local Python script with OpenCV window, not a deployable web/mobile interface.
-- **No packaged demo** — needs a recorded walkthrough video showing both successes and honest failures for portfolio use.
+- **Video upload, not live webcam** — the Streamlit demo requires uploading a pre-recorded clip rather than live camera capture, a deliberate tradeoff for reliability over `streamlit-webrtc`'s added complexity.
+- **No packaged demo video yet** — a recorded walkthrough showing both successes and honest failures is planned for portfolio use but not yet produced.
 
 ### Regional Variations & Future Improvements
 - Current model trained on Chennai/Tamil Nadu ISL. Signing conventions vary significantly across India (Delhi, Mumbai, Bangalore each have distinct regional styles).
@@ -394,7 +440,7 @@ The [INCLUDE dataset](https://huggingface.co/datasets/ai4bharat/INCLUDE) from AI
 ```
 project/
 ├── Stage 1 — Landmark Extraction
-│   ├── main.py    (webcam → landmarks)
+│   ├── main.py                           (webcam → landmarks)
 │   ├── hand_landmarker.task              (MediaPipe model)
 │   ├── pose_landmarker_lite.task         (MediaPipe model)
 │   ├── face_landmarker.task              (MediaPipe model)
@@ -414,13 +460,17 @@ project/
 │   └── confusion_matrix_final.png        (50×50 test set predictions)
 │
 ├── Stage 3 — Real-Time Inference
-│   └── inference.py     (webcam → record → classify)
+│   └── inference.py                       (webcam → record → classify)
 │
 ├── Stage 4 — Translation & Speech
-│   └── translate.py         (record → classify → translate → speak)
+│   └── translate.py                     (record → classify → translate → speak)
 │
+├── Stage 5 — Web Demo
+│   └── streamlit_app.py               (upload → classify → translate → speak, in browser)
+│
+├── requirements.txt                  (pinned dependencies for all stages)
+├── .gitignore                        (excludes large data folders, model files)
 ├── README.md                         (this file)
-└── [Stage 5 files coming soon]
 ```
 
 ---
