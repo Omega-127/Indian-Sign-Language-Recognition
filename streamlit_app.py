@@ -163,10 +163,10 @@ def load_landmakrers():
     return Handlandmarker, PoseLandmarker, FaceLandmarker
 
 
-def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker):
+def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, start_ts=0):
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
-        return None
+        return None, start_ts
     
     fps = cap.get(cv2.CAP_PROP_FPS)
     if fps <= 0:
@@ -196,25 +196,10 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker):
         frame_idx += 1
 
     cap.release()
+    end_ts = start_ts + int((frame_idx / fps) * 1000) + 1000
     if len(sequence) == 0:
-        return None
-    return sequence
-    
-# def classify_clip(model, frames, device, idx_to_label, top_k=3):
-#     sequence = np.array(frames, dtype=np.float32)
-#     tensor = torch.tensor(sequence).unsqueeze(0).to(device)
-#     length = torch.tensor([len(frames)])   
-#     with torch.no_grad():
-#         output = model(tensor, length)
-#         probs = torch.softmax(output, dim=1).squeeze(0)
-
-#     top_probs, top_indices = torch.topk(probs, k=min(top_k, len(probs)))
-
-#     results = []
-#     for prob, idx in zip(top_probs.tolist(), top_indices.tolist()):
-#         label = idx_to_label.get(idx, "?")
-#         results.append((label, prob))
-#     return results
+        return None, end_ts
+    return sequence, end_ts
 
 def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device):
     batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lang=tgt_lang_code)
@@ -263,6 +248,9 @@ hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
 st.success(f"Sign recogition model loaded : {len(idx_to_label)} classes, {test_accuracy:.1%} test accuracy.")
 st.divider()
 
+if "running_timestamp" not in st.session_state:
+    st.session_state.running_timestamp = 0
+
 uploaded_file = st.file_uploader(
     "Upload a short video of one ISL sign (MP4, MOV, AVI)",
     type=["mp4", "mov", "avi"]
@@ -275,7 +263,9 @@ if uploaded_file is not None:
             tmp.write(uploaded_file.read())
             video_path = tmp.name
         with st.spinner("Extracting landmarks..."):
-            frames = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker)
+            frames, new_ts = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker, 
+                                        start_ts=st.session_state.running_timestamp)
+            st.session_state.running_timestamp = new_ts
         Path(video_path).unlink(missing_ok=True)
         if frames is None:
             st.error("Could not process video - try a different file")
