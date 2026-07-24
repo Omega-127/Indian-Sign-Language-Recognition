@@ -258,6 +258,7 @@ uploaded_file = st.file_uploader(
 target_language = st.radio("Translate to: ", list(langauges.keys()), horizontal=True)
 if uploaded_file is not None:
     st.video(uploaded_file)
+    st.write(f"DEBUG: running_timestamp = {st.session_state.running_timestamp}")
     if st.button("Recognize & translate", type="primary"):
         with tempfile.NamedTemporaryFile(delete=False, suffix=Path(uploaded_file.name).suffix) as tmp:
             tmp.write(uploaded_file.read())
@@ -284,7 +285,7 @@ if uploaded_file is not None:
 
                 top_label = results[0][0]
                 gloss = clean_gloss(top_label)
-                tgt_lang_code, gtts_code, _ = langauges[target_language]
+                tgt_lang_code, gtts_code = langauges[target_language]
                 with st.spinner(f"Loading translation model and translating to {target_language}..."):
                     tokenizer, translation_model, ip = load_translation_model(device)
                     translated = translate_text(gloss, tgt_lang_code, translation_model, tokenizer, ip, device)
