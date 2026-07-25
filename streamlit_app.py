@@ -171,6 +171,7 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, st
     fps = cap.get(cv2.CAP_PROP_FPS)
     if fps <= 0:
         fps = 30
+        print(f"DEBUG: video fps = {fps}")
     
     sequence = []
     frame_idx = 0
