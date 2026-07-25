@@ -171,7 +171,7 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, st
     fps = cap.get(cv2.CAP_PROP_FPS)
     if fps <= 0:
         fps = 30
-        print(f"DEBUG: video fps = {fps}")
+    print(f"DEBUG: video fps = {fps}")
     
     sequence = []
     frame_idx = 0
@@ -215,11 +215,15 @@ def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device
     return ip.postprocess_batch(decoded, lang=tgt_lang_code)[0]
 
 def synthesize_speech(text, gtts_lang_code):
-    with tempfile.NamedTemporaryFile(suffix=".mp3") as f:
-        tts = gTTS(text=text, lang=gtts_lang_code)
-        tts.save(f.name)
-        f.seek(0)
-        return f.read()
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
+    temp_path = tmp.name
+    tmp.close()
+    tts = gTTS(text=text, lang=gtts_lang_code)
+    tts.save(temp_path)
+    with open(temp_path, "rb") as f:
+        audio_bytes = f.read()
+    Path(temp_path).unlink(missing_ok=True)
+    return audio_bytes
     
 
 #streamlit frontend
