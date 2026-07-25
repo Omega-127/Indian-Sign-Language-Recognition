@@ -172,6 +172,7 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, st
     if fps <= 0:
         fps = 30
     print(f"DEBUG: video fps = {fps}")
+    frame_count_meta = cap.get(cv2.CAP_PROP_FRAME_COUNT)
     
     sequence = []
     frame_idx = 0
@@ -197,6 +198,7 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, st
         frame_idx += 1
 
     cap.release()
+    print(f"DEBUG: processed {frame_idx} frames, start_ts={start_ts}")
     end_ts = start_ts + int((frame_idx / fps) * 1000) + 1000
     if len(sequence) == 0:
         return None, end_ts
@@ -304,5 +306,3 @@ if uploaded_file is not None:
                             st.error(f"Speech synthesis failed check innternet connection {e}")
 else:
     st.info("Upload a video to get started")
-
-
