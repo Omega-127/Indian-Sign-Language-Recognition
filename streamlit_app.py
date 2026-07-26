@@ -140,7 +140,7 @@ def load_translation_model(_device):
     ip = IndicProcessor(inference=True)
     return tokenizer, model, ip
 
-@st.cache_resource(show_spinner="Loading landmarks detectors...")
+# @st.cache_resource(show_spinner="Loading landmarks detectors...")
 def load_landmakrers():
     Handlandmarker = hand_landmarker.create_from_options(hand_landmarker_options(
         base_options = base_options(model_asset_path="hand_landmarker.task"),
@@ -163,10 +163,10 @@ def load_landmakrers():
     return Handlandmarker, PoseLandmarker, FaceLandmarker
 
 
-def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, start_ts=0):
+def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker):
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
-        return None, start_ts
+        return None
     
     fps = cap.get(cv2.CAP_PROP_FPS)
     if fps <= 0:
@@ -198,11 +198,11 @@ def process_video(video_path, Handlandmarker, PoseLandmarker, FaceLandmarker, st
         frame_idx += 1
 
     cap.release()
-    print(f"DEBUG: processed {frame_idx} frames, start_ts={start_ts}")
-    end_ts = start_ts + int((frame_idx / fps) * 1000) + 1000
+    print(f"DEBUG: processed {frame_idx} frames")
+    end_ts = int((frame_idx / fps) * 1000) + 1000
     if len(sequence) == 0:
-        return None, end_ts
-    return sequence, end_ts
+        return None
+    return sequence
 
 def translate_text(text, tgt_lang_code, translation_model, tokenizer, ip, device):
     batch = ip.preprocess_batch([text], src_lang="eng_Latn", tgt_lang=tgt_lang_code)
@@ -238,7 +238,7 @@ with st.expander("About this demo", expanded=False):
     This demo recognizes one of **50 ISL words** from a short video clip,
     then translates and speaks the result in Hindi, Marathi, or Tamil.
 
-    **Model accuracy:** 36.6% signer-independent test accuracy (18× better
+    **Model accuracy:** 34.6% signer-independent test accuracy (18× better
     than random chance on 50 classes). Performance is strongest on
     well-sampled classes like *Car*, *Death*, *Thank you*, and *train ticket*
     — see the project README for the full confusion matrix and per-class
@@ -251,13 +251,13 @@ with st.expander("About this demo", expanded=False):
     """)
 
 model, idx_to_label, device, test_accuracy = load_sign_model()
-hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
-st.success(f"Sign recogition model loaded : {len(idx_to_label)} classes, {test_accuracy:.1%} test accuracy.")
+# hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
+# st.success(f"Sign recogition model loaded : {len(idx_to_label)} classes, {test_accuracy:.1%} test accuracy.")
 st.divider()
 
-if "running_timestamp" not in st.session_state:
-    st.session_state.running_timestamp = 0
-
+# if "running_timestamp" not in st.session_state:
+st.session_state.running_timestamp = 0
+st.write(f"DEBUG: running_timestamp = {st.session_state.running_timestamp}")
 uploaded_file = st.file_uploader(
     "Upload a short video of one ISL sign (MP4, MOV, AVI)",
     type=["mp4", "mov", "avi"]
@@ -271,9 +271,14 @@ if uploaded_file is not None:
             tmp.write(uploaded_file.read())
             video_path = tmp.name
         with st.spinner("Extracting landmarks..."):
-            frames, new_ts = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker, 
-                                        start_ts=st.session_state.running_timestamp)
-            st.session_state.running_timestamp = new_ts
+            hand_landmarker, pose_landmarker, face_landmarker = load_landmakrers()
+            frames = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker)
+            hand_landmarker.close()
+            pose_landmarker.close()
+            face_landmarker.close()
+            # frames, new_ts = process_video(video_path, hand_landmarker, pose_landmarker, face_landmarker, 
+            #                             start_ts=st.session_state.running_timestamp)
+            # st.session_state.running_timestamp = new_ts
         Path(video_path).unlink(missing_ok=True)
         if frames is None:
             st.error("Could not process video - try a different file")
